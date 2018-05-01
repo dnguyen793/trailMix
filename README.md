@@ -6,7 +6,7 @@
 
 > 1. Fork this repo
 > 1. Clone your forked copy of this repo
->    - `git clone https://github.com/NolanEmerson/trailMix.git`
+>    - `git clone https://github.com/caxpper/trailMix.git`
 > 1. Change directory into the newly cloned repo
 >    - `cd trailMix`
 > 1. Install dependencies 
