@@ -1,0 +1,601 @@
+html {
+    font-size: 1vmin;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+#root{
+    width: 100%;
+    height: 100%;
+}
+
+
+/***************************************************************************/
+/*Logo*/
+/***************************************************************************/
+.wholeLogoContainer{
+    height: 22vmin;
+    position: absolute;
+    left: 50vw;
+    transform: translate(-50%, 0);
+}
+
+.logo{
+    height: 100%;
+    width: 16vmin;
+    position: relative;
+    float: left;
+}
+
+.earthContainer{
+    height: 12vmin;
+    width: 12vmin;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.earthContainer > .earth{
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    animation-name: earthSpin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-direction: normal;
+}
+
+@keyframes earthSpin{
+    0% {
+        transform: rotateZ(359deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+.hikerContainer{
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    height: 9vmin;
+    width: 10.5vmin;
+    transform: translate(-50%, 0%);
+}
+.hikerContainer > .hiker{
+    height: 100%;
+    width: 100%;
+    top: 14%;
+    position: relative;
+    z-index: 1;
+
+}
+
+.titleContainer{
+    font-family: 'Cabin', Arial, sans-serif;
+    color: whitesmoke;
+    font-size: 10vmin;
+    float: left;
+    height: 100%;
+    vertical-align: baseline;
+    line-height: 35vmin;
+}
+
+
+/***************************************************************************/
+/*Main Page*/
+/***************************************************************************/
+.mainPage{
+    position: relative;
+    height:100%;
+    width:100%;    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
+}
+
+.searchContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height:5%;
+    width:90%;
+    text-align: center; 
+    font-size: 2.5rem;   
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.searchInput{
+    font-family: 'Cabin', sans-serif;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border: 0;
+    font-size: 2.5rem;   
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(120, 120, 120, 0.25);
+    box-shadow: inset 0 2px 2px black;
+    outline: none;
+}
+
+.form-control::-webkit-input-placeholder {
+   color: rgba(250, 250, 250, 0.6);
+   font-family: 'Cabin', Arial, sans-serif;
+}
+
+.startBtn{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    background-color: rgba(120, 120, 120, 0.25);
+    box-shadow: inset 0 2px 2px black;
+    color: whitesmoke;
+    font-size: 2.3rem;
+}
+
+.searchContainer > .tips{
+    margin-top: 1%;
+}
+
+.mainContent{
+    position: absolute;
+    top:5%;
+    left: 50%;
+    transform: translate(-50%,0);
+    width:90%;
+    height:90%;
+    margin: 2.5% auto;
+    opacity: 0;
+    overflow-y: auto;
+}
+
+.mapContainer{
+    display:inline-block;
+    height: 95%;
+    margin-top:1.5%;
+    transition: 2s;
+    padding: 0 1% 1% 0;
+}
+
+.mapContainerMargin{
+    height: 100%;
+    width: 100%;
+    box-shadow: 3px 3px 1px #999;
+}
+
+.trailContainer{
+    display:inline-block;  
+    overflow-y: scroll;  
+    height:0%;
+    margin-top:1.5%;
+}
+
+.trailContainer .trailDiv:first-child{
+    margin-top: 0;
+}
+
+.trailDetailContainer{
+    display:inline-block;
+    height:50%;     
+    margin-top:1.5%;
+    font-size: 1.7rem;            
+    padding: 0 0 1% 1%; 
+}
+
+.trailDetailContainerMargin{
+    width: 100%;
+    height: 100%;
+    padding: 2.5%;
+    border-radius: 15px;
+    background-color: rgba(245, 245, 245, .8); 
+    box-shadow: 3px 3px 1px #999;
+    overflow:hidden;
+}
+
+@media screen and (max-width: 450px) {
+    .trailDetailContainer{
+        font-size: 4rem;
+    }
+}
+
+.detailTrail{
+    width: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%; 
+}
+
+.detailTrail > p:nth-child(2){
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.detailTrail img{
+    float: right;
+    width: 50%;
+}
+
+@media (min-width: 600px) and (max-width: 767.98px) {
+    .detailTrail img{
+        float: right;
+        width: 30%;
+    }
+}
+
+.detailTrail span{
+    font-weight: bold;
+}
+
+.directionsContainer{
+    display:inline-block;
+    height:50%;
+    margin-top:1.5%;
+    font-size: 1.5rem;  
+    padding: 0 0 1% 0;    
+}
+
+.directionsContainerMargin{
+    width: 100%;
+    height: 100%;    
+    overflow-y: auto; 
+    padding: 2.5%;
+    background-color: rgba(245, 245, 245, .8);
+    border-radius: 15px;
+    box-shadow: 3px 3px 1px #999;
+}
+
+@media screen and (max-width: 450px) {
+    .directionsContainer{
+        font-size: 4rem;
+    }
+}
+
+.weatherContainer{
+    display:inline-block;
+    height:45%;
+    font-size: 1rem;
+}
+
+.amazonContainer{
+    box-shadow: 3px 3px 1px #999;
+    display:inline-block;
+    height:45%;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(245, 245, 245, .8);
+    border-radius: 15px;
+}
+
+.amazonItem{
+    border: 1px solid black;
+    display:inline-block;
+    position: relative;
+    height: 40%;
+    width: 45%;
+    margin: 0 3px;
+    padding-top: 1%;
+    text-align: left;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.amazonHeader{
+    font-size: 4rem;
+    position: relative;
+    margin: 2px 0;
+}
+
+.amazonImage{
+    position: absolute;
+    width: 40%;
+    left: 5%;
+}
+
+.amazonItemName{
+    position: relative;
+    font-size: 2rem;
+    margin-bottom: 1%;
+}
+
+.amazonDescriptionArea{
+    vertical-align: 50%;
+    height: 90%;
+    width: 50%;
+}
+
+/****** Trail CSS **********/
+.trailDiv{
+    border: 1px solid darkgreen;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    width: 100%;
+    padding: 2%;
+    margin: 2% 0;    
+    font-size: 1.4rem;
+    opacity: 0.9;
+    box-shadow: 2px 2px 1px #3c763d;
+}
+
+.trailDiv > div{
+    min-width: 150px;
+}
+
+.trailDiv p{
+    margin: 0 0 2% 0;
+}
+
+.trailDiv p:first-child{    
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.trailDiv img{
+    border-radius: 15px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: auto;
+}
+
+.trailDiv span{
+    font-weight: bold;
+}
+
+.trailDiv button{
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
+ .scrollStyle::-webkit-scrollbar-track{
+     box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+     background-color: #F5F5F5;
+     border-radius: 10px;
+ }
+ 
+ .scrollStyle::-webkit-scrollbar{
+     width: 10px;
+     background-color: #F5F5F5;
+ }
+ 
+ .scrollStyle::-webkit-scrollbar-thumb{
+     border-radius: 10px;
+     background-color: #FFF;
+     background-image: 
+        -webkit-gradient(
+            linear, 40% 0%, 75% 84%, 
+            from(#4D9C41), 
+            to(#19911D), 
+            color-stop(.6,#54DE5D)
+            )
+}
+
+.iframeRei{
+    display: inline-block;
+    vertical-align: top;
+    border: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.detailsModal{
+    background-color:#2a2a2a;
+    position: absolute;
+    top: 12.5%;
+    left: 5.7%;
+    width: 59.4%;
+    height: 82.5%;
+}
+
+.detailsModal button{
+    position: relative;
+    float: right;
+    margin: 0.5%;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.hidden{
+    display: none;
+}
+
+ /*******************************************************************/
+
+.dateContainer{
+    font-family: 'Cabin', Arial, sans-serif;
+    width:100%;
+    height: 12%;
+    font-size: 1.5rem;
+}
+
+.datesSelect{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-size:2rem;
+    color:white;
+}
+
+input[type=date]{
+    color:black;
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin-left: 1%;
+}
+
+::-webkit-datetime-edit-text { color: gray; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: gray; }
+::-webkit-datetime-edit-day-field { color: gray; }
+::-webkit-datetime-edit-year-field { color: gray; }
+::-webkit-inner-spin-button { display: inline-block; }
+::-webkit-calendar-picker-indicator { background: silver; }
+
+.conditions{
+    width:100%;
+    height:88%;
+}
+
+.day1, .day2, .day3{
+    font-family: 'Dosis', Arial, sans-serif;
+    height: 100%;
+    color:white;
+    text-shadow: 2px 2px 4px #000000;
+    background-repeat: no-repeat;
+    background-image: url('../assets/images/wheather/rainbow.png');
+    box-shadow: 3px 3px 1px #999;
+}
+
+.day1{
+    font-family: 'Cabin', Arial, sans-serif;
+    background-color:rgb(10, 181, 233);
+}
+
+.day2{
+    font-family: 'Cabin', Arial, sans-serif;
+    background-color:rgb(10, 181, 233);
+    border-left:1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.day3{
+    font-family: 'Cabin', Arial, sans-serif;
+    background-color:rgb(10, 181, 233);
+}
+
+.currentDay{
+    height: 10%;
+    margin:auto;
+    font-size:2.5rem;
+}
+
+
+.daySum{
+    height: 30%;
+    font-size:2rem;
+}
+
+.dayHigh, .dayLow, .dayPrecip{
+    height: 20%;
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 450px) {
+    .weatherContainer{
+        font-size: 3rem;
+    }
+    .dayHigh, .dayLow, .dayPrecip{
+        white-space: normal;
+    }
+    .datesSelect p{
+        font-size: 12px;
+    }
+    .amazonContainer button{
+        width: 40%;
+        font-size: 6px;
+    }
+}
+
+.hidden{
+    display:none;
+}
+
+.world {
+    background: url("../assets/images/logo/earth.png");
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1000;
+    left: 45%;
+    height: 20vmin;
+    position: absolute;
+    top: 40%;
+    width: 20vmin;
+}
+
+.hikerOrbit {
+    border: 2px solid #373737;
+    border-radius: 50%;
+    left: 45%;
+    height: 20vmin;
+    position: absolute;
+    top: 40%;
+    width: 20vmin;
+    z-index: 1000;
+    -webkit-animation: spin-right 7s linear infinite;
+    -moz-animation: spin-right 7s linear infinite;
+    -ms-animation: spin-right 7s linear infinite;
+    -o-animation: spin-right 7s linear infinite;
+    animation: spin-right 7s linear infinite;
+}
+
+.loadingHiker {
+    background-image: url('../assets/images/logo/hiker.gif');
+    border-radius: 50%;
+    background-size: contain;
+    transform: rotate(65deg);
+    height: 50%;
+    left: 90%;
+    position: absolute;
+    top: 0%;
+    width: 50%;
+}
+
+.cantTouchThis{
+    position: absolute;
+    height:100vh;
+    width:100vw;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.noClick{
+    pointer-events: none;
+}
+
+
+@-webkit-keyframes spin-right {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin-right {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@keyframes spin-right {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius:2px;
+}
+
+::-webkit-scrollbar-track {
+    background: none; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: rgb(98,177,93); 
+}
+
