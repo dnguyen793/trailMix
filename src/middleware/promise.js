@@ -11,5 +11,5 @@ export default store => next => action =>{
 		store.dispatch(newAction);
 	});
 	console.log("The promise is: ",action.payload);
-	return action.payload;  //add_form.js line10 is expecting a promise
+	return action.payload;  
 }
