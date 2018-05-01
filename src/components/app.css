@@ -457,7 +457,7 @@ input[type=date]{
     color:white;
     text-shadow: 2px 2px 4px #000000;
     background-repeat: no-repeat;
-    background-image: url('../assets/images/wheather/rainbow.png');
+    background-image: url('../assets/images/weather/rainbow.png');
     box-shadow: 3px 3px 1px #999;
 }
 
