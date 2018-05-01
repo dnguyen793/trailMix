@@ -11,3 +11,5 @@ class TrailList extends Component {
         </div>
     }
 }
+
+export default TrailList;
