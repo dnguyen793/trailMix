@@ -57,14 +57,21 @@ class Weather extends Component{
         let today = new Date();
         let day2 = new Date(today);
         day2.setDate(today.getDate()+1);
+        let dd = day2.getDate();
+        let mm = day2.getMonth()+1;
+        let yyyy = day2.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
 
-        return `${day2}`
+        // return `${day2}`
     }
     findDay3Date(){
         let today = new Date();
         let day3 = new Date(today);
         day3.setDate(today.getDate()+2);
-        return `${day3}`
+        let dd = day3.getDate();
+        let mm = day3.getMonth()+1;
+        let yyyy = day3.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
     }
     componentWillMount(){
         let currentDate = new Date;
