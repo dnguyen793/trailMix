@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import DateInput from './datePicker';
 import { ajax } from 'jquery';
 import darkCloud from '../assets/images/weather/darkCloud.png';
 import fog from '../assets/images/weather/fog.png';
@@ -57,14 +58,21 @@ class Weather extends Component{
         let today = new Date();
         let day2 = new Date(today);
         day2.setDate(today.getDate()+1);
+        let dd = day2.getDate();
+        let mm = day2.getMonth()+1;
+        let yyyy = day2.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
 
-        return `${day2}`
+        // return `${day2}`
     }
     findDay3Date(){
         let today = new Date();
         let day3 = new Date(today);
         day3.setDate(today.getDate()+2);
-        return `${day3}`
+        let dd = day3.getDate();
+        let mm = day3.getMonth()+1;
+        let yyyy = day3.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
     }
     componentWillMount(){
         let currentDate = new Date;
@@ -317,6 +325,49 @@ class Weather extends Component{
                 })
             }
         });
+        
+    }
+    updateWeather(inputDate){
+        let date = new Date(inputDate);
+        date.setHours(0,0,0,0);
+        let newDate = date;
+        date = date.getTime()/1000;
+        console.log(date);
+        this.setState({
+            day1: date,
+            day2: date + 86400,
+            day3: date + 172800,
+            day1Date: this.selectedDay1(newDate),
+            day2Date: this.selectedDay2(newDate),
+            day3Date: this.selectedDay3(newDate),
+        }, ()=>{
+            this.callWeather();
+        })
+    }
+
+    selectedDay1(newDate){
+        let dd = newDate.getDate();
+        let mm = newDate.getMonth()+1;
+        let yyyy = newDate.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
+    }
+
+    selectedDay2(newDate){
+        let day2 = new Date(newDate);
+        day2.setDate(newDate.getDate()+1);
+        let dd = day2.getDate();
+        let mm = day2.getMonth()+1;
+        let yyyy = day2.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
+    }
+
+    selectedDay3(newDate){
+        let day3 = new Date(newDate);
+        day3.setDate(newDate.getDate()+2);
+        let dd = day3.getDate();
+        let mm = day3.getMonth()+1;
+        let yyyy = day3.getFullYear();
+        return `${mm}/${dd}/${yyyy}`
     }
 
     render(){
@@ -324,7 +375,7 @@ class Weather extends Component{
             <div className="weatherContainer">
                 <div className="dateContainer">
                     <div className="datesSelect">
-                        <input type="date" className="date"/>
+                        <DateInput updateWeather={this.updateWeather.bind(this)}/>
 
                     </div>
                 </div>
