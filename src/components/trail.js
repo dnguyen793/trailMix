@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TrailList extends Component {
+class Trail extends Component {
 
     
     handleMouserOver(){
@@ -27,8 +27,8 @@ class TrailList extends Component {
 
     render(){
 
-        return 
-            (<div clasName='trailDiv container' onMouseOver={this.handleMouserOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}>
+        return (
+            <div className='trailDiv container'> {/*onMouseOver={this.handleMouserOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}>*/}
                 <img src={this.props.trail.imgSqSmall} />
                 <div>
                     <p>{this.props.trail.name}</p>

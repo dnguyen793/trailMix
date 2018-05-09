@@ -161,28 +161,23 @@ body {
     width:90%;
     height:90%;
     margin: 2.5% auto;
-    opacity: 0;
     overflow-y: auto;
 }
 
 .mapContainer{
     display:inline-block;
     height: 95%;
+    width: 70%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
 }
 
-.mapContainerMargin{
-    height: 100%;
-    width: 100%;
-    box-shadow: 3px 3px 1px #999;
-}
-
 .trailContainer{
     display:inline-block;  
     overflow-y: scroll;  
-    height:0%;
+    height:95%;
+    width: 29%;
     margin-top:1.5%;
 }
 
@@ -324,7 +319,8 @@ body {
     border: 1px solid darkgreen;
     background-color: whitesmoke;
     border-radius: 15px;
-    width: 100%;
+    width: 94%;
+    height: auto;
     padding: 2%;
     margin: 2% 0;    
     font-size: 1.4rem;

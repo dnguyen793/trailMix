@@ -7,9 +7,8 @@ import Weather from './weather';
 
 const App = () => (    
     <div className='container'>        
-        {/* <Route exact path="/" component={Landing} /> */}
-        <Route path="/trailList" component={TrailList} />
-        <Weather/>
+        <Route exact path="/" component={Landing} />
+        <Route path='/trailList' render={props => <TrailList lat={33.6866448} long={-117.8434286} {...props} />} />
     </div>    
 );
 

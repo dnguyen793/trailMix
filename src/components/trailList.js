@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import reiKey from '../assets/config/apiKeys';
 import Trail from './trail';
+import MapContainer from './mapContainer';
+import axios from 'axios';
 
 class TrailList extends Component {
 
@@ -8,7 +10,7 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails = []
+            trails : []
         }
     }
 
@@ -26,22 +28,21 @@ class TrailList extends Component {
         //call the server to search with the conditions we have in the search    
         axios.get(url,{params}).then(resp=>{
             var domElementArray = [];
-            var trailContainer = $('.trailContainer');
-            const trailList = resp.trails.map((item,index)=>{
+            const trailList = resp.data.trails.map((item,index)=>{
                 
                 //add the markers
-                var marker = this.addMarkerToEachTrail(item);
-                item['marker']=marker;
+                // var marker = this.addMarkerToEachTrail(item);
+                // item['marker']=marker;
                 return item;
             });
 
             this.setState({
-                trails = trailList
+                trails: trailList
             });
             
         }).catch(err => {
             console.log('error is: ', err);    
-        }
+        });
     }
 
     /***************************************************************************************************
@@ -68,17 +69,18 @@ class TrailList extends Component {
     render(){
 
         const list = this.state.trails.map((item,index)=>{
-            <Trail key={index} trail={item} />
+            return <Trail key={index} trail={item} />
         });
 
-        <div class="mainContent container">
-            <div class="mapContainer">
-                <div class="mapContainerMargin"></div>
-            </div>
-            <div class="trailContainer">
-                {list}
-            </div>
-        </div>
+        return (<div className="mainContent container">
+                    <div className="mapContainer">                  
+                        <MapContainer lat={this.props.lat} long={this.props.long} />
+                    </div>
+                    <div className="trailContainer">
+                        {list}
+                    </div>
+                </div>
+                );
     }
 }
 

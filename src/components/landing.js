@@ -1,6 +1,7 @@
 import React from 'react';
 import hiker from '../assets/images/logo/hiker.gif';
 import earth from '../assets/images/logo/earth.png';
+import {Link} from 'react-router-dom';
 
 export default () => (
     <div className="mainPage">
@@ -23,7 +24,7 @@ export default () => (
                 <input id='searchInput' className="form-control input-lg searchInput" type="text" placeholder="Current location"/>
 
                 <div className="input-group-btn">
-                    <button className="startBtn btn btn-lg btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                    <Link to="/trailList">Find</Link>
                 </div>
             </div>
             <p className="tips">Pick your location to look for nearby trails!</p>
