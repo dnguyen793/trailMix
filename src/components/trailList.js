@@ -10,8 +10,8 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails : []
-        }
+            trails : []       
+        };
     }
 
     componentDidMount(){
@@ -44,7 +44,6 @@ class TrailList extends Component {
             console.log('error is: ', err);    
         });
     }
-
     /***************************************************************************************************
      * addMarkerToEachTrail - add marker to each trail
      * @params {object} The trail object from the data
