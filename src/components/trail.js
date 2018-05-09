@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TrailList extends Component {
+class Trail extends Component {
 
     
     handleMouserOver(){
