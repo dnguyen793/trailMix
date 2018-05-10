@@ -30,7 +30,7 @@ class Trail extends Component {
     render(){
 
         return (
-            <div className='trailDiv container' onMouseOver={this.handleMouserOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}>
+            <div className='trailDiv' onMouseOver={this.handleMouserOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}>
                 <img src={this.props.trail.imgSqSmall} />
                 <div>
                     <p>{this.props.trail.name}</p>

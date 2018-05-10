@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {getCoordinates} from '../actions';
 import markerIcon from '../assets/images/markers/map_marker2.png';
 import keys from '../assets/config/apiKeys';
+import hiker from '../assets/images/logo/hiker.gif';
+import earth from '../assets/images/logo/earth.png';
 
 
 class TrailList extends Component {
@@ -13,7 +15,8 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails : []     
+            trails : [],
+            location:''     
         };
     }
     
@@ -35,6 +38,14 @@ class TrailList extends Component {
         script.src = src;
         script.async = true;
         ref.parentNode.insertBefore(script, ref);
+    }
+    
+    handleLocationChange(event){
+        const newLocation = event.target.value;
+
+        this.setState({
+            location: newLocation
+        });
     }
 
     componentWillReceiveProps(newProps){
@@ -91,6 +102,12 @@ class TrailList extends Component {
         return marker;
     }
 
+    handleEnterKey(e,queryStr){
+        if (e.keyCode == 13) {
+            this.props.getCoordinates(this.state.location);
+        }
+    }
+    
     render(){
 
         const list = this.state.trails.map((item,index)=>{
@@ -101,14 +118,31 @@ class TrailList extends Component {
             height: '100%', 
             width: '100%'
         }
-        return (<div className="mainContent container">
-                    <div className="mapContainer"> 
-                        <div id='map' style={style}></div>               
+        return (
+                <div>
+                    <div className="wholeLogoContainerLite">
+                        <div className="logo">
+                            <div className="earthContainer">
+                                <div className="hikerContainer">
+                                    <img className="hiker" src={hiker}/>
+                                </div>
+                                <img className="earth" src={earth}/>
+                            </div>
+                        </div>
+                        <div className="titleContainer">
+                            trailMix
+                        </div>
                     </div>
-                    <div className="trailContainer">
-                        {list}
+                    <input id='searchInput' onKeyUp={this.handleEnterKey.bind(this)} onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control searchInputLite" type="text" placeholder="Current location"/>
+                    <div className="mainContent">                    
+                        <div className="mapContainer"> 
+                            <div id='map' style={style}></div>               
+                        </div>
+                        <div className="trailContainer">
+                            {list}
+                        </div>
                     </div>
-                </div>
+                </div>                
                 );
     }
 }

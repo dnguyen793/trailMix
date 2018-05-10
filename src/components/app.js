@@ -7,11 +7,6 @@ import Weather from './weather';
 
 class App extends Component {
 
-    componentDidMount(){
-        
-    }
-
-
     render(){
         return (    
             <div className='container'>        

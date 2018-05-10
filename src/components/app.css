@@ -13,6 +13,10 @@ body {
 .container{
     width: 100%;
     height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
 }
 
 #root{
@@ -29,6 +33,14 @@ body {
     position: absolute;
     left: 50vw;
     transform: translate(-50%, 0);
+}
+
+.wholeLogoContainerLite {
+    height: 26vmin;
+    position: absolute;
+    transform: scale(0.4);
+    top: -8%;
+    left: -5%;
 }
 
 .logo{
@@ -103,10 +115,6 @@ body {
     position: relative;
     height:100%;
     width:100%;    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
 }
 
 .searchContainer{
@@ -132,6 +140,22 @@ body {
     background-color: rgba(120, 120, 120, 0.25);
     box-shadow: inset 0 2px 2px black;
     outline: none;
+}
+
+.searchInputLite {
+    font-family: 'Cabin', sans-serif;
+    width: 50%;
+    height: 4%;
+    text-align: center;
+    border: 0;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(120, 120, 120, 0.25);
+    box-shadow: inset 0 2px 2px black;
+    outline: none;
+    position: absolute;
+    top: 5%;
+    left: 25%;
 }
 
 .form-control::-webkit-input-placeholder {
