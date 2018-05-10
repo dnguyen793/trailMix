@@ -13,6 +13,10 @@ body {
 .container{
     width: 100%;
     height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
 }
 
 #root{
@@ -29,6 +33,14 @@ body {
     position: absolute;
     left: 50vw;
     transform: translate(-50%, 0);
+}
+
+.wholeLogoContainerLite {
+    height: 26vmin;
+    position: absolute;
+    transform: scale(0.4);
+    top: -8%;
+    left: -5%;
 }
 
 .logo{
@@ -103,10 +115,6 @@ body {
     position: relative;
     height:100%;
     width:100%;    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
 }
 
 .searchContainer{
@@ -132,6 +140,22 @@ body {
     background-color: rgba(120, 120, 120, 0.25);
     box-shadow: inset 0 2px 2px black;
     outline: none;
+}
+
+.searchInputLite {
+    font-family: 'Cabin', sans-serif;
+    width: 50%;
+    height: 4%;
+    text-align: center;
+    border: 0;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(120, 120, 120, 0.25);
+    box-shadow: inset 0 2px 2px black;
+    outline: none;
+    position: absolute;
+    top: 5%;
+    left: 25%;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -161,28 +185,23 @@ body {
     width:90%;
     height:90%;
     margin: 2.5% auto;
-    opacity: 0;
     overflow-y: auto;
 }
 
 .mapContainer{
     display:inline-block;
     height: 95%;
+    width: 70%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
 }
 
-.mapContainerMargin{
-    height: 100%;
-    width: 100%;
-    box-shadow: 3px 3px 1px #999;
-}
-
 .trailContainer{
     display:inline-block;  
     overflow-y: scroll;  
-    height:0%;
+    height:95%;
+    width: 29%;
     margin-top:1.5%;
 }
 
@@ -324,7 +343,8 @@ body {
     border: 1px solid darkgreen;
     background-color: whitesmoke;
     border-radius: 15px;
-    width: 100%;
+    width: 94%;
+    height: auto;
     padding: 2%;
     margin: 2% 0;    
     font-size: 1.4rem;
