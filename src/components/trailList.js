@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import reiKey from '../assets/config/apiKeys';
 import Trail from './trail';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getCoordinates} from '../actions';
+import markerIcon from '../assets/images/markers/map_marker2.png';
+import keys from '../assets/config/apiKeys';
+
 
 class TrailList extends Component {
 
@@ -11,19 +13,35 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails : []       
+            trails : []     
         };
     }
-
-    componentDidMount(){        
-        this.props.getCoordinates(this.props.match.params.location);        
+    
+    componentDidMount(){  
+        // Connect the initMap() function within this class to the global window context,
+        // so Google Maps can invoke it
+        window.initMap = this.initMap.bind(this);
+        // Asynchronously load the Google Maps script, passing in the callback reference
+        this.loadJS(keys.google); 
+    }
+    
+    initMap() {
+        this.props.getCoordinates(this.props.match.params.location); 
+    }
+    
+    loadJS(src) {
+        var ref = window.document.getElementsByTagName("script")[0];
+        var script = window.document.createElement("script");
+        script.src = src;
+        script.async = true;
+        ref.parentNode.insertBefore(script, ref);
     }
 
     componentWillReceiveProps(newProps){
         if(this.props.lat !== newProps.lat && this.props.long !== newProps.long){
             console.log('test');
             const params = {
-                key: reiKey,
+                key: keys.rei,
                 lat:newProps.lat,
                 lon:newProps.long,
                 maxDistance:30,
@@ -66,7 +84,7 @@ class TrailList extends Component {
             position: {lat: trailLat, lng: trailLng},
             map: this.props.map,
             icon: {
-                url: "../assets/images/markers/map_marker2.png",
+                url: markerIcon,
                 scaledSize: new google.maps.Size(40,50)
             }
         });

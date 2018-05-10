@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
+import markerIcon2 from '../assets/images/markers/map_marker2.png';
+import markerIcon1 from '../assets/images/markers/map_marker1.png';
 
 class Trail extends Component {
 
     
     handleMouserOver(){
         this.props.trail.marker.setIcon({
-            url: "../assets/images/markers/map_marker1.png",
+            url: markerIcon1,
             scaledSize: new google.maps.Size(60,70)
         });
     }
 
     handleMouseOut(){
         this.props.trail.marker.setIcon({
-            url: "../assets/images/markers/map_marker2.png",
+            url: markerIcon2,
             scaledSize: new google.maps.Size(40,50)
         });
     }

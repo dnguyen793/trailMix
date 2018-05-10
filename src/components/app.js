@@ -8,20 +8,9 @@ import Weather from './weather';
 class App extends Component {
 
     componentDidMount(){
-         // Connect the initMap() function within this class to the global window context,
-        // so Google Maps can invoke it
-        window.initMap = this.initMap;
-        // Asynchronously load the Google Maps script, passing in the callback reference
-        this.loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyDYScuf8sd1NNdQGFoeKVeXLEYNtYPIroU&libraries=places');
+        
     }
 
-    loadJS(src) {
-        var ref = window.document.getElementsByTagName("script")[0];
-        var script = window.document.createElement("script");
-        script.src = src;
-        script.async = true;
-        ref.parentNode.insertBefore(script, ref);
-    }
 
     render(){
         return (    
