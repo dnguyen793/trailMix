@@ -1,5 +1,5 @@
 html {
-    font-size: 1vmin;
+    font-size: 12px;
 }
 
 body {
@@ -227,14 +227,15 @@ body {
 .mapContainer{
     display:inline-block;
     height: 95%;
-    width: 70%;
+    width: 64%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
 }
 
 .googleMap{
-    height: 100%;
+    height: 100%;    
+    border-radius: 15px;
     box-shadow: 5px 10px 18px black;
 }
 
@@ -242,7 +243,7 @@ body {
     display:inline-block;  
     overflow-y: scroll;  
     height:95%;
-    width: 29%;
+    width: 35%;
     margin-top:1.5%;
 }
 
@@ -385,7 +386,6 @@ body {
     background-color: whitesmoke;
     border-radius: 15px;
     width: 90%;
-    height: auto;
     padding: 2%;
     margin: 4% auto;
     font-size: 1.4rem;
@@ -399,7 +399,9 @@ body {
 }
 
 .trailDiv > div{
-    min-width: 150px;
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
 }
 
 .trailDiv p{
@@ -413,33 +415,33 @@ body {
 
 .trailDiv img{
     border-radius: 15px;
-    padding-right: 8px;
-    padding-left: 8px;
-    padding-top: auto;
+    margin-right: 4%;
+    margin-left: 1%;
+    width: 9vw;
+    height: 9vw;
 }
 
 .trailDiv span{
     font-weight: bold;
 }
 
-.trailDiv button{
-    opacity: 1;
-    font-size: 1.5rem;
+.trailDiv a{
+    float: right;
 }
 
- .scrollStyle::-webkit-scrollbar-track{
+.scrollStyle::-webkit-scrollbar-track{
      box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
      background-color: #F5F5F5;
      border-radius: 10px;
  }
  
- .scrollStyle::-webkit-scrollbar{
+.scrollStyle::-webkit-scrollbar{
      width: 10px;
      background-color: #F5F5F5;
  }
  
- .scrollStyle::-webkit-scrollbar-thumb{
+.scrollStyle::-webkit-scrollbar-thumb{
      border-radius: 10px;
      background-color: #FFF;
      background-image: 
