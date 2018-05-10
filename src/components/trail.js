@@ -4,15 +4,21 @@ import markerIcon1 from '../assets/images/markers/map_marker1.png';
 
 class Trail extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.handleMouserOver = this.handleMouserOver.bind(this);
+        this.handleMouseOut = this.handleMouseOut.bind(this);
+    }
     
-    handleMouserOver(){
+    handleMouserOver(name,marker){
         this.props.trail.marker.setIcon({
             url: markerIcon1,
             scaledSize: new google.maps.Size(60,70)
         });
     }
 
-    handleMouseOut(){
+    handleMouseOut(name,marker){
         this.props.trail.marker.setIcon({
             url: markerIcon2,
             scaledSize: new google.maps.Size(40,50)
@@ -30,7 +36,7 @@ class Trail extends Component {
     render(){
 
         return (
-            <div className='trailDiv' onMouseOver={this.handleMouserOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}>
+            <div id={this.props.trail.name} className='trailDiv' onMouseOver={()=>this.handleMouserOver(this.props.trail.name,this.props.trail.marker)} onMouseOut={()=>this.handleMouseOut(this.props.trail.name,this.props.trail.marker)}>
                 <img src={this.props.trail.imgSqSmall} />
                 <div>
                     <p>{this.props.trail.name}</p>
