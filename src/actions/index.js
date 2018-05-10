@@ -31,3 +31,39 @@ export function getCoordinates(location){
         }
     }
 }
+
+export function getDirection(trailLat, trailLong,initLat,initLng) {
+    return async dispatch => {
+        try {
+            // const {latitude, longitude} = trailInfo;
+            // let directionsService = new google.maps.DirectionsService();
+            // let directionsDisplay = new google.maps.DirectionsRenderer();
+            // let directionContainer = document.querySelector('.directionsContainerMargin');
+            // directionContainer.innerHTML = '';
+            // directionsDisplay.set('directions', null);
+            // directionsDisplay.setMap(map);
+            // directionsDisplay.setPanel(document.querySelector('directionsContainerMargin'));
+            
+            const requestOptions = {
+                origin: {lat: initLat, lng: initLng},
+                destination: {lat: trailLat, lng: trailLong},
+                travelMode: 'DRIVING'
+            };
+
+            await directionsService.route(requestOptions, (response, status)=> {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(response);
+                    dispatch({
+                        type: types.GET_DIRECTIONS,
+                        payload: response.routes[0].legs[0].steps
+                    });
+                } else {
+                    console.log('Google direction not working due to:', status);
+                }
+
+            }); 
+        } catch(err){
+            console.log('Google Map for direction not working:', err);
+        }
+    }
+}
