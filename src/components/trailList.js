@@ -22,11 +22,15 @@ class TrailList extends Component {
     }
     
     componentDidMount(){  
-        // Connect the initMap() function within this class to the global window context,
-        // so Google Maps can invoke it
-        window.initMap = this.initMap.bind(this);
-        // Asynchronously load the Google Maps script, passing in the callback reference
-        this.loadJS(keys.google); 
+        if (typeof google !== 'object'){
+            // Connect the initMap() function within this class to the global window context,
+            // so Google Maps can invoke it
+            window.initMap = this.initMap.bind(this);
+            // Asynchronously load the Google Maps script, passing in the callback reference
+            this.loadJS(keys.google); 
+        }else{
+            this.props.getCoordinates(this.props.match.params.location);
+        }
     }
     
     initMap() {
@@ -50,36 +54,33 @@ class TrailList extends Component {
     }
 
     componentWillReceiveProps(newProps){
-        if(this.props.lat !== newProps.lat && this.props.long !== newProps.long){
-            console.log('test');
-            const params = {
-                key: keys.rei,
-                lat:newProps.lat,
-                lon:newProps.long,
-                maxDistance:30,
-                maxResults:50,
-                minStars:3
-            };
-            const url = 'https://www.hikingproject.com/data/get-trails';    
-            //call the server to search with the conditions we have in the search    
-            axios.get(url,{params}).then(resp=>{
-                var domElementArray = [];
-                const trailList = resp.data.trails.map((item,index)=>{
-                    
-                    //add the markers
-                    var marker = this.addMarkerToEachTrail(item);
-                    item['marker']=marker;
-                    return item;
-                });
-    
-                this.setState({
-                    trails: trailList
-                });
+        const params = {
+            key: keys.rei,
+            lat:newProps.lat,
+            lon:newProps.long,
+            maxDistance:30,
+            maxResults:50,
+            minStars:3
+        };
+        const url = 'https://www.hikingproject.com/data/get-trails';    
+        //call the server to search with the conditions we have in the search    
+        axios.get(url,{params}).then(resp=>{
+            var domElementArray = [];
+            const trailList = resp.data.trails.map((item,index)=>{
                 
-            }).catch(err => {
-                console.log('error is: ', err);    
+                //add the markers
+                var marker = this.addMarkerToEachTrail(item);
+                item['marker']=marker;
+                return item;
             });
-        }        
+
+            this.setState({
+                trails: trailList
+            });
+            
+        }).catch(err => {
+            console.log('error is: ', err);    
+        });           
     }
 
     /***************************************************************************************************
