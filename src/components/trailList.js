@@ -3,7 +3,8 @@ import Trail from './trail';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getCoordinates} from '../actions';
-import markerIcon from '../assets/images/markers/map_marker2.png';
+import markerIcon2 from '../assets/images/markers/map_marker2.png';
+import markerIcon1 from '../assets/images/markers/map_marker1.png';
 import keys from '../assets/config/apiKeys';
 import hiker from '../assets/images/logo/hiker.gif';
 import earth from '../assets/images/logo/earth.png';
@@ -95,10 +96,32 @@ class TrailList extends Component {
             position: {lat: trailLat, lng: trailLng},
             map: this.props.map,
             icon: {
-                url: markerIcon,
+                url: markerIcon2,
                 scaledSize: new google.maps.Size(40,50)
             }
         });
+
+        marker.addListener('mouseover', function() {
+            this.setIcon({
+                url: markerIcon1,
+                scaledSize: new google.maps.Size(60,70)
+            });
+
+            var divToFocus = document.getElementById(trailObj.name);
+            divToFocus.classList.add("trailDivFocus");
+            divToFocus.scrollIntoView();
+        });
+     
+        marker.addListener('mouseout', function() {
+            this.setIcon({
+                url: markerIcon2,
+                scaledSize: new google.maps.Size(40,50)
+            });
+            
+            var divToFocus = document.getElementById(trailObj.name);
+            divToFocus.classList.remove("trailDivFocus");
+        });
+        
         return marker;
     }
 
