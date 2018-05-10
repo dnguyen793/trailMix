@@ -137,10 +137,6 @@ class TrailList extends Component {
             return <Trail key={index} trail={item} />
         });
 
-        const style = {
-            height: '100%', 
-            width: '100%'
-        }
         return (
                 <div>
                     <div className="wholeLogoContainerLite">
@@ -159,7 +155,7 @@ class TrailList extends Component {
                     <input id='searchInput' onKeyUp={this.handleEnterKey.bind(this)} onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control searchInputLite" type="text" placeholder="Current location"/>
                     <div className="mainContent">                    
                         <div className="mapContainer"> 
-                            <div id='map' style={style}></div>               
+                            <div id='map' className='googleMap'></div>               
                         </div>
                         <div className="trailContainer">
                             {list}

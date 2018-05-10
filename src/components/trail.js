@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import markerIcon2 from '../assets/images/markers/map_marker2.png';
 import markerIcon1 from '../assets/images/markers/map_marker1.png';
 
@@ -45,7 +46,7 @@ class Trail extends Component {
                     <p>Difficulty: {this.props.trail.difficulty}</p>
                     <p>Rating: {this.props.trail.stars} ★</p>
                 </div>
-                <button onClick={this.details.bind(this)}>Details</button>
+                <Link className='button-link' to={`/planTrip/${this.props.trail.latitude}/lat/${this.props.trail.longitude}/long`}>Plan a Trip</Link>
             </div>);
     }
     
