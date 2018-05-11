@@ -8,6 +8,7 @@ import markerIcon1 from '../assets/images/markers/map_marker1.png';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
+import Sorter from './sorter';
 
 
 class TrailList extends Component {
@@ -129,6 +130,18 @@ class TrailList extends Component {
         return marker;
     }
     
+     /**
+     * Sort the array of parts depending of the method chosen in the sorter component
+     * @param {*} method 
+     */
+    sortTrailArray(method){
+        let sortArrayTrails = [...this.state.trails];
+        sortArrayTrails.sort(method);
+        this.setState({
+            trails: sortArrayTrails
+        });
+    }
+
     render(){
 
         const list = this.state.trails.map((item,index)=>{
@@ -143,8 +156,12 @@ class TrailList extends Component {
                         <div className="mapContainer"> 
                             <div id='map' className='googleMap'></div>               
                         </div>
+                        
                         <div className="trailContainer">
-                            {list}
+                            <Sorter sortTrailArray={this.sortTrailArray.bind(this)} />
+                            <div className="trailList">                                
+                                {list}
+                            </div>                           
                         </div>
                     </div>
                 </div>                
