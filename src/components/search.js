@@ -19,10 +19,19 @@ class Search extends Component{
         });
     }
 
+    handleEnterKey(e,queryStr){
+        if (e.keyCode == 13) {
+            this.props.history.push(`/trailList/${this.state.location}`);
+        }
+    }
+
     render(){
         
-        return (            
-            <input className={`form-control input-lg ${this.props.searchClass}`} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
+        return (  
+            <div className='searchDiv'>
+                <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
+                <Link to={`/trailList/${this.state.location}`}>Search</Link>
+            </div>          
         );
     }
 };

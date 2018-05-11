@@ -6,8 +6,8 @@ import {getCoordinates} from '../actions';
 import markerIcon2 from '../assets/images/markers/map_marker2.png';
 import markerIcon1 from '../assets/images/markers/map_marker1.png';
 import keys from '../assets/config/apiKeys';
-import hiker from '../assets/images/logo/hiker.gif';
-import earth from '../assets/images/logo/earth.png';
+import Search from './search';
+import Logo from './logo';
 
 
 class TrailList extends Component {
@@ -16,8 +16,7 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails : [],
-            location:''     
+            trails : []    
         };
     }
     
@@ -54,33 +53,37 @@ class TrailList extends Component {
     }
 
     componentWillReceiveProps(newProps){
-        const params = {
-            key: keys.rei,
-            lat:newProps.lat,
-            lon:newProps.long,
-            maxDistance:30,
-            maxResults:50,
-            minStars:3
-        };
-        const url = 'https://www.hikingproject.com/data/get-trails';    
-        //call the server to search with the conditions we have in the search    
-        axios.get(url,{params}).then(resp=>{
-            var domElementArray = [];
-            const trailList = resp.data.trails.map((item,index)=>{
+        if(this.props.match.params.location !== newProps.match.params.location){
+            this.props.getCoordinates(newProps.match.params.location); 
+        }else{
+            const params = {
+                key: keys.rei,
+                lat:newProps.lat,
+                lon:newProps.long,
+                maxDistance:30,
+                maxResults:50,
+                minStars:3
+            };
+            const url = 'https://www.hikingproject.com/data/get-trails';    
+            //call the server to search with the conditions we have in the search    
+            axios.get(url,{params}).then(resp=>{
+                var domElementArray = [];
+                const trailList = resp.data.trails.map((item,index)=>{
+                    
+                    //add the markers
+                    var marker = this.addMarkerToEachTrail(item);
+                    item['marker']=marker;
+                    return item;
+                });
+    
+                this.setState({
+                    trails: trailList
+                });
                 
-                //add the markers
-                var marker = this.addMarkerToEachTrail(item);
-                item['marker']=marker;
-                return item;
-            });
-
-            this.setState({
-                trails: trailList
-            });
-            
-        }).catch(err => {
-            console.log('error is: ', err);    
-        });           
+            }).catch(err => {
+                console.log('error is: ', err);    
+            });    
+        }               
     }
 
     /***************************************************************************************************
@@ -125,12 +128,6 @@ class TrailList extends Component {
         
         return marker;
     }
-
-    handleEnterKey(e,queryStr){
-        if (e.keyCode == 13) {
-            this.props.getCoordinates(this.state.location);
-        }
-    }
     
     render(){
 
@@ -139,21 +136,9 @@ class TrailList extends Component {
         });
 
         return (
-                <div>
-                    <div className="wholeLogoContainerLite">
-                        <div className="logo">
-                            <div className="earthContainer">
-                                <div className="hikerContainer">
-                                    <img className="hiker" src={hiker}/>
-                                </div>
-                                <img className="earth" src={earth}/>
-                            </div>
-                        </div>
-                        <div className="titleContainer">
-                            trailMix
-                        </div>
-                    </div>
-                    <input id='searchInput' onKeyUp={this.handleEnterKey.bind(this)} onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control searchInputLite" type="text" placeholder="Current location"/>
+                <div>                    
+                    <Logo logoClass="wholeLogoContainerLite"/>                                       
+                    <Search {...this.props} />  
                     <div className="mainContent">                    
                         <div className="mapContainer"> 
                             <div id='map' className='googleMap'></div>               

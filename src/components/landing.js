@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import hiker from '../assets/images/logo/hiker.gif';
-import earth from '../assets/images/logo/earth.png';
 import {Link} from 'react-router-dom';
+import Search from './search';
+import Logo from './logo';
 
 class Landing extends Component{
 
@@ -25,19 +25,7 @@ class Landing extends Component{
         
         return (
             <div className="mainPage">
-                <div className="wholeLogoContainer">
-                    <div className="logo">
-                        <div className="earthContainer">
-                            <div className="hikerContainer">
-                                <img className="hiker" src={hiker}/>
-                            </div>
-                            <img className="earth" src={earth}/>
-                        </div>
-                    </div>
-                    <div className="titleContainer">
-                        trailMix
-                    </div>
-                </div>
+                <Logo logoClass="wholeLogoContainer"/>                
 
                 <div className="searchContainer">
                     <div className="input-group">
@@ -51,7 +39,11 @@ class Landing extends Component{
                             </Link>
                         </div>
                     </div>
-                    {/* <p className="tips"></p> */}
+
+
+                    <div className="input-group">                        
+                        <Search {...this.props} />                        
+                    </div>
                 </div>        
             </div>
         );
