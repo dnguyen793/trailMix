@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import hiker from '../assets/images/logo/hiker.gif';
-import earth from '../assets/images/logo/earth.png';
 import {Link} from 'react-router-dom';
+import Search from './search';
+import Logo from './logo';
 
 class Landing extends Component{
 
@@ -25,27 +25,11 @@ class Landing extends Component{
         
         return (
             <div className="mainPage">
-                <div className="wholeLogoContainer">
-                    <div className="logo">
-                        <div className="earthContainer">
-                            <div className="hikerContainer">
-                                <img className="hiker" src={hiker}/>
-                            </div>
-                            <img className="earth" src={earth}/>
-                        </div>
-                    </div>
-                    <div className="titleContainer">
-                        trailMix
-                    </div>
-                </div>
+                <Logo logoClass="wholeLogoContainer"/>                
 
                 <div className="searchContainer">
-                    <div className="input-group">
-                        <input id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control input-lg searchInput" type="text" placeholder="Enter a location to look for nearby trails!"/>
-
-                        <div className="input-group-btn">
-                            <Link to={`/trailList/${this.state.location}`}>Find</Link>
-                        </div>
+                    <div className="input-group">                        
+                        <Search {...this.props} />                        
                     </div>
                 </div>        
             </div>
