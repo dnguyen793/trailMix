@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Trail from './trail';
 import axios from 'axios';
 import {connect} from 'react-redux';
