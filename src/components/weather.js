@@ -10,6 +10,8 @@ import rainy from '../assets/images/weather/rainy.png';
 import snow from '../assets/images/weather/snow.png';
 import sunny from '../assets/images/weather/sunny.png';
 import wind from '../assets/images/weather/wind.png';
+
+
 class Weather extends Component{
     constructor(props){
         super(props);

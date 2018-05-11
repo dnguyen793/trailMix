@@ -4,7 +4,7 @@ import Landing from './landing';
 import TrailList from './trailList';
 import PlanTrip from './planTrip';
 import {Route} from 'react-router-dom';
-import Weather from './weather';
+
 
 class App extends Component {
 
