@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
+import Search from './search';
+import Logo from './logo';
 
 
 class PlanTrip extends Component {
@@ -48,11 +50,15 @@ class PlanTrip extends Component {
 
     render(){
         return (
-            <div className="mainContent">                    
-                <div className="mapContainer"> 
-                    <div id='mapDirection' className='googleMap'></div>               
-                </div>
-                <div id="drivingDirectionContainer">
+            <div className="plantrip">
+                <Logo logoClass="wholeLogoContainerLite"/>                                       
+                <Search {...this.props} />  
+                <div className="mainContent">                    
+                    <div className="mapContainer"> 
+                        <div id='mapDirection' className='googleMap'></div>               
+                    </div>
+                    <div id="drivingDirectionContainer">
+                    </div>
                 </div>
             </div>
         );
@@ -61,7 +67,7 @@ class PlanTrip extends Component {
 
 function mapStateToProps(state) {
 	return {
-		routes: state.map.routes,
+		routes: state.map.routes, //Don't really need this anymore
 		initLat: state.map.lat,
 		initLong: state.map.long
 	}
