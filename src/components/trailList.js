@@ -67,7 +67,7 @@ class TrailList extends Component {
             const url = 'https://www.hikingproject.com/data/get-trails';    
             //call the server to search with the conditions we have in the search    
             axios.get(url,{params}).then(resp=>{
-                var domElementArray = [];
+                var domElementArray = []; //Is this arr used?
                 const trailList = resp.data.trails.map((item,index)=>{
                     
                     //add the markers

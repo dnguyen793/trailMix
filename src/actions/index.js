@@ -49,7 +49,7 @@ export function getDirections(trailLat, trailLng, initLat, initLng) {
             let directionsService = new google.maps.DirectionsService();
             let directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
-            directionsDisplay.setPanel(googleMap);
+            directionsDisplay.setPanel(document.getElementById('drivingDirectionContainer'));
             
             const requestOptions = {
                 origin: {lat: initLat, lng: initLng},
