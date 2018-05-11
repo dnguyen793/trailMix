@@ -164,6 +164,22 @@ body {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.searchInput{
+    display: inline-block;
+    font-family: 'Cabin', sans-serif;
+    width: 50%;
+    height: 4rem;
+    text-align: center;
+    border: 0;
+    font-size: 1.8rem;   
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(120, 120, 120, 0.25);
+    box-shadow: inset 0 2px 2px black;
+    outline: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
 .searchDiv{
     width: 50%;
     height: 44px;
@@ -175,19 +191,6 @@ body {
 .searchDiv a{
     font-size: 2.5rem;
     text-decoration: none;
-}
-
-.searchInput{
-    font-family: 'Cabin', sans-serif;
-    width: 80%;
-    height: 100%;
-    text-align: center;
-    border: 0;
-    font-size: 2.5rem;   
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(120, 120, 120, 0.25);
-    box-shadow: inset 0 2px 2px black;
-    outline: none;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -202,7 +205,18 @@ body {
     background-color: rgba(120, 120, 120, 0.25);
     box-shadow: inset 0 2px 2px black;
     color: whitesmoke;
-    font-size: 2.3rem;
+    font-size: 2rem;
+    height: 4rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.input-group-btn {
+    display: inline-block;
+}
+
+i.fas.fa-search {
+    padding: 0 0.5rem;
 }
 
 .searchContainer > .tips{
