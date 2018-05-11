@@ -4,7 +4,7 @@ const DEFAULT_STATE = {
     map:{},
     lat: 33.6348792,
     long: -117.7426695,
-    routes: []
+    routes: {}
 };
 
 export default function(state = DEFAULT_STATE, action){

@@ -5,13 +5,14 @@ import keys from '../assets/config/apiKeys';
 
 
 class PlanTrip extends Component {
+	
 	constructor(props){
 		super(props);
 		this.state = {
 			location: [],
-			routes: []
 		};
 	}
+
     componentDidMount(){  
         if (typeof google !== 'object'){
             // Connect the initMap() function within this class to the global window context,
@@ -37,17 +38,33 @@ class PlanTrip extends Component {
     }
 
     render(){
+    	let distanceText = '';
+    	let durationText = '';
+    	let instructionList = [];
+    	if (Object.keys(this.props.routes).length !== 0 && this.props.routes.constructor === Object){
+    		console.log("Routes:", this.props.routes);
+    		const {steps, distance, duration} = this.props.routes;
+    		distanceText = distance.text;
+    		durationText = duration.text;
+    		instructionList = steps.map((item, index)=>{
+	    		return(
+	    			<li key ={index}>{item.instructions}</li>
+	    		); 
+    		});
+    	}
+ 
         return (
             <div className="mainContent">                    
                 <div className="mapContainer"> 
                     <div id='mapDirection' className='googleMap'></div>               
                 </div>
-                <div className="trailContainer">
-                    <h1> latitude: {this.props.match.params.lat}</h1>
-	                <h1> longitude: {this.props.match.params.long}</h1>
-	                <p>{this.state.routes}</p>
+                <div className="drivingDirectionContainer">
+                	<div className="distance">{distanceText}</div>
+                	<div className="duration">{durationText}</div>
+                	<ul className="drivingSteps"> 
+                		{instructionList}
+                	</ul>
                 </div>
-
             </div>
         );
     }
@@ -59,7 +76,6 @@ function mapStateToProps(state) {
 		initLat: state.map.lat,
 		initLong: state.map.long
 	}
-
 }
 
 export default connect(mapStateToProps, {getDirections})(PlanTrip);
