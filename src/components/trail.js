@@ -37,7 +37,7 @@ class Trail extends Component {
                     <p>{this.props.trail.location}</p>
                     <p>Distance: {this.props.trail.length} miles</p>
                     <p>Difficulty: {this.props.trail.difficulty}</p>
-                    <p>Rating: {this.props.trail.stars} ★</p>
+                    <p>Rating: {this.props.trail.stars} </p>
                 </div>
                 <button onClick={this.details.bind(this)}>Details</button>
             </div>);

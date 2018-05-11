@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Trail from './trail';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -8,6 +9,10 @@ import keys from '../assets/config/apiKeys';
 import hiker from '../assets/images/logo/hiker.gif';
 import earth from '../assets/images/logo/earth.png';
 
+import TrailLinks from './trail-links';
+import Weather from './weather';
+import Amazon from './amazon';
+
 
 class TrailList extends Component {
 
@@ -16,7 +21,8 @@ class TrailList extends Component {
 
         this.state = {
             trails : [],
-            location:''     
+            location:'',
+
         };
     }
     
@@ -114,6 +120,8 @@ class TrailList extends Component {
             return <Trail key={index} trail={item} />
         });
 
+
+
         const style = {
             height: '100%', 
             width: '100%'
@@ -133,12 +141,21 @@ class TrailList extends Component {
                             trailMix
                         </div>
                     </div>
-                    <input id='searchInput' onKeyUp={this.handleEnterKey.bind(this)} onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control searchInputLite" type="text" placeholder="Current location"/>
+                    <input id='searchInput' onKeyUp={this.handleEnterKey.bind(this)} onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control searchInputLite" type="text" placeholder="Enter location"/>
+
                     <div className="mainContent">                    
                         <div className="mapContainer"> 
                             <div id='map' style={style}></div>               
                         </div>
                         <div className="trailContainer">
+
+                            <div> 
+                                <TrailLinks/>
+
+                                <Route path="/trailList/:location/weather" component={Weather}/>
+                                <Route path="/trailList/:location/recommended-items" component={Amazon}/>
+                            </div>
+
                             {list}
                         </div>
                     </div>

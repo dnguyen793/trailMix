@@ -41,13 +41,12 @@ class Landing extends Component{
 
                 <div className="searchContainer">
                     <div className="input-group">
-                        <input id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control input-lg searchInput" type="text" placeholder="Current location"/>
+                        <input id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} className="form-control input-lg searchInput" type="text" placeholder="Enter a location to look for nearby trails!"/>
 
                         <div className="input-group-btn">
                             <Link to={`/trailList/${this.state.location}`}>Find</Link>
                         </div>
                     </div>
-                    <p className="tips">Pick your location to look for nearby trails!</p>
                 </div>        
             </div>
         );
