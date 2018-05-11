@@ -6,9 +6,8 @@ import {getCoordinates} from '../actions';
 import markerIcon2 from '../assets/images/markers/map_marker2.png';
 import markerIcon1 from '../assets/images/markers/map_marker1.png';
 import keys from '../assets/config/apiKeys';
-import hiker from '../assets/images/logo/hiker.gif';
-import earth from '../assets/images/logo/earth.png';
 import Search from './search';
+import Logo from './logo';
 
 
 class TrailList extends Component {
@@ -137,20 +136,8 @@ class TrailList extends Component {
         });
 
         return (
-                <div>
-                    <div className="wholeLogoContainerLite">
-                        <div className="logo">
-                            <div className="earthContainer">
-                                <div className="hikerContainer">
-                                    <img className="hiker" src={hiker}/>
-                                </div>
-                                <img className="earth" src={earth}/>
-                            </div>
-                        </div>
-                        <div className="titleContainer">
-                            trailMix
-                        </div>
-                    </div>                    
+                <div>                    
+                    <Logo logoClass="wholeLogoContainerLite"/>                                       
                     <Search {...this.props} />  
                     <div className="mainContent">                    
                         <div className="mapContainer"> 
