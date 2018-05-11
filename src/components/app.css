@@ -260,15 +260,31 @@ i.fas.fa-search {
 }
 
 .trailContainer{
-    display:inline-block;  
-    overflow-y: scroll;  
-    height:95%;
+    display:inline-block;   
+    height:98%;
     width: 35%;
-    margin-top:1.5%;
+    vertical-align: top;
 }
 
 .trailContainer .trailDiv:first-child{
     margin-top: 0;
+}
+
+.trailList{
+    height:96%;
+    margin-top:1.5%;
+    overflow-y: scroll;
+}
+
+.sorterContainer{
+    text-align: right;
+    margin-right: 5%;
+    font-size: 1.5em;
+}
+
+.sorterContainer select{
+    font-size: .9em;
+    padding: .5%;
 }
 
 .trailDetailContainer{
