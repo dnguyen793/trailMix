@@ -17,6 +17,11 @@ export function getCoordinates(location){
                     let googleMap = document.getElementById('map');
                     map = new google.maps.Map(googleMap, options);
 
+                    var marker = new google.maps.Marker({
+                        position: {lat: lat, lng: long},
+                        map: map                        
+                    });
+
                     dispatch({
                         type: types.GET_COORDINATES,
                         payload: {lat,long,map}
