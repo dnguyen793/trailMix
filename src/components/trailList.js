@@ -11,10 +11,6 @@ import Search from './search';
 import Logo from './logo';
 import Sorter from './sorter';
 
-import TrailLinks from './trail-links';
-import Weather from './weather';
-import Amazon from './amazon';
-
 
 class TrailList extends Component {
 
