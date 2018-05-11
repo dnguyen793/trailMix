@@ -37,7 +37,7 @@ export function getCoordinates(location){
     }
 }
 
-export function getDirections(trailLat, trailLong, initLat, initLng) {
+export function getDirections(trailLat, trailLng, initLat, initLng) {
     return async dispatch => {
         try {
             const options ={
@@ -49,11 +49,11 @@ export function getDirections(trailLat, trailLong, initLat, initLng) {
             let directionsService = new google.maps.DirectionsService();
             let directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
-            directionsDisplay.setPanel(document.querySelector('mapDirection'));
+            directionsDisplay.setPanel(document.getElementById('drivingDirectionContainer'));
             
             const requestOptions = {
                 origin: {lat: initLat, lng: initLng},
-                destination: {lat: parseFloat(trailLat), lng: parseFloat(trailLong)},
+                destination: {lat: parseFloat(trailLat), lng: parseFloat(trailLng)},
                 travelMode: 'DRIVING'
             };
 

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import markerIcon2 from '../assets/images/markers/map_marker2.png';
 import markerIcon1 from '../assets/images/markers/map_marker1.png';
+import earth from '../assets/images/logo/earth.png';
+
 
 class Trail extends Component {
 
@@ -38,7 +40,7 @@ class Trail extends Component {
 
         return (
             <div id={this.props.trail.name} className='trailDiv' onMouseOver={()=>this.handleMouserOver(this.props.trail.name,this.props.trail.marker)} onMouseOut={()=>this.handleMouseOut(this.props.trail.name,this.props.trail.marker)}>
-                <img src={this.props.trail.imgSqSmall} />
+                <img src={this.props.trail.imgSqSmall || earth} />
                 <div>
                     <p>{this.props.trail.name}</p>
                     <p>{this.props.trail.location}</p>

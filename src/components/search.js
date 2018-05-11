@@ -19,7 +19,7 @@ class Search extends Component{
         });
     }
 
-    handleEnterKey(e,queryStr){
+    handleEnterKey(e,queryStr){ //queryStr not needed?
         if (e.keyCode == 13) {
             this.props.history.push(`/trailList/${this.state.location}`);
         }

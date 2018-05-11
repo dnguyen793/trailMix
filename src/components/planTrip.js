@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
+import Search from './search';
+import Logo from './logo';
 
 
 class PlanTrip extends Component {
@@ -10,6 +12,8 @@ class PlanTrip extends Component {
 		super(props);
 		this.state = {
 			location: [],
+            initLat: 0,
+            initLong: 0
 		};
 	}
 
@@ -21,49 +25,44 @@ class PlanTrip extends Component {
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
-            this.props.getDirections(this.props.match.params.lat, this.props.match.params.long, this.props.initLat, this.props.initLong);
+            this.props.getDirections(this.props.match.params.lat, 
+                this.props.match.params.long, this.props.initLat, this.props.initLong);
+            // this.setState({
+            //     initLat: this.props.initLat,
+            //     initLong: this.props.initLong
+            // }); 
         }
     }
     
     initDirection() {
-        this.props.getDirections(this.props.match.params.lat, this.props.match.params.long, this.props.initLat, this.props.initLong); 
+        this.props.getDirections(this.props.match.params.lat, 
+            this.props.match.params.long, this.props.initLat, this.props.initLong);
+        // this.setState({
+        //     initLat: this.props.initLat,
+        //     initLong: this.props.initLong
+        // }); 
     }
     
     loadJS(src) {
-        var ref = window.document.getElementsByTagName("script")[0];
         var script = window.document.createElement("script");
+        var ref = window.document.getElementsByTagName("script")[0];
+
         script.src = src;
         script.async = true;
         ref.parentNode.insertBefore(script, ref);
     }
 
     render(){
-    	let distanceText = '';
-    	let durationText = '';
-    	let instructionList = [];
-    	if (Object.keys(this.props.routes).length !== 0 && this.props.routes.constructor === Object){
-    		console.log("Routes:", this.props.routes);
-    		const {steps, distance, duration} = this.props.routes;
-    		distanceText = distance.text;
-    		durationText = duration.text;
-    		instructionList = steps.map((item, index)=>{
-	    		return(
-	    			<li key ={index}>{item.instructions}</li>
-	    		); 
-    		});
-    	}
- 
         return (
-            <div className="mainContent">                    
-                <div className="mapContainer"> 
-                    <div id='mapDirection' className='googleMap'></div>               
-                </div>
-                <div className="drivingDirectionContainer">
-                	<div className="distance">{distanceText}</div>
-                	<div className="duration">{durationText}</div>
-                	<ul className="drivingSteps"> 
-                		{instructionList}
-                	</ul>
+            <div className="plantrip">
+                <Logo logoClass="wholeLogoContainerLite"/>                                       
+                <Search {...this.props} />  
+                <div className="mainContent">                    
+                    <div className="mapContainer"> 
+                        <div id='mapDirection' className='googleMap'></div>               
+                    </div>
+                    <div id="drivingDirectionContainer">
+                    </div>
                 </div>
             </div>
         );
@@ -72,7 +71,7 @@ class PlanTrip extends Component {
 
 function mapStateToProps(state) {
 	return {
-		routes: state.map.routes,
+		routes: state.map.routes, //Don't really need this anymore
 		initLat: state.map.lat,
 		initLong: state.map.long
 	}
