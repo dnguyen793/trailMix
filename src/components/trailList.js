@@ -148,14 +148,6 @@ class TrailList extends Component {
                             <div id='map' style={style}></div>               
                         </div>
                         <div className="trailContainer">
-
-                            <div> 
-                                <TrailLinks/>
-
-                                <Route path="/trailList/:location/weather" component={Weather}/>
-                                <Route path="/trailList/:location/recommended-items" component={Amazon}/>
-                            </div>
-
                             {list}
                         </div>
                     </div>
