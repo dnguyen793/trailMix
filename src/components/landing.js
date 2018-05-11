@@ -28,9 +28,8 @@ class Landing extends Component{
                 <Logo logoClass="wholeLogoContainer"/>                
 
                 <div className="searchContainer">
-                    <div className="input-group">                        
-                        <Search {...this.props} />                        
-                    </div>
+                    <Search {...this.props} />     
+                    <p>Enter a location to search for nearby trails or click <i className="fas fa-search"></i> to use current location</p>                   
                 </div>        
             </div>
         );

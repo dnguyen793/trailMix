@@ -28,7 +28,7 @@ class Search extends Component{
     render(){
         
         return (  
-            <div className='searchDiv'>
+            <div className=''>
                 <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
                 <div className="input-group-btn">
                     <Link to={`/trailList/${this.state.location}`}>

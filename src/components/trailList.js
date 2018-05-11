@@ -137,8 +137,10 @@ class TrailList extends Component {
 
         return (
                 <div>                    
-                    <Logo logoClass="wholeLogoContainerLite"/>                                       
-                    <Search {...this.props} />  
+                    <Logo logoClass="wholeLogoContainerLite"/>  
+                    <div className='searchDiv'>
+                        <Search {...this.props} />  
+                    </div>                                     
                     <div className="mainContent">                    
                         <div className="mapContainer"> 
                             <div id='map' className='googleMap'></div>               
