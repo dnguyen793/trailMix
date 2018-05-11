@@ -27,16 +27,20 @@ class PlanTrip extends Component {
         }else{
             this.props.getDirections(this.props.match.params.lat, 
                 this.props.match.params.long, this.props.initLat, this.props.initLong);
+            // this.setState({
+            //     initLat: this.props.initLat,
+            //     initLong: this.props.initLong
+            // }); 
         }
     }
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
             this.props.match.params.long, this.props.initLat, this.props.initLong);
-        this.setState({
-            initLat: this.props.initLat,
-            initLong: this.props.initLong
-        }); 
+        // this.setState({
+        //     initLat: this.props.initLat,
+        //     initLong: this.props.initLong
+        // }); 
     }
     
     loadJS(src) {
