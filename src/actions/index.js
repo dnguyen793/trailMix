@@ -32,31 +32,38 @@ export function getCoordinates(location){
     }
 }
 
-export function getDirection(trailLat, trailLong,initLat,initLng) {
+export function getDirections(trailLat, trailLong,initLat,initLng) {
     return async dispatch => {
         try {
             // const {latitude, longitude} = trailInfo;
-            // let directionsService = new google.maps.DirectionsService();
-            // let directionsDisplay = new google.maps.DirectionsRenderer();
+            const options ={
+                center: {lat: initLat, lng: initLng},
+                zoom: 10
+            };
+            let googleMap = document.getElementById('mapDirection');
+            let map = new google.maps.Map(googleMap, options);
+            let directionsService = new google.maps.DirectionsService();
+            let directionsDisplay = new google.maps.DirectionsRenderer();
             // let directionContainer = document.querySelector('.directionsContainerMargin');
             // directionContainer.innerHTML = '';
             // directionsDisplay.set('directions', null);
-            // directionsDisplay.setMap(map);
-            // directionsDisplay.setPanel(document.querySelector('directionsContainerMargin'));
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.querySelector('mapDirection'));
             
             const requestOptions = {
                 origin: {lat: initLat, lng: initLng},
-                destination: {lat: trailLat, lng: trailLong},
+                destination: {lat: parseFloat(trailLat), lng: parseFloat(trailLong)},
                 travelMode: 'DRIVING'
             };
 
-            await directionsService.route(requestOptions, (response, status)=> {
+            await directionsService.route(requestOptions, function(response, status) {
                 if (status == 'OK') {
                     directionsDisplay.setDirections(response);
                     dispatch({
                         type: types.GET_DIRECTIONS,
-                        payload: response.routes[0].legs[0].steps
+                        payload: response.routes[0].legs[0]
                     });
+                    console.log('Status = OK');
                 } else {
                     console.log('Google direction not working due to:', status);
                 }
