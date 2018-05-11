@@ -24,8 +24,8 @@ class Sorter extends Component {
             <div className='sorterContainer'>
                 <label>Sort by: </label>
                 <select onChange={this.handleChange.bind(this)}>
-                    <option value='ratingAsc'>Rating:Low to High</option>
                     <option value='ratingDesc'>Rating:High to Low</option>
+                    <option value='ratingAsc'>Rating:Low to High</option>                   
                 </select>
             </div>            
         );

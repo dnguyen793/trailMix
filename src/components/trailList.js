@@ -77,8 +77,9 @@ class TrailList extends Component {
                     return item;
                 });
     
+                const trailArraySorterByRaiting = trailList.sort((a,b)=> b.stars - a.stars);
                 this.setState({
-                    trails: trailList
+                    trails: trailArraySorterByRaiting
                 });
                 
             }).catch(err => {
