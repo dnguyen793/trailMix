@@ -6,13 +6,13 @@ export default props => (
     <div className="tabsContainer">
         <ul className="nav nav-tabs">
             <li className="nav-item tabStyle">
-                <NavLink to="/trailList/:location/direction" activeClassName="active selected" className="nav-link">Direction</NavLink>
+                <NavLink to="/planTrip/:lat/lat/:long/long/directions" activeClassName="active selected" className="nav-link">Directions</NavLink>
             </li>
             <li className="nav-item tabStyle">
-                <NavLink to="/trailList/:location/weather" activeClassName="active selected" className="nav-link">Weather</NavLink>
+                <NavLink to="/planTrip/:lat/lat/:long/long/weather" activeClassName="active selected" className="nav-link">Weather</NavLink>
             </li>
             <li className="nav-item tabStyle">
-                <NavLink to="/trailList/:location/recommended-items" activeClassName="active selected" className="nav-link">Amazon</NavLink>
+                <NavLink to="/planTrip/:lat/lat/:long/long/details" activeClassName="active selected" className="nav-link">Details</NavLink>
             </li>
         </ul>
     </div>
