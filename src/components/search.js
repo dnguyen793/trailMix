@@ -28,7 +28,8 @@ class Search extends Component{
         this.props.history.push(`/trailList/${this.state.location}`);
     }
 
-    handleEnterKey(e,queryStr){
+    handleEnterKey(e,queryStr){ //queryStr not needed?
+
         if (e.keyCode == 13) {
             let inputField = document.getElementById('searchInput');
             let inputComplete = new google.maps.places.Autocomplete(inputField);

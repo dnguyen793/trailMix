@@ -13,7 +13,7 @@ class Landing extends Component{
         }
     }
 
-    handleLocationChange(event){
+    handleLocationChange(event){  //Need this function here?
         const newLocation = event.target.value;
 
         this.setState({
