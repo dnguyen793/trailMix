@@ -29,7 +29,6 @@ class Search extends Component{
     }
 
     handleEnterKey(e,queryStr){ //queryStr not needed?
-
         if (e.keyCode == 13) {
             let inputField = document.getElementById('searchInput');
             let inputComplete = new google.maps.places.Autocomplete(inputField);
@@ -37,12 +36,14 @@ class Search extends Component{
                 if (inputComplete.gm_accessors_.place.gd.formattedPrediction) {
                     this.handleAutocompInput(inputComplete.gm_accessors_.place.gd.formattedPrediction);
                 } else {
-                    this.props.history.push(`/trailList/${this.state.location}`);
+                    // this.props.history.push(`/trailList/${this.state.location}`);
+                    console.log('No valid location entered');
+                    // Need error handling when input is invalid or doesn't return valid search
                 }
-            });
-            setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
+            }
+        )};
+            // setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
             // this.props.history.push(`/trailList/${this.state.location}`)
-        }
     }
 
     componentDidMount() {
