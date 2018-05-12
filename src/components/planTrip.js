@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
+import TrailLinks from './trail-links';
+import Weather from './weather';
+
 
 
 class PlanTrip extends Component {
@@ -61,6 +65,11 @@ class PlanTrip extends Component {
                         <div id='mapDirection' className='googleMap'></div>               
                     </div>
                     <div id="drivingDirectionContainer">
+                        <div>
+                            <TrailLinks/>
+
+                            <Route path="/planTrip/:lat/lat/:long/long/weather" component={Weather} />
+                        </div>
                     </div>
                 </div>
             </div>
