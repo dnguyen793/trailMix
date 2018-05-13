@@ -5,10 +5,13 @@ class Search extends Component{
 
     constructor(props){
         super(props);
+        console.log('search props:', this.props);
+
 
         this.state = {
             location: ''
         }
+        console.log('search state:', this.state);
     }
 
     handleLocationChange(event){
@@ -17,6 +20,8 @@ class Search extends Component{
         this.setState({
             location: newLocation
         });
+        console.log('search state:', this.state);
+
     }
 
     handleEnterKey(e,queryStr){ //queryStr not needed?
