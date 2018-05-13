@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import Search from './search';
 import Logo from './logo';
 
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-
 
 class Landing extends Component{
 
@@ -42,14 +40,6 @@ class Landing extends Component{
 
     componentWillUnmount(){
         navigator.geolocation.clearWatch(this.watchId);
-    }
-
-    handleLocationChange(event){  //Need this function here?
-        const newLocation = event.target.value;
-
-        this.setState({
-            location: newLocation
-        });
     }
 
     render(){
