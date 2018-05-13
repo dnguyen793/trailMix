@@ -56,8 +56,11 @@ export function getDirections(trailLat, trailLng, initLat, initLng) {
                 destination: {lat: parseFloat(trailLat), lng: parseFloat(trailLng)},
                 travelMode: 'DRIVING'
             };
+            console.log('trail coords:', trailLat, trailLng);
+            // console.log('diving request:', requestOptions);
 
             await directionsService.route(requestOptions, function(response, status) {
+                console.log(requestOptions);
                 if (status == 'OK') {
                     directionsDisplay.setDirections(response);
                     dispatch({
