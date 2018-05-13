@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
 import { NavLink } from 'react-router-dom';
-// import TrailLinks from './trail-links';
 import Directions from './directions';
 import Weather from './weather';
 import Details from './details';
@@ -25,7 +23,6 @@ class PlanTrip extends Component {
 	}
 
     render(){
-        console.log('props for planTrip:',this.props);
         return (
             <div className="plantrip">
                 <Logo logoClass="wholeLogoContainerLite"/>                                       
