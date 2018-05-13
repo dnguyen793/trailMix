@@ -74,8 +74,9 @@ body {
     height: 26vmin;
     position: absolute;
     transform: scale(0.5);
-    top: -8%;
-    left: -5%;
+    /* top: -8%; */
+    top: -9.5%;
+    left: -1.5%;
 }
 
 .logo{
@@ -86,8 +87,8 @@ body {
 }
 
 .earthContainer{
-    height: 12vmin;
-    width: 12vmin;
+    height: 11vmin;
+    width: 11vmin;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -119,8 +120,8 @@ body {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    height: 9vmin;
-    width: 10.5vmin;
+    height: 8vmin;
+    width: 9.5vmin;
     transform: translate(-50%, 0%);
 }
 .hikerContainer > .hiker{
@@ -135,7 +136,7 @@ body {
 .titleContainer{
     font-family: 'Cabin', Arial, sans-serif;
     color: whitesmoke;
-    font-size: 10vmin;
+    font-size: 8vmin;
     float: left;
     height: 100%;
     vertical-align: baseline;
@@ -157,17 +158,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    height:5%;
-    width:90%;
+    height:5rem;
+    width:100%;
     text-align: center; 
     font-size: 2.5rem;   
     color: rgba(255, 255, 255, 0.8);
 }
 
+.searchContainer p{
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+}
+
 .searchInput{
     display: inline-block;
     font-family: 'Cabin', sans-serif;
-    width: 50%;
+    width: 40%;
     height: 4rem;
     text-align: center;
     border: 0;
@@ -180,18 +187,6 @@ body {
     border-bottom-left-radius: 10px;
 }
 
-.searchDiv{
-    width: 50%;
-    height: 44px;
-    position: absolute;
-    top: 4%;
-    left: 25%;
-}
-
-.searchDiv a{
-    font-size: 2.5rem;
-    text-decoration: none;
-}
 
 .form-control::-webkit-input-placeholder {
    color: rgba(250, 250, 250, 0.6);
@@ -199,7 +194,6 @@ body {
 }
 
 .startBtn{
-    background-color: transparent;
     outline: none;
     border: none;
     background-color: rgba(120, 120, 120, 0.25);
@@ -209,6 +203,7 @@ body {
     height: 4rem;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    cursor: pointer;
 }
 
 .input-group-btn {
@@ -217,10 +212,24 @@ body {
 
 i.fas.fa-search {
     padding: 0 0.5rem;
+    cursor: pointer;
 }
 
-.searchContainer > .tips{
-    margin-top: 5%;
+/***************************************************************************/
+/*Trail List Page*/
+/***************************************************************************/
+
+.searchDiv{
+    width: 100%;
+    height: 44px;
+    position: absolute;
+    top: 3%;
+    left: 25%;
+}
+
+.searchDiv a{
+    font-size: 2.5rem;
+    text-decoration: none;
 }
 
 .mainContent{
