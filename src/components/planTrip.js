@@ -24,40 +24,6 @@ class PlanTrip extends Component {
 		};
 	}
 
-    // componentDidMount(){  
-    //     if (typeof google !== 'object'){
-    //         // Connect the initMap() function within this class to the global window context,
-    //         // so Google Maps can invoke it
-    //         window.initMap = this.initDirection.bind(this);
-    //         // Asynchronously load the Google Maps script, passing in the callback reference
-    //         this.loadJS(keys.google); 
-    //     }else{
-    //         this.props.getDirections(this.props.match.params.lat, 
-    //             this.props.match.params.long, this.props.initLat, this.props.initLong);
-    //         // this.setState({
-    //         //     initLat: this.props.initLat,
-    //         //     initLong: this.props.initLong
-    //         // }); 
-    //     }
-    // }
-    
-    // initDirection() {
-    //     this.props.getDirections(this.props.match.params.lat, 
-    //         this.props.match.params.long, this.props.initLat, this.props.initLong);
-    //     // this.setState({
-    //     //     initLat: this.props.initLat,
-    //     //     initLong: this.props.initLong
-    //     // }); 
-    // }
-    
-    // loadJS(src) {
-    //     var ref = window.document.getElementsByTagName("script")[0];
-    //     var script = window.document.createElement("script");
-    //     script.src = src;
-    //     script.async = true;
-    //     ref.parentNode.insertBefore(script, ref);
-    // }
-
     render(){
         console.log('props for planTrip:',this.props);
         return (
@@ -76,8 +42,7 @@ class PlanTrip extends Component {
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/directions`} 
-                            render={props => <Directions {...props}
-                            traillat={this.props.match.params.lat} traillong={this.props.match.params.long} />}/>
+                                render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
                             <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/details`} component={Details} />
                             <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/weather`} component={Weather} />
                         </div>
@@ -87,15 +52,5 @@ class PlanTrip extends Component {
         );
     }
 }
-                    <Route exact path='/dashboard' render={props => <UserHome {...props} userData={this.props.userData}/>}/>
 
-// function mapStateToProps(state) {
-// 	return {
-// 		routes: state.map.routes, //Don't really need this anymore
-// 		initLat: state.map.lat,
-// 		initLong: state.map.long
-// 	}
-// }
-
-// export default connect(mapStateToProps)(PlanTrip);
 export default PlanTrip;

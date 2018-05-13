@@ -24,7 +24,6 @@ class DrivingDirections extends Component {
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
-            console.log('Directions props:',this.props);
             this.props.getDirections(this.props.traillat, 
                 this.props.traillong, this.props.initLat, this.props.initLong);
             // this.setState({
@@ -61,7 +60,7 @@ class DrivingDirections extends Component {
 
 function mapStateToProps(state) {
 	return {
-		routes: state.map.routes, //Don't really need this anymore
+		routes: state.map.routes, //Sadly, don't really need this anymore
 		initLat: state.map.lat,
 		initLong: state.map.long
 	}
