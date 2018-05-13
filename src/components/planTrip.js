@@ -7,6 +7,7 @@ import Search from './search';
 import Logo from './logo';
 import TrailLinks from './trail-links';
 import Weather from './weather';
+import Details from './details';
 
 
 
@@ -56,6 +57,7 @@ class PlanTrip extends Component {
     }
 
     render(){
+        console.log(this.props);
         return (
             <div className="plantrip">
                 <Logo logoClass="wholeLogoContainerLite"/>                                       
@@ -66,9 +68,9 @@ class PlanTrip extends Component {
                     </div>
                     <div id="drivingDirectionContainer">
                         <div>
-                            <TrailLinks/>
-
-                            <Route path="/planTrip/:lat/lat/:long/long/weather" component={Weather} />
+                            <TrailLinks lat={this.props.match.params.lat} long={this.props.match.params.long} />
+                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/details`} component={Details} />
+                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/weather`} component={Weather} />
                         </div>
                     </div>
                 </div>
