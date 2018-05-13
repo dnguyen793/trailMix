@@ -518,7 +518,7 @@ i.fas.fa-search {
     display: none;
 }
 
-/***************** PlanTrip NavLinks *******************/
+/******************************* PlanTrip NavLinks ********************************/
 
 .planTripOptions {
     width: 33%;
@@ -555,7 +555,7 @@ i.fas.fa-search {
     background-image: linear-gradient(to bottom, #ddd, #d0451b);
 }
 
-/******************** Driving Direction **************************/
+/******************************* Driving Direction ******************************/
 
 #drivingDirectionContainer {
     display: inline-block;
