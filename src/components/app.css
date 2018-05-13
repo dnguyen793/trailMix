@@ -518,18 +518,55 @@ i.fas.fa-search {
     display: none;
 }
 
+/***************** PlanTrip NavLinks *******************/
+
+.planTripOptions {
+    width: 33%;
+    height: 95%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: scroll;
+}
+
+.planTripTabs {
+    width: 95%;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.tabLinks {
+    float: left;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 1%;
+    font-size: 1.5rem;
+    line-height: 40px;
+    height: 40px;
+}
+
+.tabLinks:hover {
+    background-color: #ddd;
+}
+
+.selected {
+    background-image: linear-gradient(to bottom, #ddd, #d0451b);
+}
+
 /******************** Driving Direction **************************/
 
 #drivingDirectionContainer {
     display: inline-block;
-    width: 33%;
+    width: 95%;
     height: 95%;
     padding-left: 0.5%;
     vertical-align: top;
     margin-top: 1.5%;
     background-color: rgba(255,255,255, 0.8);
     border-radius: 10px;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
  /*******************************************************************/
