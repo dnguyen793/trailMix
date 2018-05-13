@@ -247,7 +247,7 @@ i.fas.fa-search {
 .mapContainer{
     display:inline-block;
     height: 95%;
-    width: 64%;
+    width: 55%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
@@ -521,7 +521,7 @@ i.fas.fa-search {
 /******************************* PlanTrip NavLinks ********************************/
 
 .planTripOptions {
-    width: 33%;
+    width: 43%;
     height: 95%;
     display: inline-block;
     vertical-align: top;
@@ -534,14 +534,15 @@ i.fas.fa-search {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #fff;
+    text-align: center;
 }
 
 .tabLinks {
-    float: left;
+    display: inline-block;
     color: black;
     text-decoration: none;
     cursor: pointer;
-    padding: 0 1%;
+    padding: 0 2%;
     font-size: 1.5rem;
     line-height: 40px;
     height: 40px;

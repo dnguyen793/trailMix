@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
@@ -26,20 +25,12 @@ class DrivingDirections extends Component {
         }else{
             this.props.getDirections(this.props.traillat, 
                 this.props.traillong, this.props.initLat, this.props.initLong);
-            // this.setState({
-            //     initLat: this.props.initLat,
-            //     initLong: this.props.initLong
-            // }); 
         }
     }
     
     initDirection() {
         this.props.getDirections(this.props.traillat, 
             this.props.traillong, this.props.initLat, this.props.initLong);
-        // this.setState({
-        //     initLat: this.props.initLat,
-        //     initLong: this.props.initLong
-        // }); 
     }
     
     loadJS(src) {
