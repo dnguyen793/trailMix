@@ -364,8 +364,9 @@ i.fas.fa-search {
 
 .weatherContainer{
     display:inline-block;
-    height:45%;
+    height:95%;
     font-size: 1rem;
+    overflow: scroll;
 }
 
 .amazonContainer{
@@ -523,18 +524,22 @@ i.fas.fa-search {
 .planTripOptions {
     width: 43%;
     height: 95%;
+    margin-top: 1.5%;
     display: inline-block;
     vertical-align: top;
-    overflow: scroll;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    /*overflow: scroll;*/
 }
 
 .planTripTabs {
-    width: 95%;
+    width: 100%;
     height: 40px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #fff;
     text-align: center;
+    border-radius: 10px;
 }
 
 .tabLinks {
@@ -554,6 +559,11 @@ i.fas.fa-search {
 
 .selected {
     background-image: linear-gradient(to bottom, #ddd, #d0451b);
+}
+
+.tabContent {
+    height: 95%;
+    overflow: scroll;
 }
 
 /******************************* Driving Direction ******************************/
