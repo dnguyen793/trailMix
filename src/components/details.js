@@ -12,13 +12,9 @@ class Details extends Component {
     componentDidMount() {
         const params = {
             key: keys.rei,
-            lat:this.props.match.params.lat,
-            lon:this.props.match.params.long,
-            maxDistance:0,
-            maxResults:1,
-            minStars:3
+            ids: this.props.match.params.id
         };
-        const url = 'https://www.hikingproject.com/data/get-trails';    
+        const url = 'https://www.hikingproject.com/data/get-trails-by-id';    
         //call the server to search with the conditions we have in the search    
         axios.get(url,{params}).then(resp=>{
             console.log('resp is: ', resp);            

@@ -62,15 +62,15 @@ class PlanTrip extends Component {
                     </div>
                     <div className="planTripOptions">
                         <div className="planTripTabs">
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/details`}>Trail Detail</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/directions`}>Directions</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/weather`}>Weather</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/details`}>Trail Detail</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`}>Directions</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/weather`}>Weather</NavLink>
                         </div>                   
                         <div className="tabContent">
-                            <Route path={`/planTrip/:lat/lat/:long/long/details`} component={Details} />
-                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/directions`} 
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
+                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`} 
                                 render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
-                            <Route path={`/planTrip/:lat/lat/:long/long/weather`} component={Weather} />
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/weather`} component={Weather} />
                         </div>
                     </div>    
                 </div>
