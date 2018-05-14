@@ -10,37 +10,16 @@ class Landing extends Component{
         super(props);
 
         this.state = {
-            location: '',
-            lat: null,
-            lng: null,
-            error: null
+            location: ''
         }
     }
 
-    componentDidMount(){
-        this.geolocation();
-    }
+    handleLocationChange(event){  //Need this function here?
+        const newLocation = event.target.value;
 
-    geolocation(){
-        let lat = null;
-        let lng = null; 
-        this.watchId = navigator.geolocation.watchPosition((position) => {
-            this.setState({
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            });
-            console.log('lat: ', this.state.lat);
-            console.log('long: ', this.state.lng);
-
-        },
-        (error)=> this.setState({error: error.message}),
-        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter:10 },
-        );
-    }
-
-    componentWillUnmount(){
-        navigator.geolocation.clearWatch(this.watchId);
-    }
+        this.setState({
+            location: newLocation
+        });
 
     render(){
         

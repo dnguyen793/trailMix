@@ -74,3 +74,39 @@ export function getDirections(trailLat, trailLng, initLat, initLng) {
         }
     }
 }
+
+export function updateState(lat, long){
+    return{
+        type: types.UPDATE_STATE,
+        payload: {lat, long}
+    }
+}
+
+export function getTrailListUsingCoords(lat, long){
+    console.log('actions coords:', lat, long);
+    return async dispatch => {
+        try { 
+            var geocoder = new google.maps.Geocoder();
+            let map;
+            var latlng = new google.maps.LatLng(lat, long);
+            var options = {
+                center: latlng,
+                zoom: 10
+            };
+            let googleMap = document.getElementById('map');
+            map = new google.maps.Map(googleMap, options);
+
+            var marker = new google.maps.Marker({
+                position: {lat: lat, lng: long},
+                map: map                        
+            });
+
+            dispatch({
+                type: types.GET_COORDINATES,
+                payload: {lat,long,map}
+            });
+        } catch(err){
+            console.log('Google Map for direction not working:', err);
+        }
+    }
+}
