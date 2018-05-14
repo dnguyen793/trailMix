@@ -12,7 +12,8 @@ class App extends Component {
         return (    
             <div className='container'>        
                 <Route exact path="/" component={Landing} />
-                <Route path='/trailList/:location' component={TrailList} />
+                {/* <Route path='/trailList/:location' component={TrailList} /> */}
+                <Route path='/trailList/' component={TrailList} />
                 <Route path="/planTrip/:lat/lat/:long/long" component={PlanTrip} />
             </div>    
         );
