@@ -35,6 +35,12 @@ class Search extends Component{
 
     componentWillUnmount(){
         navigator.geolocation.clearWatch(this.watchId);
+
+        this.handleAutocompInput = this.handleAutocompInput.bind(this);
+
+        this.state = {
+            location: ''
+        }
     }
 
     handleLocationChange(event){
@@ -43,8 +49,13 @@ class Search extends Component{
         this.setState({
             location: newLocation
         });
-        console.log('search state:', this.state);
+    }
 
+    handleAutocompInput(input){
+        this.setState({
+            location: input
+        });
+        this.props.history.push(`/trailList/${this.state.location}`);
     }
 
     handleEnterKey(e,queryStr){ //queryStr not needed?
@@ -53,12 +64,35 @@ class Search extends Component{
 
             // this.props.history.push(`/trailList/${this.state.location}`);
         }
+            let inputField = document.getElementById('searchInput');
+            let inputComplete = new google.maps.places.Autocomplete(inputField);
+            google.maps.event.addListener(inputComplete, 'place_changed', () => {
+                if (inputComplete.gm_accessors_.place.gd.formattedPrediction) {
+                    this.handleAutocompInput(inputComplete.gm_accessors_.place.gd.formattedPrediction);
+                } else {
+                    // this.props.history.push(`/trailList/${this.state.location}`);
+                    console.log('No valid location entered');
+                    // Need error handling when input is invalid or doesn't return valid search
+                }
+            }
+        )};
+            // setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
+            // this.props.history.push(`/trailList/${this.state.location}`)
+    }
+
+    componentDidMount() {
+        let inputField = document.getElementById('searchInput');
+        let inputComplete = new google.maps.places.Autocomplete(inputField);
+        google.maps.event.addListener(inputComplete, 'place_changed', () => {
+            if (inputComplete.gm_accessors_.place.gd.formattedPrediction){
+                this.handleAutocompInput(inputComplete.gm_accessors_.place.gd.formattedPrediction);
+            }
+        });
     }
 
     render(){
-        
         return (  
-            <div className=''>
+            <div>
                 <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
                 <div className="input-group-btn">
                     <Link to={`/trailList/`}>

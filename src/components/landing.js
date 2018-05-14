@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import Search from './search';
 import Logo from './logo';
 
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-
 
 class Landing extends Component{
 
@@ -22,7 +20,6 @@ class Landing extends Component{
         this.setState({
             location: newLocation
         });
-    }
 
     render(){
         
