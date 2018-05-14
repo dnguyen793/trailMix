@@ -519,8 +519,13 @@ i.fas.fa-search {
     display: none;
 }
 
-/******************************* PlanTrip NavLinks ********************************/
-
+/******************************* PlanTrip  ********************************/
+.planTripSearch {
+    display: inline-block;
+    margin-left: 25%;
+    margin-top: 2%;
+    width: 60vw;
+}
 .planTripOptions {
     width: 43%;
     height: 95%;
