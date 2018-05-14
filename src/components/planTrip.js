@@ -5,7 +5,8 @@ import {getDirections} from '../actions';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
-import TrailLinks from './trail-links';
+import { NavLink } from 'react-router-dom';
+import Directions from './directions';
 import Weather from './weather';
 import Details from './details';
 
@@ -32,20 +33,12 @@ class PlanTrip extends Component {
         }else{
             this.props.getDirections(this.props.match.params.lat, 
                 this.props.match.params.long, this.props.initLat, this.props.initLong);
-            // this.setState({
-            //     initLat: this.props.initLat,
-            //     initLong: this.props.initLong
-            // }); 
         }
     }
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
             this.props.match.params.long, this.props.initLat, this.props.initLong);
-        // this.setState({
-        //     initLat: this.props.initLat,
-        //     initLong: this.props.initLong
-        // }); 
     }
     
     loadJS(src) {
@@ -57,22 +50,29 @@ class PlanTrip extends Component {
     }
 
     render(){
-        console.log(this.props);
         return (
             <div className="plantrip">
-                <Logo logoClass="wholeLogoContainerLite"/>                                       
-                <Search {...this.props} />  
-                <div className="mainContent">                    
+                <Logo logoClass="wholeLogoContainerLite"/> 
+                <div className="planTripSearch">
+                    <Search {...this.props} />  
+                </div>                                      
+                <div className="mainContent">
                     <div className="mapContainer"> 
                         <div id='mapDirection' className='googleMap'></div>               
                     </div>
-                    <div id="drivingDirectionContainer">
-                        <div>
-                            <TrailLinks lat={this.props.match.params.lat} long={this.props.match.params.long} />
+                    <div className="planTripOptions">
+                        <div className="planTripTabs">
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/details`}>Trail Detail</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/directions`}>Directions</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/weather`}>Weather</NavLink>
+                        </div>                   
+                        <div className="tabContent">
                             <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/details`} component={Details} />
+                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/directions`} 
+                                render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
                             <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/weather`} component={Weather} />
                         </div>
-                    </div>
+                    </div>    
                 </div>
             </div>
         );
@@ -80,11 +80,10 @@ class PlanTrip extends Component {
 }
 
 function mapStateToProps(state) {
-	return {
-		routes: state.map.routes, //Don't really need this anymore
-		initLat: state.map.lat,
-		initLong: state.map.long
-	}
+    return {
+        initLat: state.map.lat,
+        initLong: state.map.long
+    }
 }
 
 export default connect(mapStateToProps, {getDirections})(PlanTrip);

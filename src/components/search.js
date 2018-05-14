@@ -5,15 +5,12 @@ class Search extends Component{
 
     constructor(props){
         super(props);
-        console.log('search props:', this.props);
-
 
         this.handleAutocompInput = this.handleAutocompInput.bind(this);
 
         this.state = {
             location: ''
         }
-        console.log('search state:', this.state);
     }
 
     handleLocationChange(event){
@@ -22,8 +19,6 @@ class Search extends Component{
         this.setState({
             location: newLocation
         });
-        console.log('search state:', this.state);
-
     }
 
     handleAutocompInput(input){
@@ -63,7 +58,7 @@ class Search extends Component{
 
     render(){
         return (  
-            <div className=''>
+            <div>
                 <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
                 <div className="input-group-btn">
                     <Link to={`/trailList/${this.state.location}`}>

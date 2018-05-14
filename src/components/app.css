@@ -247,7 +247,7 @@ i.fas.fa-search {
 .mapContainer{
     display:inline-block;
     height: 95%;
-    width: 64%;
+    width: 55%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
@@ -364,8 +364,9 @@ i.fas.fa-search {
 
 .weatherContainer{
     display:inline-block;
-    height:45%;
+    height:95%;
     font-size: 1rem;
+    overflow: scroll;
 }
 
 .amazonContainer{
@@ -518,18 +519,72 @@ i.fas.fa-search {
     display: none;
 }
 
-/******************** Driving Direction **************************/
+/******************************* PlanTrip  ********************************/
+.planTripSearch {
+    display: inline-block;
+    margin-left: 25%;
+    margin-top: 2%;
+    width: 60vw;
+}
+.planTripOptions {
+    width: 43%;
+    height: 95%;
+    margin-top: 1.5%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    /*overflow: scroll;*/
+}
+
+.planTripTabs {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.tabLinks {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 2%;
+    font-size: 1.5rem;
+    line-height: 40px;
+    height: 40px;
+}
+
+.tabLinks:hover {
+    background-color: #ddd;
+}
+
+.selected {
+    background-image: linear-gradient(to bottom, #ddd, green);
+    color: #fff;
+    text-shadow: 2px 1px 2px black;
+}
+
+.tabContent {
+    height: 95%;
+    overflow: scroll;
+}
+
+/******************************* Driving Direction ******************************/
 
 #drivingDirectionContainer {
     display: inline-block;
-    width: 33%;
-    height: 95%;
+    width: 95%;
+    /*height: 95%;*/
     padding-left: 0.5%;
     vertical-align: top;
     margin-top: 1.5%;
     background-color: rgba(255,255,255, 0.8);
     border-radius: 10px;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
  /*******************************************************************/
