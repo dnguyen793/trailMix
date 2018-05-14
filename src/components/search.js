@@ -15,11 +15,6 @@ class Search extends Component{
         };
     }
 
-    componentDidMount(){
-        this.geolocation();
-
-    }
-
     geolocation(){
         this.watchId = navigator.geolocation.watchPosition((position) => {
             this.setState({
@@ -75,12 +70,14 @@ class Search extends Component{
                     // Need error handling when input is invalid or doesn't return valid search
                 }
             }
-        )};
+        )
             // setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
             // this.props.history.push(`/trailList/${this.state.location}`)
     }
 
     componentDidMount() {
+        this.geolocation();
+
         let inputField = document.getElementById('searchInput');
         let inputComplete = new google.maps.places.Autocomplete(inputField);
         google.maps.event.addListener(inputComplete, 'place_changed', () => {
@@ -106,7 +103,7 @@ class Search extends Component{
             </div>          
         );
     }
-};
+}
 
 // export default Search;
 function mapStateToProps(state){
