@@ -15,6 +15,7 @@ class App extends Component {
                 {/* <Route path='/trailList/:location' component={TrailList} /> */}
                 <Route path='/trailList/' component={TrailList} />
                 <Route path="/planTrip/:lat/lat/:long/long" component={PlanTrip} />
+
             </div>    
         );
     }

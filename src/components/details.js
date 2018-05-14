@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import keys from '../assets/config/apiKeys';
 
 class Details extends Component {
@@ -8,23 +9,19 @@ class Details extends Component {
 
     }
 
-    // componentDidMount() {
-    //     const params = {
-    //         key: keys.rei,
-    //         lat:this.props.match.params.lat,
-    //         lon:this.props.match.params.long,
-    //         maxDistance:1,
-    //         maxResults:1,
-    //         minStars:3
-    //     };
-    //     const url = 'https://www.hikingproject.com/data/get-trails';    
-    //     //call the server to search with the conditions we have in the search    
-    //     axios.get(url,{params}).then(resp=>{
-    //         console.log('resp is: ', resp);            
-    //     }).catch(err => {
-    //         console.log('error is: ', err);    
-    //     });
-    // }
+    componentDidMount() {
+        const params = {
+            key: keys.rei,
+            ids: this.props.match.params.id
+        };
+        const url = 'https://www.hikingproject.com/data/get-trails-by-id';    
+        //call the server to search with the conditions we have in the search    
+        axios.get(url,{params}).then(resp=>{
+            console.log('resp is: ', resp);            
+        }).catch(err => {
+            console.log('error is: ', err);    
+        });
+    }
 
     render() {
 
