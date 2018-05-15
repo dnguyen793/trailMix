@@ -59,7 +59,7 @@ class Details extends Component {
                 {
                     this.state.trailInfo && 
                     <div className='detailsInfoContainer'>
-                        <img src={trailInfo.imgSmallMed || earth} />
+                        <img src={trailInfo.imgSmallMed || earth} className='detailsImg' />
                         <div className='detailsTextArea'>
                             <div className='detailsName'>{trailInfo.name}</div>
                             <div className='detailsLocation'>{trailInfo.location}</div>
@@ -73,8 +73,8 @@ class Details extends Component {
                                     <div className='detailsAscent'>Ascent: {trailInfo.ascent} feet</div>
                                     <div className='detailsDescent'>Descent: {trailInfo.descent} feet</div>
                                 </div>
-                                <div className="detailsPeakArea">
-                                    <div className="detailsPeakHeader">Peaks</div>
+                                <div className="detailsPeaksArea">
+                                    <div className="detailsPeaks">Peaks</div>
                                     <div className='detailsHigh'>Highest point: {trailInfo.high} feet</div>
                                     <div className='detailsLow'>Lowest point: {trailInfo.low} feet</div>
                                 </div>
