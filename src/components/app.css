@@ -544,7 +544,7 @@ i.fas.fa-search {
     border: 1px solid #ccc;
     background-color: #fff;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .tabLinks {

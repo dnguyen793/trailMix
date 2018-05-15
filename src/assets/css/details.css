@@ -1,0 +1,29 @@
+.detailsInfoContainer {
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsTextArea {
+    display: flex;
+    width: 80%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsTextArea > * {
+    text-align: center;
+}
+
+.detailsHeightArea {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}

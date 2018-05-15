@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+
+import '../assets/css/details.css';
 import keys from '../assets/config/apiKeys';
 import earth from '../assets/images/logo/earth.png';
 
@@ -29,6 +31,23 @@ class Details extends Component {
         });
     }
 
+    translateDifficulty(string) {
+        switch (string) {
+            case 'green':
+                return 'Easy';
+            case 'greenBlue':
+                return 'Easy/Intermediate';
+            case 'blue':
+                return 'Intermediate';
+            case 'blueBlack':
+                return 'Intermediate/Difficult';
+            case 'black':
+                return 'Difficult';
+            default:
+                return string;
+        }
+    }
+
     render() {
 
         console.log('Details props: ', this.props);
@@ -36,21 +55,31 @@ class Details extends Component {
         const {trailInfo} = this.state;
 
         return (
-            <div>
+            <div className='detailsContainer'>
                 {
                     this.state.trailInfo && 
-                    <div>
+                    <div className='detailsInfoContainer'>
                         <img src={trailInfo.imgSmallMed || earth} />
-                        <div>{trailInfo.name}</div>
-                        <div>{trailInfo.location}</div>
-                        <div>{trailInfo.summary}</div>
-                        <div>Length: {trailInfo.length} miles</div>
-                        <div>Rating: {trailInfo.stars} based on {trailInfo.starVotes} votes</div>
-                        <div>Elevation</div>
-                        <div>Ascent: {trailInfo.ascent} feet</div>
-                        <div>Descent: {trailInfo.descent} feet</div>
-                        <div>Highest point: {trailInfo.high} feet</div>
-                        <div>Lowest point: {trailInfo.low} feet</div>
+                        <div className='detailsTextArea'>
+                            <div className='detailsName'>{trailInfo.name}</div>
+                            <div className='detailsLocation'>{trailInfo.location}</div>
+                            <div className='detailsSummary'>{trailInfo.summary}</div>
+                            <div className='detailsLength'>Length: {trailInfo.length} miles</div>
+                            <div className='detailsDifficulty'>Difficulty: {this.translateDifficulty(trailInfo.difficulty) || ''}</div>
+                            <div className='detailsRating'>Rating: {trailInfo.stars} based on {trailInfo.starVotes} votes</div>
+                            <div className='detailsHeightArea'>
+                                <div className='detailsElevationArea'>
+                                    <div className='detailsElevation'>Elevation</div>
+                                    <div className='detailsAscent'>Ascent: {trailInfo.ascent} feet</div>
+                                    <div className='detailsDescent'>Descent: {trailInfo.descent} feet</div>
+                                </div>
+                                <div className="detailsPeakArea">
+                                    <div className="detailsPeakHeader">Peaks</div>
+                                    <div className='detailsHigh'>Highest point: {trailInfo.high} feet</div>
+                                    <div className='detailsLow'>Lowest point: {trailInfo.low} feet</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 }
             </div>
