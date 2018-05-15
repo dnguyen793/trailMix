@@ -215,6 +215,23 @@ i.fas.fa-search {
     cursor: pointer;
 }
 
+.reset-instruction {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+p.label{
+    text-align: center;
+}
+
+p.label a{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
 /***************************************************************************/
 /*Trail List Page*/
 /***************************************************************************/
