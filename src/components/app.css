@@ -851,3 +851,13 @@ input[type=date]{
     background: rgb(98,177,93); 
 }
 
+@media only screen and (max-width:600px){
+    .mapContainer{
+        height: 50%;
+        width: 100%;
+    }
+    .planTripOptions{
+        height:50%;
+        width:100%;
+    }
+}
