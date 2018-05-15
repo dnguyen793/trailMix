@@ -33,8 +33,8 @@ class Landing extends Component{
                     <p>Enter a location to search for nearby trails or click <i className="fas fa-search"></i> to use current location</p>                   
                 </div>        
             </div>
-        );
-    }
-};
+        )
+    };
+}
 
 export default Landing;
