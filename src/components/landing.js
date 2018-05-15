@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Search from './search';
 import Logo from './logo';
+import ResetGeolocationInst from './reset-geolocation-inst';
 
 
 class Landing extends Component{
@@ -31,7 +32,9 @@ class Landing extends Component{
                 <div className="searchContainer">
                     <Search {...this.props} />     
                     <p>Enter a location to search for nearby trails or click <i className="fas fa-search"></i> to use current location</p>                   
-                </div>        
+                </div>
+
+                <ResetGeolocationInst/>        
             </div>
         )
     };

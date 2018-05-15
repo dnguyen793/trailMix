@@ -37,7 +37,7 @@ class TrailList extends Component {
         }
     }
     
-    initMap() {
+    initMap() { 
 
         if(this.props.lat !== '' && this.props.long !== ''){
             console.log('available lat and long:', this.props.lat, this.props.long);

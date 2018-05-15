@@ -21,10 +21,14 @@ class Search extends Component{
                 lat: position.coords.latitude,
                 long: position.coords.longitude
             });
+            console.log('search page state:', this.state.lat, this.state.long);
+            
             this.props.updateState(this.state.lat, this.state.long);
         },
         (error)=> this.setState({error: error.message}),
-        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter:10 },
+        // { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter:10 }
+        { timeout: 20000, maximumAge: 1000, distanceFilter:10 },
+
         );
     }
 
@@ -50,7 +54,9 @@ class Search extends Component{
         this.setState({
             location: input
         });
-        this.props.history.push(`/trailList/${this.state.location}`);
+        this.props.history.push(`/trailList/`);
+
+        // this.props.history.push(`/trailList/${this.state.location}`);
     }
 
     handleEnterKey(e,queryStr){ //queryStr not needed?
