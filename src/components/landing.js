@@ -20,6 +20,7 @@ class Landing extends Component{
         this.setState({
             location: newLocation
         });
+    }
 
     render(){
         

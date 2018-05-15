@@ -75,7 +75,7 @@ class Search extends Component{
                     // Need error handling when input is invalid or doesn't return valid search
                 }
             }
-        )};
+        );
             // setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
             // this.props.history.push(`/trailList/${this.state.location}`)
     }

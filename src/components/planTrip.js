@@ -68,7 +68,7 @@ class PlanTrip extends Component {
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
-                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`} 
+                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/:id/id/directions`} 
                                 render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/weather`} component={Weather} />
                         </div>
