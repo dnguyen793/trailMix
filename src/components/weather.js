@@ -157,7 +157,9 @@ class Weather extends Component{
                     if(isNaN(response.daily.data[0].precipProbability)){
                         rainText = 'Chance of Rain: Unknown'
                     } else {
-                        rainText = `Chance of Rain: ${((response.daily.data[0].precipProbability)*100)}%`
+                        let rainProb = ((response.daily.data[0].precipProbability)*100);
+                        rainProb = rainProb.toFixed(0);
+                        rainText = `Chance of Rain: ${rainProb}%`
                     }
 
                     this.setState({
@@ -231,7 +233,9 @@ class Weather extends Component{
                     if(isNaN(response.daily.data[0].precipProbability)){
                         rainText = 'Chance of Rain: Unknown'
                     } else {
-                        rainText = `Chance of Rain: ${((response.daily.data[0].precipProbability)*100)}%`
+                        let rainProb = ((response.daily.data[0].precipProbability)*100);
+                        rainProb = rainProb.toFixed(0);
+                        rainText = `Chance of Rain: ${rainProb}%`
                     }
 
                     this.setState({
@@ -304,7 +308,9 @@ class Weather extends Component{
                     if(isNaN(response.daily.data[0].precipProbability)){
                         rainText = 'Chance of Rain: Unknown'
                     } else {
-                        rainText = `Chance of Rain: ${((response.daily.data[0].precipProbability)*100)}%`
+                        let rainProb = ((response.daily.data[0].precipProbability)*100);
+                        rainProb = rainProb.toFixed(0);
+                        rainText = `Chance of Rain: ${rainProb}%`
                     }
 
                     this.setState({
@@ -383,6 +389,7 @@ class Weather extends Component{
                 </div>
                 <div className="conditionsContainer">
                     <div className="day1" style={this.state.day1Back}>
+                        <div className="dayShadow"></div>
                         <div className="currentDay" >{this.state.day1Date}</div>
                         <div className="day1Summary daySum">{this.state.day1Text.summary}</div>
                         <div className="day1High dayHigh">{this.state.day1Text.high}</div>
@@ -390,6 +397,7 @@ class Weather extends Component{
                         <div className="day1Rain dayPrecip">{this.state.day1Text.rain}</div>
                     </div>
                     <div className="day2" style={this.state.day2Back}>
+                        <div className="dayShadow"></div>
                         <div className="currentDay">{this.state.day2Date}</div>
                         <div className="day2Summary daySum">{this.state.day2Text.summary}</div>
                         <div className="day2High dayHigh">{this.state.day2Text.high}</div>
@@ -397,6 +405,7 @@ class Weather extends Component{
                         <div className="day2Rain dayPrecip">{this.state.day2Text.rain}</div>
                     </div>
                     <div className="day3" style={this.state.day3Back}>
+                        <div className="dayShadow"></div>
                         <div className="currentDay">{this.state.day3Date}</div>
                         <div className="day3Summary daySum">{this.state.day3Text.summary}</div>
                         <div className="day3High dayHigh">{this.state.day3Text.high}</div>
