@@ -42,6 +42,9 @@ class DrivingDirections extends Component {
     }
 
     render(){
+
+        console.log('Directions props: ', this.props);
+
         return (
             <div id="drivingDirectionContainer">
             </div> 
