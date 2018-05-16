@@ -264,7 +264,8 @@ p.label a{
 .mapContainer{
     display:inline-block;
     height: 95%;
-    width: 55%;
+    /* width: 55%; */
+    width: 58%;
     margin-top:1.5%;
     transition: 2s;
     padding: 0 1% 1% 0;
@@ -279,7 +280,8 @@ p.label a{
 .trailContainer{
     display:inline-block;   
     height:98%;
-    width: 35%;
+    /* width: 35%; */
+    width: 38%;
     vertical-align: top;
 }
 
@@ -545,7 +547,8 @@ p.label a{
     width: 60vw;
 }
 .planTripOptions {
-    width: 43%;
+    /* width: 43%; */
+    width: 40%;
     height: 95%;
     margin-top: 1.5%;
     display: inline-block;
