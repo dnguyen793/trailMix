@@ -279,7 +279,7 @@ p.label a{
 .mapContainer{
     display: inline-block;
     height: 100%;
-    width: 59%;
+    width: 53%;
     transition: 2s;
     padding-right: 3%;
 }
@@ -559,15 +559,15 @@ p.label a{
     width: 60vw;
 }
 .planTripOptions {
-    /* width: 43%; */
-    width: 40%;
-    height: 95%;
-    margin-top: 1.5%;
+    width: 43%; */
+    width: 41%;
+    height: 100%;
+    /* margin-top: 1.5%; */
     display: inline-block;
     vertical-align: top;
     background-color: rgba(255,255,255,0.8);
     border-radius: 10px;
-    /*overflow: scroll;*/
+    /* overflow: scroll; */
 }
 
 .planTripTabs {
