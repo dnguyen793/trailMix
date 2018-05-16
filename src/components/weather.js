@@ -380,6 +380,9 @@ class Weather extends Component{
     }
 
     render(){
+
+        console.log('Weather props: ', this.props);
+
         return(
             <div className="weatherContainer">
                 <div className="dateContainer">
