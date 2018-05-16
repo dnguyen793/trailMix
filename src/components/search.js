@@ -15,6 +15,10 @@ class Search extends Component{
         };
     }
 
+    componentWillMount(){
+        this.geolocation();
+    }
+
     geolocation(){
         this.watchId = navigator.geolocation.watchPosition((position) => {
             this.setState({
@@ -64,7 +68,7 @@ class Search extends Component{
             this.props.history.push(`/trailList/`);
 
             // this.props.history.push(`/trailList/${this.state.location}`);
-        }
+        } 
             let inputField = document.getElementById('searchInput');
             let inputComplete = new google.maps.places.Autocomplete(inputField);
             google.maps.event.addListener(inputComplete, 'place_changed', () => {
@@ -82,7 +86,6 @@ class Search extends Component{
     }
 
     componentDidMount() {
-        this.geolocation();
 
         let inputField = document.getElementById('searchInput');
         let inputComplete = new google.maps.places.Autocomplete(inputField);
