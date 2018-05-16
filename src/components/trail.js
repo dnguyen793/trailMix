@@ -61,7 +61,7 @@ class Trail extends Component {
                 <div>
                     <p>{this.props.trail.name}</p>
                     <p>{this.props.trail.location}</p>
-                    <p>Distance: {this.props.trail.length} miles</p>
+                    <p>Length: {this.props.trail.length} miles</p>
                     <p>Difficulty: {this.translateDifficulty(this.props.trail.difficulty)}</p>
                     <p>Rating: {this.props.trail.stars} ★</p>
                     <Link className='button-link' to={`/planTrip/${this.props.trail.latitude}/lat/${this.props.trail.longitude}/long/${this.props.trail.id}/id/details`}>Plan a Trip</Link>
