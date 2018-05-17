@@ -3,8 +3,10 @@ import types from '../actions/types';
 const DEFAULT_STATE = {
     map:{},
     mapDirections:{},
-    lat: 33.6348792,
-    long: -117.7426695
+    lat: null,
+    long: null
+    // lat: 33.6348792,
+    // long: -117.7426695
 };
 
 export default function(state = DEFAULT_STATE, action){

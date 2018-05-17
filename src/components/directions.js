@@ -19,7 +19,7 @@ class DrivingDirections extends Component {
         if(Object.keys(this.props.map).length > 0){ 
         //Only calls getDirections when the map already exists, so that the directions won't load twice;
             this.props.getDirections(this.props.traillat, 
-                this.props.traillong, this.props.initLat, this.props.initLong, this.props.map);
+                    this.props.traillong, this.props.map, this.props.location);
         }
     }
 
@@ -35,7 +35,8 @@ function mapStateToProps(state) {
 	return {
         map: state.map.mapDirections,
 		initLat: state.map.lat,
-		initLong: state.map.long
+		initLong: state.map.long,
+        location: state.map.location
 	}
 }
 

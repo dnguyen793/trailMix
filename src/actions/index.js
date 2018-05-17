@@ -274,12 +274,27 @@ function initMap(lat,long){
     
 }
 
-export function getDirections(trailLat, trailLng, initLat, initLng, map) {
+export function getDirections(trailLat, trailLng, map, location) {
     return async dispatch => {
+        let initLat, initLng;
         try {
+            let geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': location}, function(results, status) {
+                    if (status == 'OK') {
+                        initLat = results[0].geometry.location.lat();
+                        initLng = results[0].geometry.location.lng();
+                    } else {
+                        console.log('Location lat and lng not available from getDirections.'); 
+                    }
+                });
+            }catch(err){
+            console.log('Geocoder Error:', err.message);
+        }
+            console.log('New initLat:', initLat);
+
             if(Object.keys(map).length === 0){
                 const options ={
-                    center: {lat: initLat, lng: initLng},
+                    center: {lat: parseFloat(initLat), lng: parseFloat(initLng)},
                     zoom: 10,
                     styles: styles
                 };
@@ -293,7 +308,7 @@ export function getDirections(trailLat, trailLng, initLat, initLng, map) {
             directionsDisplay.setPanel(document.getElementById('drivingDirectionContainer'));
             
             const requestOptions = {
-                origin: {lat: initLat, lng: initLng},
+                origin: {lat: parseFloat(initLat), lng: parseFloat(initLng)},
                 destination: {lat: parseFloat(trailLat), lng: parseFloat(trailLng)},
                 travelMode: 'DRIVING'
             };
