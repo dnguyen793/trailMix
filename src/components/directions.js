@@ -16,7 +16,8 @@ class DrivingDirections extends Component {
 	}
 
     componentDidMount(){  
-        if(Object.keys(this.props.map).length > 0){
+        if(Object.keys(this.props.map).length > 0){ 
+        //Only calls getDirections when the map already exists, so that the directions won't load twice;
             this.props.getDirections(this.props.traillat, 
                 this.props.traillong, this.props.initLat, this.props.initLong, this.props.map);
         }
