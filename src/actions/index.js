@@ -238,7 +238,6 @@ export function getCoordinates(location){
                 if (status == 'OK') {
                     lat = results[0].geometry.location.lat();
                     long = results[0].geometry.location.lng();
-                    
                     map = initMap(lat,long);
                     dispatch({
                       type: types.GET_COORDINATES,
@@ -278,8 +277,7 @@ function initMap(lat,long){
 export function getDirections(trailLat, trailLng, initLat, initLng, map) {
     return async dispatch => {
         try {
-            if(Object.keys(map).length === 0 && map.constructor === Object){
-
+            if(Object.keys(map).length === 0){
                 const options ={
                     center: {lat: initLat, lng: initLng},
                     zoom: 10,

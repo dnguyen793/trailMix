@@ -18,7 +18,7 @@ class PlanTrip extends Component {
 		super(props);
 		this.state = {
 			location: [],
-            initLat: 0,
+            initLat: 0, //Need these?
             initLong: 0
 		};
 	}
@@ -31,14 +31,15 @@ class PlanTrip extends Component {
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
-            this.props.getDirections(this.props.match.params.lat, 
-                this.props.match.params.long, this.props.initLat, this.props.initLong,this.props.map);
+            // this.props.getDirections(this.props.match.params.lat, 
+            //     this.props.match.params.long, this.props.initLat, this.props.initLong, this.props.map);
+            this.initDirection();
         }
     }
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
-            this.props.match.params.long, this.props.initLat, this.props.initLong,this.props.map);
+            this.props.match.params.long, this.props.initLat, this.props.initLong, this.props.map);
     }
     
     loadJS(src) {
@@ -69,7 +70,7 @@ class PlanTrip extends Component {
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
-                            <Route path={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/:id/id/directions`} 
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/directions`} 
                                 render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/weather`} component={Weather} />
                         </div>
