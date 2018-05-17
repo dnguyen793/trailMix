@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getDirections} from '../actions';
+import {getDirections,deleteMapDirection} from '../actions';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
@@ -34,6 +34,10 @@ class PlanTrip extends Component {
             this.initDirection();
         }
     }
+
+    componentWillUnmount(){
+        this.props.deleteMapDirection();
+    }
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
@@ -64,16 +68,16 @@ class PlanTrip extends Component {
                     </div>
                     <div className="planTripOptions">
                         <div className="planTripTabs">
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/details`}>Trail Detail</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`}>Directions</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/weather`}>Weather</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/`}>Back To Trails</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/details`}>Trail Detail</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/directions`}>Directions</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/weather`}>Weather</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/${this.props.match.params.location}/location`}>Back To Trails</NavLink>
                         </div>                   
                         <div className="tabContent">
-                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
-                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/directions`} 
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/details`} component={Details} />
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/directions`} 
                                 render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
-                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/weather`} component={Weather} />
+                            <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/weather`} component={Weather} />
                         </div>
                     </div>    
                 </div>
@@ -90,4 +94,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getDirections})(PlanTrip);
+export default connect(mapStateToProps, {getDirections,deleteMapDirection})(PlanTrip);
