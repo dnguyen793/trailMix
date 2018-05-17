@@ -113,7 +113,12 @@ class TrailList extends Component {
                 url: markerIcon1,
                 scaledSize: new google.maps.Size(60,70)
             });
+            this.setAnimation(google.maps.Animation.BOUNCE);
 
+            var removeSpecialClass = document.getElementsByClassName('trailDiv');
+            for(let i=0;i<removeSpecialClass.length;i++){
+                removeSpecialClass[i].classList.remove("trailDivFocus");
+            }
             var divToFocus = document.getElementById(trailObj.name);
             divToFocus.classList.add("trailDivFocus");
             divToFocus.scrollIntoView();
@@ -124,9 +129,9 @@ class TrailList extends Component {
                 url: markerIcon2,
                 scaledSize: new google.maps.Size(40,50)
             });
-            
-            var divToFocus = document.getElementById(trailObj.name);
-            divToFocus.classList.remove("trailDivFocus");
+            this.setAnimation(null);
+            // var divToFocus = document.getElementById(trailObj.name);
+            // divToFocus.classList.remove("trailDivFocus");
         });
         
         return marker;
