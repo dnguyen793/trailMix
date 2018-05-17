@@ -147,7 +147,7 @@ class TrailList extends Component {
     render(){
 
         const list = this.state.trails.map((item,index)=>{
-            return <Trail key={index} trail={item} />
+            return <Trail key={index} trail={item} location={this.props.match.params.location} />
         });
 
         return (

@@ -14,8 +14,8 @@ class App extends Component {
                 <Route exact path="/" component={Landing} />
                 <Route path="/notValid" component={Landing} />
                 <Route path='/trailList/:location/location' component={TrailList} />
-                <Route exact path="/planTrip/:lat/lat/:long/long" component={PlanTrip} />
-                <Route path="/planTrip/:lat/lat/:long/long/:id/id" component={PlanTrip} />
+                <Route exact path="/planTrip/:lat/lat/:long/long/:location/location" component={PlanTrip} />
+                <Route path="/planTrip/:lat/lat/:long/long/:id/id/:location/location" component={PlanTrip} />
             </div>    
         );
     }
