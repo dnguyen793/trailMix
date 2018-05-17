@@ -108,7 +108,7 @@ class TrailList extends Component {
             }
         });
 
-        marker.addListener('mouseover', function() {
+        marker.addListener('click', function() {
             this.setIcon({
                 url: markerIcon1,
                 scaledSize: new google.maps.Size(60,70)
