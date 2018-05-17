@@ -9,42 +9,21 @@ class DrivingDirections extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			location: [],
-            initLat: 0,
-            initLong: 0
+			location: []
+   //          initLat: 0, //Remove the constructor?
+   //          initLong: 0
 		};
 	}
 
     componentDidMount(){  
-        if (typeof google !== 'object'){
-            // Connect the initMap() function within this class to the global window context,
-            // so Google Maps can invoke it
-            window.initMap = this.initDirection.bind(this);
-            // Asynchronously load the Google Maps script, passing in the callback reference
-            this.loadJS(keys.google); 
-        }else{
+        if(Object.keys(this.props.map).length > 0){ 
+        //Only calls getDirections when the map already exists, so that the directions won't load twice;
             this.props.getDirections(this.props.traillat, 
-                this.props.traillong, this.props.initLat, this.props.initLong);
+                this.props.traillong, this.props.initLat, this.props.initLong, this.props.map);
         }
-    }
-    
-    initDirection() {
-        this.props.getDirections(this.props.traillat, 
-            this.props.traillong, this.props.initLat, this.props.initLong);
-    }
-    
-    loadJS(src) {
-        var ref = window.document.getElementsByTagName("script")[0];
-        var script = window.document.createElement("script");
-        script.src = src;
-        script.async = true;
-        ref.parentNode.insertBefore(script, ref);
     }
 
     render(){
-
-        console.log('Directions props: ', this.props);
-
         return (
             <div id="drivingDirectionContainer">
             </div> 
@@ -54,7 +33,7 @@ class DrivingDirections extends Component {
 
 function mapStateToProps(state) {
 	return {
-		routes: state.map.routes, //Sadly, don't really need this anymore
+        map: state.map.mapDirections,
 		initLat: state.map.lat,
 		initLong: state.map.long
 	}
