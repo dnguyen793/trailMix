@@ -22,7 +22,6 @@ class Details extends Component {
         const url = 'https://www.hikingproject.com/data/get-trails-by-id';    
         //call the server to search with the conditions we have in the search    
         axios.get(url,{params}).then(resp=>{
-            console.log('resp is: ', resp);
             this.setState({
                 trailInfo: resp.data.trails[0]
             })            
@@ -50,8 +49,6 @@ class Details extends Component {
 
     render() {
 
-        console.log('Details props: ', this.props);
-        
         const {trailInfo} = this.state;
 
         return (

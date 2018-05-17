@@ -14,14 +14,9 @@ import Details from './details';
 
 class PlanTrip extends Component {
 	
-	constructor(props){
-		super(props);
-		this.state = {
-			location: []
-            // initLat: 0, //Need these?
-            // initLong: 0
-		};
-	}
+	// constructor(props){
+	// 	super(props);
+	// }
 
     componentDidMount(){  
         if (typeof google !== 'object'){
