@@ -228,7 +228,7 @@ export function getCoordinates(location,props){
               map = initMap(lat,long);
               dispatch({
                 type: types.GET_COORDINATES,
-                payload: {lat,long,map}
+                payload: {lat,long,map,location}
               })
             });
         }else{
@@ -241,7 +241,7 @@ export function getCoordinates(location,props){
                     map = initMap(lat,long);
                     dispatch({
                       type: types.GET_COORDINATES,
-                      payload: {lat,long,map}
+                      payload: {lat,long,map,location}
                     })
                 } else {
                     props.history.push('/notValid'); 
@@ -313,6 +313,13 @@ export function getDirections(trailLat, trailLng, initLat, initLng, map) {
         } catch(err){
             console.log('Google Map for direction not working:', err);
         }
+    }
+}
+
+export function deleteMapDirection(){
+    return {
+        type: types.DELETE_MAP_DIRECTIONS,
+        payload: {map:{}}      
     }
 }
 

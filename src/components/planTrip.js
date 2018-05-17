@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getDirections} from '../actions';
+import {getDirections,deleteMapDirection} from '../actions';
 import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
@@ -33,6 +33,10 @@ class PlanTrip extends Component {
         }else{
             this.initDirection();
         }
+    }
+
+    componentWillUnmount(){
+        this.props.deleteMapDirection();
     }
     
     initDirection() {
@@ -67,7 +71,7 @@ class PlanTrip extends Component {
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/details`}>Trail Detail</NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`}>Directions</NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/weather`}>Weather</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/`}>Back To Trails</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/${this.props.location}/location`}>Back To Trails</NavLink>
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
@@ -86,8 +90,9 @@ function mapStateToProps(state) {
     return {
     	map: state.map.mapDirections,
         initLat: state.map.lat,
-        initLong: state.map.long
+        initLong: state.map.long,
+        location: state.map.location
     }
 }
 
-export default connect(mapStateToProps, {getDirections})(PlanTrip);
+export default connect(mapStateToProps, {getDirections,deleteMapDirection})(PlanTrip);
