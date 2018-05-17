@@ -466,10 +466,15 @@ p.label a{
     box-shadow: 5px 10px 18px black;
 }
 
-.trailDiv:hover, .trailDivFocus{    
+.trailDivFocus{    
     transform: scale(1.03);
     opacity: 1;
-    box-shadow: 0px 0px 22px gold;
+    background-color: #f8c967;
+}
+
+.trailDiv:hover{    
+    transform: scale(1.03);
+    opacity: 1;
 }
 
 .trailDiv > div{
