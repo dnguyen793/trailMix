@@ -126,15 +126,15 @@ class Weather extends Component{
                         case 'clear-night':
                         case 'clear-day':
                             backgroundImg = `${sunny}`;
-                            background_color = 'rgba(10, 181, 233, 0.6)'
+                            background_color = 'rgba(10, 181, 233)'
                             break;
                         case 'cloudy':
                             backgroundImg = `${darkCloud}`;
-                            background_color = 'rgba(10, 181, 233, 0.6)';
+                            background_color = 'rgba(10, 181, 233)';
                             break;
                         case 'partly-cloudy-day':
                             backgroundImg = `${partCloud}`;
-                            background_color = 'rgba(255, 143, 0, 0.8)';
+                            background_color = 'rgba(255, 143, 0)';
                             break;
                         case 'rain':
                             backgroundImg = `${rainy}`;
@@ -151,7 +151,7 @@ class Weather extends Component{
                             break;
                         case 'fog':
                             backgroundImg = `${fog}`;
-                            background_color = 'rgba(10, 181, 233, 0.6)';
+                            background_color = 'rgba(10, 181, 233)';
                             break;
                     }
                     let rainText;

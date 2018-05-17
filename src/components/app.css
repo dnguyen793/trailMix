@@ -737,7 +737,7 @@ input[type=date]{
 
 .day1, .day2, .day3{
     font-family: 'Dosis', Arial, sans-serif;
-    height: 32%;
+    height: 33%;
     /* width: 100%; */
     /* padding: 2%; */
     overflow: hidden;
@@ -752,14 +752,14 @@ input[type=date]{
 
 .day1{
     font-family: 'Cabin', Arial, sans-serif;
-    margin-bottom: 9px;
+    /* margin-bottom: 9px; */
 }
 
 .day2{
     font-family: 'Cabin', Arial, sans-serif;
     border-left:1px solid grey;
     border-right: 1px solid grey;
-    margin-bottom: 9px;
+    /* margin-bottom: 9px; */
 }
 
 .day3{
@@ -792,7 +792,7 @@ input[type=date]{
 .dayHigh, .dayLow, .dayPrecip{
     height: 20%;
     white-space: nowrap;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-left: 10px;
 }
 
