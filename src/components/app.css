@@ -604,11 +604,13 @@ p.label a{
 }
 
 a.tabLinks:last-child{
-    background-color: rgba(29, 46, 1, 1);
-    border-radius: 10px;
+    background-color: rgb(201, 0, 0);
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
     color: white;
-    height: 33px;
-    border-bottom: none;
+    /* height: 48px; */
+    border: rgb(201, 0, 0) solid 6px;
+    /* border-bottom: 3px solid black; */
     font-size: 1rem;
 }
 
