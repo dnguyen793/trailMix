@@ -17,12 +17,15 @@ class DrivingDirections extends Component {
 
     componentDidMount(){  
         if (typeof google !== 'object'){
+            console.log("google doesn't exist");
+
             // Connect the initMap() function within this class to the global window context,
             // so Google Maps can invoke it
             window.initMap = this.initDirection.bind(this);
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
+            console.log('google exists.Else entered');
             this.props.getDirections(this.props.traillat, 
                 this.props.traillong, this.props.initLat, this.props.initLong);
         }
