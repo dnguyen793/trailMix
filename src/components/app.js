@@ -13,9 +13,8 @@ class App extends Component {
             <div className='container'>        
                 <Route exact path="/" component={Landing} />
                 <Route path='/trailList/:location/location' component={TrailList} />
-                <Route exact path='/trailList//location' component={TrailList} />
                 <Route path="/planTrip/:lat/lat/:long/long" component={PlanTrip} />
-
+                <Route path="/planTrip/:lat/lat/:long/long/:id/id" component={PlanTrip} />
             </div>    
         );
     }

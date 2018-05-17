@@ -65,6 +65,7 @@ class PlanTrip extends Component {
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/details`}>Trail Detail</NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/directions`}>Directions</NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/weather`}>Weather</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/`}>Back To Trails</NavLink>
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/details`} component={Details} />
