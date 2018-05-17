@@ -216,7 +216,7 @@ let styles = [
     }
   ];
 
-export function getCoordinates(location){
+export function getCoordinates(location,props){
     
     return async dispatch => {
 
@@ -245,7 +245,7 @@ export function getCoordinates(location){
                       payload: {lat,long,map}
                     })
                 } else {
-                    console.log('Geocode was not successful for the following reason: ' + status);
+                    props.history.push('/notValid'); 
                 }
             });
           }catch(err){

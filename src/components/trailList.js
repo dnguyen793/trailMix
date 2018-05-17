@@ -30,12 +30,12 @@ class TrailList extends Component {
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
-           this.props.getCoordinates(this.props.match.params.location);            
+           this.props.getCoordinates(this.props.match.params.location,this.props);            
         }
     }
     
     initMap() { 
-        this.props.getCoordinates(this.props.match.params.location); 
+        this.props.getCoordinates(this.props.match.params.location,this.props); 
     }
     
     loadJS(src) {
@@ -56,7 +56,7 @@ class TrailList extends Component {
 
     componentWillReceiveProps(newProps){
         if(this.props.match.params.location !== newProps.match.params.location){
-            this.props.getCoordinates(newProps.match.params.location); 
+            this.props.getCoordinates(newProps.match.params.location,this.props); 
         }else{
             const params = {
                 key: keys.rei,

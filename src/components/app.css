@@ -24,6 +24,10 @@ body {
     height: 100%;
 }
 
+.notValid{
+    color: darkred;
+}
+
 .button-link {
 	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -279,7 +283,7 @@ p.label a{
 .mapContainer{
     display: inline-block;
     height: 100%;
-    width: 53%;
+    width: 59%;
     transition: 2s;
     padding-right: 3%;
 }
