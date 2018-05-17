@@ -32,13 +32,13 @@ class PlanTrip extends Component {
             this.loadJS(keys.google); 
         }else{
             this.props.getDirections(this.props.match.params.lat, 
-                this.props.match.params.long, this.props.initLat, this.props.initLong);
+                this.props.match.params.long, this.props.initLat, this.props.initLong,this.props.map);
         }
     }
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
-            this.props.match.params.long, this.props.initLat, this.props.initLong);
+            this.props.match.params.long, this.props.initLat, this.props.initLong,this.props.map);
     }
     
     loadJS(src) {
@@ -82,6 +82,7 @@ class PlanTrip extends Component {
 
 function mapStateToProps(state) {
     return {
+    	map: state.map.mapDirections,
         initLat: state.map.lat,
         initLong: state.map.long
     }

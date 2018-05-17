@@ -275,16 +275,20 @@ function initMap(lat,long){
     
 }
 
-export function getDirections(trailLat, trailLng, initLat, initLng) {
+export function getDirections(trailLat, trailLng, initLat, initLng, map) {
     return async dispatch => {
         try {
-            const options ={
-                center: {lat: initLat, lng: initLng},
-                zoom: 10,
-                styles: styles
-            };
-            let googleMap = document.getElementById('mapDirection');
-            let map = new google.maps.Map(googleMap, options);
+            if(Object.keys(map).length === 0 && map.constructor === Object){
+
+                const options ={
+                    center: {lat: initLat, lng: initLng},
+                    zoom: 10,
+                    styles: styles
+                };
+                let googleMap = document.getElementById('mapDirection');
+                map = new google.maps.Map(googleMap, options);
+            }
+            
             let directionsService = new google.maps.DirectionsService();
             let directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
@@ -301,7 +305,7 @@ export function getDirections(trailLat, trailLng, initLat, initLng) {
                     directionsDisplay.setDirections(response);
                     dispatch({
                         type: types.GET_DIRECTIONS,
-                        payload: response.routes[0].legs[0]
+                        payload: {map}
                     });
                 } else {
                     console.log('Google direction not working due to:', status);
