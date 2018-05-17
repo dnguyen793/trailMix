@@ -10,6 +10,7 @@ class Search extends Component{
             location: ''
         };
         this.oldLocation = null;
+        this.sendLocation = this.sendLocation.bind(this);
     }
 
     handleLocationChange(event){
@@ -59,7 +60,7 @@ class Search extends Component{
             <div>
                 <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
                 <div className="input-group-btn">                    
-                    <button onClick={this.sendLocation.bind(this)} className="startBtn">
+                    <button onClick={()=>this.sendLocation()} className="startBtn">
                         <i className="fas fa-search"></i>
                     </button>                   
                 </div>
