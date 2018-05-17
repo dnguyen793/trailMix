@@ -52,10 +52,13 @@ class PlanTrip extends Component {
     render(){
         return (
             <div className="plantrip">
-                <Logo logoClass="wholeLogoContainerLite"/> 
-                <div className="planTripSearch">
-                    <Search {...this.props} />  
-                </div>                                      
+                <div className="header">
+                    <Logo logoClass="wholeLogoContainerLite"/> 
+                    <div className="planTripSearch">
+                        <Search {...this.props} />  
+                    </div>  
+                </div>
+                                    
                 <div className="mainContent">
                     <div className="mapContainer"> 
                         <div id='mapDirection' className='googleMap'></div>               

@@ -183,7 +183,7 @@ body {
     display: inline-block;
     font-family: 'Cabin', sans-serif;
     width: 40%;
-    height: 100%;
+    height: 95%;
     text-align: center;
     border: 0;
     /* font-size: 1.8rem;  */
@@ -306,7 +306,7 @@ p.label a{
 }
 
 .trailList{
-    height:96%;
+    height:95.5%;
     margin-top:1.5%;
     overflow-y: scroll;
 }
@@ -402,7 +402,6 @@ p.label a{
     height: 100%;
     width: 100%;
     font-size: 1rem;
-    /* overflow: scroll; */
 }
 
 .amazonContainer{
@@ -557,11 +556,17 @@ p.label a{
 
 /******************************* PlanTrip  ********************************/
 .planTripSearch {
-    display: inline-block;
-    margin-left: 25%;
-    margin-top: 2%;
-    width: 60vw;
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    top: 2%;
+    left: 28%;
 }
+
+.planTripSearch div {
+    height: 100%;
+}
+
 .planTripOptions {
     width: 38%;
     height: 100%;
@@ -572,7 +577,7 @@ p.label a{
 }
 
 .planTripTabs {
-    width: 100%;
+    /* width: 100%; */
     height: 40px;
     overflow: hidden;
     border: 1px solid #ccc;
@@ -582,6 +587,7 @@ p.label a{
 }
 
 .tabLinks {
+    font-family: 'Cabin', sans-serif;
     display: inline-block;
     width: 25%;
     color: black;
@@ -593,6 +599,15 @@ p.label a{
     height: 40px;
     border-bottom: black 6px solid;
     box-sizing: border-box;
+}
+
+a.tabLinks:last-child{
+    background-color: rgba(29, 46, 1, 1);
+    border-radius: 10px;
+    color: white;
+    height: 33px;
+    border-bottom: none;
+    font-size: 1rem;
 }
 
 .tabLinks:hover {
@@ -614,7 +629,7 @@ p.label a{
 
 #drivingDirectionContainer {
     display: inline-block;
-    width: 95%;
+    /* width: 95%; */
     /*height: 95%;*/
     padding-left: 0.5%;
     vertical-align: top;
@@ -711,14 +726,14 @@ input[type=date]{
     height:88%;
 }
 .conditionsContainer{
-    height: 100%;
+    height: 94%;
     width: 100%;
     /* overflow: scroll; */
 }
 
 .day1, .day2, .day3{
     font-family: 'Dosis', Arial, sans-serif;
-    height: 40%;
+    height: 32%;
     /* width: 100%; */
     /* padding: 2%; */
     overflow: hidden;
@@ -733,12 +748,14 @@ input[type=date]{
 
 .day1{
     font-family: 'Cabin', Arial, sans-serif;
+    margin-bottom: 9px;
 }
 
 .day2{
     font-family: 'Cabin', Arial, sans-serif;
     border-left:1px solid grey;
     border-right: 1px solid grey;
+    margin-bottom: 9px;
 }
 
 .day3{
@@ -748,8 +765,9 @@ input[type=date]{
 .currentDay{
     height: 10%;
     margin:auto;
-    font-size:2rem;
+    font-size:1.5rem;
     padding-bottom:1%;
+    padding-left: 10px;
 }
 
 .dayShadow{
@@ -763,13 +781,15 @@ input[type=date]{
 
 .daySum{
     height: 30%;
-    font-size:2rem;
+    font-size:1.5rem;
+    padding-left: 10px;
 }
 
 .dayHigh, .dayLow, .dayPrecip{
     height: 20%;
     white-space: nowrap;
     font-size: 2rem;
+    padding-left: 10px;
 }
 
 @media screen and (max-width: 450px) {
