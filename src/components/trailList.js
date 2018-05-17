@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Trail from './trail';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {getCoordinates, getTrailListUsingCoords} from '../actions';
+import {getCoordinates} from '../actions';
 import markerIcon2 from '../assets/images/markers/map_marker2.png';
 import markerIcon1 from '../assets/images/markers/map_marker1.png';
 import keys from '../assets/config/apiKeys';
@@ -30,23 +30,12 @@ class TrailList extends Component {
             // Asynchronously load the Google Maps script, passing in the callback reference
             this.loadJS(keys.google); 
         }else{
-            this.props.getTrailListUsingCoords(this.props.lat, this.props.long);
-
-        //    this.props.getCoordinates(this.props.match.params.location);
-            
+           this.props.getCoordinates(this.props.match.params.location);            
         }
     }
     
     initMap() { 
-
-        if(this.props.lat !== '' && this.props.long !== ''){
-            console.log('available lat and long:', this.props.lat, this.props.long);
-            this.props.getTrailListUsingCoords(this.props.lat, this.props.long);
-        }
-        else{
-            this.props.getCoordinates(this.props.match.params.location);
-        }
-        // this.props.getCoordinates(this.props.match.params.location); 
+        this.props.getCoordinates(this.props.match.params.location); 
     }
     
     loadJS(src) {
@@ -195,4 +184,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getCoordinates, getTrailListUsingCoords})(TrailList);
+export default connect(mapStateToProps, {getCoordinates})(TrailList);
