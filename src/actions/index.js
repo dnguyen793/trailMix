@@ -219,39 +219,60 @@ let styles = [
 export function getCoordinates(location){
     
     return async dispatch => {
-        try {             
+
+        let lat, long, map;
+        if(location === 'current location'){
+            await navigator.geolocation.getCurrentPosition(function(position) {
+              lat = position.coords.latitude;
+              long = position.coords.longitude;
+              map = initMap(lat,long);
+              dispatch({
+                type: types.GET_COORDINATES,
+                payload: {lat,long,map}
+              })
+            });
+        }else{
+          try {             
             var geocoder = new google.maps.Geocoder();
-            let map, lat, long;
             await geocoder.geocode( { 'address': location}, function(results, status) {
                 if (status == 'OK') {
                     lat = results[0].geometry.location.lat();
                     long = results[0].geometry.location.lng();
-                    var options = {
-                        center: {lat: lat, lng: long},
-                        zoom: 10,
-                        styles: styles
-                    };
-                    let googleMap = document.getElementById('map');
-                    map = new google.maps.Map(googleMap, options);
-
-                    var marker = new google.maps.Marker({
-                        position: {lat: lat, lng: long},
-                        map: map                        
-                    });
-
+                    
+                    map = initMap(lat,long);
                     dispatch({
-                        type: types.GET_COORDINATES,
-                        payload: {lat,long,map}
+                      type: types.GET_COORDINATES,
+                      payload: {lat,long,map}
                     })
                 } else {
                     console.log('Geocode was not successful for the following reason: ' + status);
                 }
             });
-            
-        }catch(err){
+          }catch(err){
             console.log('Create Map Error:', err.message);
         }
+      }
     }
+}
+
+function initMap(lat,long){
+
+    let map;
+    var options = {
+        center: {lat: lat, lng: long},
+        zoom: 10,
+        styles: styles
+    };
+    let googleMap = document.getElementById('map');
+    map = new google.maps.Map(googleMap, options);
+
+    var marker = new google.maps.Marker({
+        position: {lat: lat, lng: long},
+        map: map                        
+    });
+
+    return map;
+    
 }
 
 export function getDirections(trailLat, trailLng, initLat, initLng) {
@@ -293,39 +314,3 @@ export function getDirections(trailLat, trailLng, initLat, initLng) {
     }
 }
 
-export function updateState(lat, long){
-    return{
-        type: types.UPDATE_STATE,
-        payload: {lat, long}
-    }
-}
-
-export function getTrailListUsingCoords(lat, long){
-    console.log('actions coords:', lat, long);
-    return async dispatch => {
-        try { 
-            var geocoder = new google.maps.Geocoder();
-            let map;
-            var latlng = new google.maps.LatLng(lat, long);
-            var options = {
-                center: latlng,
-                zoom: 10,
-                styles: styles
-            };
-            let googleMap = document.getElementById('map');
-            map = new google.maps.Map(googleMap, options);
-
-            var marker = new google.maps.Marker({
-                position: {lat: lat, lng: long},
-                map: map                        
-            });
-
-            dispatch({
-                type: types.GET_COORDINATES,
-                payload: {lat,long,map}
-            });
-        } catch(err){
-            console.log('Google Map for direction not working:', err);
-        }
-    }
-}

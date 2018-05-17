@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {updateState} from '../actions';
 
 class Search extends Component{
 
@@ -9,41 +7,9 @@ class Search extends Component{
         super(props);
 
         this.state = {
-            location: '',
-            lat: '',
-            long: ''
-        };
-    }
-
-    componentWillMount(){
-        this.geolocation();
-    }
-
-    geolocation(){
-        this.watchId = navigator.geolocation.watchPosition((position) => {
-            this.setState({
-                lat: position.coords.latitude,
-                long: position.coords.longitude
-            });
-            console.log('search page state:', this.state.lat, this.state.long);
-            
-            this.props.updateState(this.state.lat, this.state.long);
-        },
-        (error)=> this.setState({error: error.message}),
-        // { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter:10 }
-        { timeout: 20000, maximumAge: 1000, distanceFilter:10 },
-
-        );
-    }
-
-    componentWillUnmount(){
-        navigator.geolocation.clearWatch(this.watchId);
-
-        this.handleAutocompInput = this.handleAutocompInput.bind(this);
-
-        this.state = {
             location: ''
-        }
+        };
+        this.oldLocation = null;
     }
 
     handleLocationChange(event){
@@ -54,35 +20,27 @@ class Search extends Component{
         });
     }
 
-    handleAutocompInput(input){
-        this.setState({
-            location: input
-        });
-        this.props.history.push(`/trailList/`);
-
-        // this.props.history.push(`/trailList/${this.state.location}`);
+    handleEnterKey(e){ 
+        if ((e.keyCode == 13) && (this.state.location ==='' || this.oldLocation ===null )) {
+            this.sendLocation();
+        } 
     }
 
-    handleEnterKey(e,queryStr){ //queryStr not needed?
-        if (e.keyCode == 13) {
-            this.props.history.push(`/trailList/`);
-
-            // this.props.history.push(`/trailList/${this.state.location}`);
-        } 
-            let inputField = document.getElementById('searchInput');
-            let inputComplete = new google.maps.places.Autocomplete(inputField);
-            google.maps.event.addListener(inputComplete, 'place_changed', () => {
-                if (inputComplete.gm_accessors_.place.gd.formattedPrediction) {
-                    this.handleAutocompInput(inputComplete.gm_accessors_.place.gd.formattedPrediction);
-                } else {
-                    // this.props.history.push(`/trailList/${this.state.location}`);
-                    console.log('No valid location entered');
-                    // Need error handling when input is invalid or doesn't return valid search
-                }
+    sendLocation(autoComplete){
+        
+        if(autoComplete && autoComplete !== this.oldLocation){
+            this.props.history.push(`/trailList/${autoComplete}/location`);
+            this.setState({
+                location: autoComplete
+            });
+            this.oldLocation = autoComplete;
+        }else{
+            let finishLocation = this.state.location;
+            if(this.state.location === ''){
+                finishLocation = 'current location';
             }
-        );
-            // setTimeout( () => this.props.history.push(`/trailList/${this.state.location}`), 100);
-            // this.props.history.push(`/trailList/${this.state.location}`)
+            this.props.history.push(`/trailList/${finishLocation}/location`);        
+        }
     }
 
     componentDidMount() {
@@ -90,8 +48,8 @@ class Search extends Component{
         let inputField = document.getElementById('searchInput');
         let inputComplete = new google.maps.places.Autocomplete(inputField);
         google.maps.event.addListener(inputComplete, 'place_changed', () => {
-            if (inputComplete.gm_accessors_.place.gd.formattedPrediction){
-                this.handleAutocompInput(inputComplete.gm_accessors_.place.gd.formattedPrediction);
+            if (inputComplete.gm_accessors_.place.fd.formattedPrediction){
+                this.sendLocation(inputComplete.gm_accessors_.place.fd.formattedPrediction);
             }
         });
     }
@@ -100,26 +58,14 @@ class Search extends Component{
         return (  
             <div>
                 <input className='form-control searchInput' onKeyUp={this.handleEnterKey.bind(this)} id='searchInput' onChange={this.handleLocationChange.bind(this)} value={this.state.location} type="text" placeholder="Current location"/>     
-                <div className="input-group-btn">
-                    <Link to={`/trailList/`}>
-
-                    {/* <Link to={`/trailList/${this.state.location}`}> */}
-                        <button className="startBtn">
-                            <i className="fas fa-search"></i>
-                        </button>
-                    </Link>
+                <div className="input-group-btn">                    
+                    <button onClick={this.sendLocation.bind(this)} className="startBtn">
+                        <i className="fas fa-search"></i>
+                    </button>                   
                 </div>
             </div>          
         );
     }
 }
 
-// export default Search;
-function mapStateToProps(state){
-    return{
-        lat: state.map.lat,
-        long: state.map.long
-    }
-}
-
-export default connect(mapStateToProps, {updateState})(Search);
+export default Search;

@@ -12,11 +12,7 @@ export default function(state = DEFAULT_STATE, action){
         case types.GET_COORDINATES:
             return {...state, lat: action.payload.lat, long: action.payload.long, map:action.payload.map};        
         case types.GET_DIRECTIONS:
-            return {...state, routes: action.payload};
-        case types.UPDATE_STATE:
-            return {...state, lat: action.payload.lat, long: action.payload.long};        
-        case types.NEW_MAP:
-            return {...state, lat: action.payload.lat, long: action.payload.long, map:action.payload.map};        
+            return {...state, routes: action.payload};        
         default:
             return state;
     }
