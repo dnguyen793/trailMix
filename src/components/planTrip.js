@@ -13,10 +13,6 @@ import Details from './details';
 
 
 class PlanTrip extends Component {
-	
-	// constructor(props){
-	// 	super(props);
-	// }
 
     componentDidMount(){  
         if (typeof google !== 'object'){
@@ -85,8 +81,7 @@ function mapStateToProps(state) {
     return {
     	map: state.map.mapDirections,
         initLat: state.map.lat,
-        initLong: state.map.long,
-        location: state.map.location
+        initLong: state.map.long
     }
 }
 
