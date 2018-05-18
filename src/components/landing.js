@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Search from './search';
 import Logo from './logo';
 import ResetGeolocationInst from './reset-geolocation-inst';
+import './mediaQuery2.css';
 
 
 class Landing extends Component{

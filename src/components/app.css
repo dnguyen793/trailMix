@@ -609,14 +609,12 @@ p.label a{
     box-sizing: border-box;
 }
 
-a.tabLinks:last-child{
+.tabLinks:last-child{
     background-color: rgb(201, 0, 0);
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     color: white;
-    /* height: 48px; */
     border: rgb(201, 0, 0) solid 6px;
-    /* border-bottom: 3px solid black; */
     font-size: 1rem;
 }
 
@@ -631,7 +629,9 @@ a.tabLinks:last-child{
 }
 
 .tabContent {
-    height: 95%;
+    height: calc(100% - 40px);
+    width: 92%;
+    margin: 0 auto;
     overflow: scroll;
 }
 
@@ -802,22 +802,6 @@ input[type=date]{
     padding-left: 10px;
 }
 
-@media screen and (max-width: 450px) {
-    .weatherContainer{
-        font-size: 3rem;
-    }
-    .dayHigh, .dayLow, .dayPrecip{
-        white-space: normal;
-    }
-    .datesSelect p{
-        font-size: 12px;
-    }
-    .amazonContainer button{
-        width: 40%;
-        font-size: 6px;
-    }
-}
-
 .hidden{
     display:none;
 }
@@ -911,13 +895,3 @@ input[type=date]{
     background: rgb(98,177,93); 
 }
 
-@media only screen and (max-width:600px){
-    .mapContainer{
-        height: 50%;
-        width: 100%;
-    }
-    .planTripOptions{
-        height:50%;
-        width:100%;
-    }
-}
