@@ -1,5 +1,5 @@
 {
-  "name": "react_starter",
+  "name": "trailMix",
   "version": "1.0.0",
   "description": "trailMix is a trail-finding based web application built by a team of 5 web developers during a 48 hour hackathon. The project was originally completed utilizing JavaScript and jQuery, and was later ported over to ReactJS and Redux.",
   "main": "index.js",
