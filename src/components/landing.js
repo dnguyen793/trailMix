@@ -15,13 +15,13 @@ class Landing extends Component{
         }
     }
 
-    handleLocationChange(event){  //Need this function here?
-        const newLocation = event.target.value;
+    // handleLocationChange(event){  //Need this function here?
+    //     const newLocation = event.target.value;
 
-        this.setState({
-            location: newLocation
-        });
-    }
+    //     this.setState({
+    //         location: newLocation
+    //     });
+    // }
 
     render(){
         
