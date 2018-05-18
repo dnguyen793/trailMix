@@ -653,47 +653,64 @@ p.label a{
 }
 
 .detailsTextArea {
-    display: flex;
-    width: 80%;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.detailsTextArea > * {
-    text-align: center;
+    /*display: flex;*/
+    width: 90%;
     font-family: 'Cabin', sans-serif;
+    /*flex-flow: column nowrap;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 
-.detailsHeightArea {
+/*.detailsTextArea > * {
+    /*text-align: center;
+}*/
+
+/*.detailsHeightArea {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-}
+}*/
 
 .detailsName {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: bolder;
+    text-align: center;
     margin-top: 10px;
     color: rgba(0,0,0,0.9);
 }
 
 .detailsLocation {
-    font-size: 1.8em;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 10px;
     color: rgba(23,86,13,1);
+    text-align: center;
+}
+.detailsElevation {
+    margin-bottom: 20px;
 }
 
-.detailsSummary, .detailsElevation, .detailsPeaks {
-    font-size: 1.6em;
+.detailsSummary, .elevationTitle, .peaksTitle, .detailsTitle {
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
-.detailsLength, .detailsDifficulty, .detailsRating, .detailsAscent, .detailsDescent, .detailsHigh, .detailsLow {
-    font-size: 1.5em;
+.detailsLength, 
+.detailsDifficulty, 
+.detailsRating, 
+.detailsAscent, 
+.detailsDescent, 
+.detailsHigh, 
+.detailsLow {
+    font-size: 1.4rem;
+}
+.detailsAscent, 
+.detailsDescent, 
+.detailsHigh, 
+.detailsLow {
+    padding-left: 2rem;
 }
 
 .detailsRating, .detailsSummary, .detailsHeightArea {

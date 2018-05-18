@@ -62,20 +62,20 @@ class Details extends Component {
                             <div className='detailsName'>{trailInfo.name}</div>
                             <div className='detailsLocation'>{trailInfo.location}</div>
                             <div className='detailsSummary'>{trailInfo.summary}</div>
-                            <div className='detailsLength'>Length: {trailInfo.length} miles</div>
-                            <div className='detailsDifficulty'>Difficulty: {this.translateDifficulty(trailInfo.difficulty) || ''}</div>
-                            <div className='detailsRating'>Rating: {trailInfo.stars} based on {trailInfo.starVotes} votes</div>
+                            <div className='detailsLength'><span className='detailsTitle'>Length:</span> {trailInfo.length} miles</div>
+                            <div className='detailsDifficulty'><span className='detailsTitle'>Difficulty:</span> {this.translateDifficulty(trailInfo.difficulty) || ''}</div>
+                            <div className='detailsRating'><span className='detailsTitle'>Rating:</span> {trailInfo.stars} (based on {trailInfo.starVotes} votes)</div>
                             <div className='detailsHeightArea'>
-                                <div className='detailsElevationArea'>
-                                    <div className='detailsElevation'>Elevation</div>
-                                    <div className='detailsAscent'>Ascent: {trailInfo.ascent} feet</div>
-                                    <div className='detailsDescent'>Descent: {trailInfo.descent} feet</div>
-                                </div>
-                                <div className="detailsPeaksArea">
-                                    <div className="detailsPeaks">Peaks</div>
-                                    <div className='detailsHigh'>Highest point: {trailInfo.high} feet</div>
-                                    <div className='detailsLow'>Lowest point: {trailInfo.low} feet</div>
-                                </div>
+                            <div className='detailsElevation'>
+                                <div className="elevationTitle">Elevation</div> 
+                                <div className='detailsAscent'>Ascent: {trailInfo.ascent} feet</div>
+                                <div className='detailsDescent'>Descent: {trailInfo.descent} feet</div>
+                            </div>
+                            <div className="detailsPeaks">
+                               <div className="peaksTitle">Peaks</div> 
+                                <div className='detailsHigh'>Highest point: {trailInfo.high} feet</div>
+                                <div className='detailsLow'>Lowest point: {trailInfo.low} feet</div>
+                            </div>
                             </div>
                         </div>
                     </div>
