@@ -67,8 +67,8 @@ class TrailList extends Component {
                 key: keys.rei,
                 lat:newProps.lat,
                 lon:newProps.long,
-                maxDistance:30,
-                maxResults:50,
+                maxDistance:25,
+                maxResults:30,
                 minStars:3
             };
             const url = 'https://www.hikingproject.com/data/get-trails';    
@@ -166,7 +166,7 @@ class TrailList extends Component {
         });        
 
         return (
-                <div>
+                <div className='pageContainer'>
                     {loadComponent}
                     <div className="header">
                         <Logo logoClass="wholeLogoContainerLite"/>  
