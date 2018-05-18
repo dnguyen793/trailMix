@@ -53,6 +53,16 @@ class Trail extends Component {
         }
     }
 
+    translateStars(num) {
+        if (num === 5) {
+            return '★★★★★'
+        } else if (num >= 4) {
+            return '★★★★☆'
+        } else if (num >= 3) {
+            return '★★★☆☆'
+        }
+    }
+
     render(){
 
         return (
@@ -63,7 +73,7 @@ class Trail extends Component {
                     <p>{this.props.trail.location}</p>
                     <p>Length: {this.props.trail.length} miles</p>
                     <p>Difficulty: {this.translateDifficulty(this.props.trail.difficulty)}</p>
-                    <p>Rating: {this.props.trail.stars} ★</p>
+                    <p>Rating: {this.translateStars(this.props.trail.stars)} </p>
                     <Link className='button-link' to={`/planTrip/${this.props.trail.latitude}/lat/${this.props.trail.longitude}/long/${this.props.trail.id}/id/${this.props.location}/location/details`}>Plan a Trip</Link>
                 </div>                
             </div>);

@@ -47,6 +47,16 @@ class Details extends Component {
         }
     }
 
+    translateStars(num) {
+        if (num === 5) {
+            return '★★★★★'
+        } else if (num >= 4) {
+            return '★★★★☆'
+        } else if (num >= 3) {
+            return '★★★☆☆'
+        }
+    }
+
     render() {
 
         const {trailInfo} = this.state;
@@ -63,7 +73,7 @@ class Details extends Component {
                             <div className='detailsSummary'>{trailInfo.summary}</div>
                             <div className='detailsLength'>Length: {trailInfo.length} miles</div>
                             <div className='detailsDifficulty'>Difficulty: {this.translateDifficulty(trailInfo.difficulty) || ''}</div>
-                            <div className='detailsRating'>Rating: {trailInfo.stars} based on {trailInfo.starVotes} votes</div>
+                            <div className='detailsRating'>Rating: {this.translateStars(trailInfo.stars)} based on {trailInfo.starVotes} votes</div>
                             <div className='detailsHeightArea'>
                                 <div className='detailsElevationArea'>
                                     <div className='detailsElevation'>Elevation</div>
