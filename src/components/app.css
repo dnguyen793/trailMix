@@ -686,6 +686,15 @@ a.tabLinks:last-child{
     color:white;
 }
 
+.dateLabel{
+    margin: 0 auto;
+    display: block;
+}
+
+.datesSelect input {
+    height: -webkit-fill-available;
+}
+
 .react-datepicker {
     font-size: 1em;
   }

@@ -387,6 +387,7 @@ class Weather extends Component{
             <div className="weatherContainer">
                 <div className="dateContainer">
                     <div className="datesSelect">
+                        <div className="dateLabel">Select a date: </div>
                         <DateInput updateWeather={this.updateWeather.bind(this)}/>
 
                     </div>
