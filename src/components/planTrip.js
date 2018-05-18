@@ -9,11 +9,6 @@ import { NavLink } from 'react-router-dom';
 import Directions from './directions';
 import Weather from './weather';
 import Details from './details';
-// import './mediaQuery2.css';
-
-
-
-
 
 class PlanTrip extends Component {
 
