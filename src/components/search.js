@@ -30,11 +30,11 @@ class Search extends Component{
     sendLocation(autoComplete){
         
         if(autoComplete && autoComplete !== this.oldLocation){
-            this.props.history.push(`/trailList/${autoComplete}/location`);
             this.setState({
                 location: autoComplete
             });
             this.oldLocation = autoComplete;
+            this.props.history.push(`/trailList/${autoComplete}/location`);
         }else{
             let finishLocation = this.state.location;
             if(this.state.location === ''){
