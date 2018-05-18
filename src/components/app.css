@@ -683,12 +683,14 @@ a.tabLinks:last-child{
     text-align: center;
     margin: 0.6rem !important;
 }
-.react-datepicker-ignore-onclickoutside{
+/* .react-datepicker-ignore-onclickoutside{
     font-size: 1.7rem !important;
-}
+} */
 .react-datepicker_input-container > input{
     font-size: 1.7rem !important;
+    height: -webkit-fill-available !important;
 }
+
 
   .react-datepicker__current-month {
     font-size: 1em;
@@ -911,7 +913,7 @@ input[type=date]{
     background: rgb(98,177,93); 
 }
 
-@media only screen and (max-width:600px){
+@media only screen and (max-width:780px){
     .mapContainer{
         height: 50%;
         width: 100%;
@@ -919,5 +921,27 @@ input[type=date]{
     .planTripOptions{
         height:50%;
         width:100%;
+        margin-top:3%;
+    }
+    .day1, .day2 .day3 {
+        background-repeat: repeat !important;
+        background-size: contain !important;
+    }
+    .currentDay{
+        height: 10%;
+        margin: 1% auto;
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+        padding-left: 10px;
+    }
+    .dayHigh, .dayLow, .dayPrecip {
+        display: inline-block;
+        padding-right:10px;
+    }
+    .dayHigh, .dayLow{
+        border-right: 2px solid #fefefe;
+    }
+    .dateContainer{
+        height:14%;
     }
 }
