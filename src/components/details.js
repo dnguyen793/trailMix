@@ -48,6 +48,16 @@ class Details extends Component {
         }
     }
 
+    translateStars(num) {
+        if (num === 5) {
+            return '★★★★★'
+        } else if (num >= 4) {
+            return '★★★★☆'
+        } else if (num >= 3) {
+            return '★★★☆☆'
+        }
+    }
+
     render() {
 
         const {trailInfo} = this.state;

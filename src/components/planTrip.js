@@ -62,10 +62,10 @@ class PlanTrip extends Component {
                     </div>
                     <div className="planTripOptions">
                         <div className="planTripTabs">
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/details`}>Trail Detail</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/details`}><span className="bigTab">Trail Detail</span><span className="smallTab">Details</span></NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/directions`}>Directions</NavLink>
                             <NavLink activeClassName='active selected' className="tabLinks" to={`/planTrip/${this.props.match.params.lat}/lat/${this.props.match.params.long}/long/${this.props.match.params.id}/id/${this.props.match.params.location}/location/weather`}>Weather</NavLink>
-                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/${this.props.match.params.location}/location`}>Back To Trails</NavLink>
+                            <NavLink activeClassName='active selected' className="tabLinks" to={`/trailList/${this.props.match.params.location}/location`}><span className="bigTab">Back To Trails</span><span className="smallTab">Back</span></NavLink>
                         </div>                   
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/details`} component={Details} />

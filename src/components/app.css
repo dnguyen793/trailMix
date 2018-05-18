@@ -67,36 +67,32 @@ body {
 /***************************************************************************/
 /*Logo*/
 /***************************************************************************/
-.wholeLogoContainer{
-    height: 22vmin;
+.wholeLogoContainer{    
     position: absolute;
-    left: 50vw;
+    top: 12%;
+    left: 50%;
     transform: translate(-50%, 0);
 }
 
 .wholeLogoContainerLite {
-    height: 26.6vmin;
-    position: absolute;
+    height: 100%;
+    position: relative;
     transform: scale(0.45);
-    /* top: -8%; */
-    top: -9.5%;
-    left: -2.9%;
+    float: left;
+    top: 15%;
 }
 
 .logo{
+    display: inline-block;
     height: 90%;
-    width: 16vmin;
+    width: 130px;
     position: relative;
-    float: left;
 }
 
 .earthContainer{
-    height: 11vmin;
-    width: 11vmin;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    height: 111px;
+    width: 111px;
+    position: relative;
 }
 
 .earthContainer > .earth{
@@ -124,8 +120,8 @@ body {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    height: 8vmin;
-    width: 9.5vmin;
+    height: 80%;
+    width: 95%;
     transform: translate(-50%, 0%);
 }
 .hikerContainer > .hiker{
@@ -138,13 +134,11 @@ body {
 }
 
 .titleContainer{
+    display: inline-block;
     font-family: 'Cabin', Arial, sans-serif;
     color: whitesmoke;
-    font-size: 6vmin;
-    float: left;
+    font-size: 5em;
     height: 100%;
-    vertical-align: baseline;
-    line-height: 35vmin;
 }
 
 
@@ -154,7 +148,9 @@ body {
 .mainPage{
     position: relative;
     height:100%;
-    width:100%;    
+    width:100%;      
+    min-height: 550px;
+    overflow-y: auto;  
 }
 
 .searchContainer{
@@ -223,13 +219,13 @@ body {
     vertical-align: top;
 }
 
-i.fas.fa-search {
+.startBtn > i.fas.fa-search {
     padding: 0 0.5rem;
     cursor: pointer;
 }
 
 .reset-instruction {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
@@ -248,8 +244,14 @@ p.label a{
 /***************************************************************************/
 /*Trail List Page*/
 /***************************************************************************/
+.pageContainer{
+    height: 100%;    
+    min-height: 750px;
+}
+
 .header {
-    height: 6rem;
+    position: relative;
+    height: 100px;
     background-color: rgba(29, 46, 1, 1);
     border-bottom: 1px solid rgba(255,255,255,0.7);
 }
@@ -258,8 +260,9 @@ p.label a{
     width: 100%;
     height: 3rem;
     position: absolute;
-    top: 2%;
+    top: 50%;
     left: 28%;
+    transform: translate(0,-50%);
 }
 .searchDiv div {
     height: 100%;
@@ -271,20 +274,15 @@ p.label a{
 }
 
 .mainContent{
-    position: absolute;
-    top: 11%;
-    left: 50%;
-    transform: translate(-50%,0);
     width: 90%;
-    height: 87%;
-    margin: auto;
+    height: 83%;
+    margin: 2% auto;
 }
 
 .mapContainer{
     display: inline-block;
     height: 100%;
     width: 59%;
-    transition: 2s;
     padding-right: 3%;
 }
 
@@ -562,6 +560,10 @@ p.label a{
 }
 
 /******************************* PlanTrip  ********************************/
+.plantrip{
+    height: 100%;
+}
+
 .planTripSearch {
     width: 100%;
     height: 3rem;
@@ -608,7 +610,9 @@ p.label a{
     border-bottom: black 6px solid;
     box-sizing: border-box;
 }
-
+.smallTab{
+    display:none;
+}
 .tabLinks:last-child{
     background-color: rgb(201, 0, 0);
     border-top-right-radius: 6px;
@@ -716,6 +720,21 @@ p.label a{
 .detailsRating, .detailsSummary, .detailsHeightArea {
     margin-bottom: 20px;
 }
+@media only screen and (max-width:1150px){
+    .smallTab{
+        display:inline-block;
+    }
+    .bigTab{
+        display:none;
+    }
+}
+@media only screen and (max-width:780px){
+    .bigTab{
+        display:inline-block;
+    }
+    .largeTab{
+        display:none;
+    }
 
 /******************************* Driving Direction ******************************/
 
@@ -748,6 +767,17 @@ p.label a{
     color:white;
 }
 
+.dateLabel{
+    margin: 0 auto;
+    display: block;
+    font-size:1.5rem;
+    color:black;
+}
+
+.datesSelect input {
+    height: -webkit-fill-available;
+}
+
 .react-datepicker {
     font-size: 1em;
   }
@@ -765,12 +795,14 @@ p.label a{
     text-align: center;
     margin: 0.6rem !important;
 }
-.react-datepicker-ignore-onclickoutside{
+/* .react-datepicker-ignore-onclickoutside{
     font-size: 1.7rem !important;
-}
+} */
 .react-datepicker_input-container > input{
     font-size: 1.7rem !important;
+    height: -webkit-fill-available !important;
 }
+
 
   .react-datepicker__current-month {
     font-size: 1em;
@@ -974,6 +1006,38 @@ input[type=date]{
 }
  
 ::-webkit-scrollbar-thumb {
-    background: rgb(98,177,93); 
+    /* background: rgb(98,177,93);  */
 }
 
+@media only screen and (max-width:780px){
+    .mapContainer{
+        height: 50%;
+        width: 100%;
+    }
+    .planTripOptions{
+        height:50%;
+        width:100%;
+        margin-top:3%;
+    }
+    .day1, .day2, .day3 {
+        background-repeat: repeat !important;
+        background-size: contain !important;
+    }
+    .currentDay{
+        height: 10%;
+        margin: 1% auto;
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+        padding-left: 10px;
+    }
+    .dayHigh, .dayLow, .dayPrecip {
+        display: inline-block;
+        padding-right:10px;
+    }
+    .dayHigh, .dayLow{
+        border-right: 2px solid #fefefe;
+    }
+    .dateContainer{
+        height:14%;
+    }
+}
