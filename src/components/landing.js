@@ -15,14 +15,6 @@ class Landing extends Component{
         }
     }
 
-    // handleLocationChange(event){  //Need this function here?
-    //     const newLocation = event.target.value;
-
-    //     this.setState({
-    //         location: newLocation
-    //     });
-    // }
-
     render(){
         
         let notValidMessage = '';
