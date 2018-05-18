@@ -576,7 +576,8 @@ p.label a{
 
 .planTripOptions {
     width: 38%;
-    height: 100%;
+    height: 99%;
+    padding-bottom:1%;
     display: inline-block;
     vertical-align: top;
     background-color: rgba(255,255,255,0.8);
@@ -742,7 +743,7 @@ input[type=date]{
 
 .day1, .day2, .day3{
     font-family: 'Dosis', Arial, sans-serif;
-    height: 33%;
+    height: 40%;
     /* width: 100%; */
     /* padding: 2%; */
     overflow: hidden;
