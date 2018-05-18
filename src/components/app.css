@@ -610,19 +610,16 @@ p.label a{
     border-bottom: black 6px solid;
     box-sizing: border-box;
 }
-
 .smallTab{
     display:none;
 }
-a.tabLinks:last-child{
+.tabLinks:last-child{
     background-color: rgb(201, 0, 0);
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     color: white;
-    /* height: 48px; */
     border: rgb(201, 0, 0) solid 6px;
-    /* border-bottom: 3px solid black; */
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .tabLinks:hover {
@@ -636,10 +633,93 @@ a.tabLinks:last-child{
 }
 
 .tabContent {
-    height: 95%;
+    height: calc(100% - 40px);
+    width: 92%;
+    margin: 0 auto;
     overflow: scroll;
 }
 
+
+/******************************Trail Detail (details.css) *******************************/
+.detailsInfoContainer {
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsImg {
+    max-height: 50vh;
+    border-radius: 15px;
+}
+
+.detailsTextArea {
+    /*display: flex;*/
+    width: 90%;
+    font-family: 'Cabin', sans-serif;
+    /*flex-flow: column nowrap;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+/*.detailsTextArea > * {
+    /*text-align: center;
+}*/
+
+/*.detailsHeightArea {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}*/
+
+.detailsName {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(0,0,0,0.9);
+}
+
+.detailsLocation {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgba(23,86,13,1);
+    text-align: center;
+}
+.detailsElevation {
+    margin-bottom: 20px;
+}
+
+.detailsSummary, .elevationTitle, .peaksTitle, .detailsTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.detailsLength, 
+.detailsDifficulty, 
+.detailsRating, 
+.detailsAscent, 
+.detailsDescent, 
+.detailsHigh, 
+.detailsLow {
+    font-size: 1.4rem;
+}
+.detailsAscent, 
+.detailsDescent, 
+.detailsHigh, 
+.detailsLow {
+    padding-left: 2rem;
+}
+
+.detailsRating, .detailsSummary, .detailsHeightArea {
+    margin-bottom: 20px;
+}
 @media only screen and (max-width:1150px){
     .smallTab{
         display:inline-block;
@@ -655,7 +735,6 @@ a.tabLinks:last-child{
     .largeTab{
         display:none;
     }
-}
 
 /******************************* Driving Direction ******************************/
 
@@ -835,22 +914,6 @@ input[type=date]{
     white-space: nowrap;
     font-size: 1.5rem;
     padding-left: 10px;
-}
-
-@media screen and (max-width: 450px) {
-    .weatherContainer{
-        font-size: 3rem;
-    }
-    .dayHigh, .dayLow, .dayPrecip{
-        white-space: normal;
-    }
-    .datesSelect p{
-        font-size: 12px;
-    }
-    .amazonContainer button{
-        width: 40%;
-        font-size: 6px;
-    }
 }
 
 .hidden{
