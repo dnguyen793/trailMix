@@ -835,19 +835,18 @@ input[type=date]{
 }
 
 .hikerOrbit {
-    border: 2px solid #373737;
     border-radius: 50%;
     left: 45%;
-    height: 20vmin;
+    height: 19.5vmin;
     position: absolute;
     top: 40%;
-    width: 20vmin;
+    width: 19.5vmin;
     z-index: 1000;
-    -webkit-animation: spin-right 7s linear infinite;
-    -moz-animation: spin-right 7s linear infinite;
-    -ms-animation: spin-right 7s linear infinite;
-    -o-animation: spin-right 7s linear infinite;
-    animation: spin-right 7s linear infinite;
+    -webkit-animation: spin-right 2s linear infinite;
+    -moz-animation: spin-right 2s linear infinite;
+    -ms-animation: spin-right 2s linear infinite;
+    -o-animation: spin-right 2s linear infinite;
+    animation: spin-right 2s linear infinite;
 }
 
 .loadingHiker {
