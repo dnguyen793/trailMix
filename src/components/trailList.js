@@ -128,16 +128,17 @@ class TrailList extends Component {
             var divToFocus = document.getElementById(trailObj.name);
             divToFocus.classList.add("trailDivFocus");
             divToFocus.scrollIntoView();
+
+            setTimeout((()=>{
+                this.setIcon({
+                    url: markerIcon2,
+                    scaledSize: new google.maps.Size(40,50)
+                });
+                this.setAnimation(null);
+            }).bind(this),3000);
+
         });
-     
-        marker.addListener('mouseout', function() {
-            this.setIcon({
-                url: markerIcon2,
-                scaledSize: new google.maps.Size(40,50)
-            });
-            this.setAnimation(null);
-        });
-        
+             
         return marker;
     }
     
