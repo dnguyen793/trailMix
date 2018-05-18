@@ -782,16 +782,20 @@ p.label a{
 .dateContainer{
     font-family: 'Cabin', Arial, sans-serif;
     width: 100%;
-    height: 6%;
+    height: auto;
     font-size: 1.5rem;
 }
 
 .datesSelect{
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     font-size:2rem;
     color:white;
+    flex-flow: column nowrap;
+}
+
+.datesSelect > div {
+    margin: auto;
 }
 
 .dateLabel{
@@ -799,10 +803,6 @@ p.label a{
     display: block;
     font-size:1.5rem;
     color:black;
-}
-
-.datesSelect input {
-    height: -webkit-fill-available;
 }
 
 .react-datepicker {

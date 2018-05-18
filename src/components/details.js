@@ -74,7 +74,7 @@ class Details extends Component {
                             <div className='detailsSummary'>{trailInfo.summary}</div>
                             <div className='detailsLength'><span className='detailsTitle'>Length:</span> {trailInfo.length} miles</div>
                             <div className='detailsDifficulty'><span className='detailsTitle'>Difficulty:</span> {this.translateDifficulty(trailInfo.difficulty) || ''}</div>
-                            <div className='detailsRating'><span className='detailsTitle'>Rating:</span> {trailInfo.stars} (based on {trailInfo.starVotes} votes)</div>
+                            <div className='detailsRating'><span className='detailsTitle'>Rating:</span> {this.translateStars(trailInfo.stars)} (based on {trailInfo.starVotes} votes)</div>
                             <div className='detailsHeightArea'>
                             <div className='detailsElevation'>
                                 <div className="elevationTitle">Elevation</div> 
