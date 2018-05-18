@@ -10,6 +10,7 @@ import keys from '../assets/config/apiKeys';
 import Search from './search';
 import Logo from './logo';
 import Sorter from './sorter';
+import Loading from './loading';
 
 
 class TrailList extends Component {
@@ -18,7 +19,8 @@ class TrailList extends Component {
         super(props);
 
         this.state = {
-            trails : []    
+            trails : [],   
+            loading: true
         };
     }
     
@@ -56,6 +58,9 @@ class TrailList extends Component {
 
     componentWillReceiveProps(newProps){
         if(this.props.match.params.location !== newProps.match.params.location){
+            this.setState({
+                loading: true
+            });
             this.props.getCoordinates(newProps.match.params.location,this.props); 
         }else{
             const params = {
@@ -80,7 +85,8 @@ class TrailList extends Component {
     
                 const trailArraySorterByRaiting = trailList.sort((a,b)=> b.stars - a.stars);
                 this.setState({
-                    trails: trailArraySorterByRaiting
+                    trails: trailArraySorterByRaiting,
+                    loading: false
                 });
                 
             }).catch(err => {
@@ -130,8 +136,6 @@ class TrailList extends Component {
                 scaledSize: new google.maps.Size(40,50)
             });
             this.setAnimation(null);
-            // var divToFocus = document.getElementById(trailObj.name);
-            // divToFocus.classList.remove("trailDivFocus");
         });
         
         return marker;
@@ -151,12 +155,18 @@ class TrailList extends Component {
 
     render(){
 
+        let loadComponent = '';
+        if(this.state.loading){
+            loadComponent = <Loading />
+        }
+
         const list = this.state.trails.map((item,index)=>{
             return <Trail key={index} trail={item} location={this.props.match.params.location} />
-        });
+        });        
 
         return (
                 <div>
+                    {loadComponent}
                     <div className="header">
                         <Logo logoClass="wholeLogoContainerLite"/>  
                         <div className='searchDiv'>

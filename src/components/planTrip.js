@@ -13,15 +13,6 @@ import Details from './details';
 
 
 class PlanTrip extends Component {
-	
-	constructor(props){
-		super(props);
-		this.state = {
-			location: []
-            // initLat: 0, //Need these?
-            // initLong: 0
-		};
-	}
 
     componentDidMount(){  
         if (typeof google !== 'object'){
@@ -41,7 +32,7 @@ class PlanTrip extends Component {
     
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
-            this.props.match.params.long, this.props.initLat, this.props.initLong, this.props.map);
+            this.props.match.params.long, this.props.map, this.props.match.params.location);
     }
     
     loadJS(src) {
@@ -76,7 +67,7 @@ class PlanTrip extends Component {
                         <div className="tabContent">
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/details`} component={Details} />
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/directions`} 
-                                render={props => <Directions {...props} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
+                                render={props => <Directions {...props} location={this.props.match.params.location} traillat={this.props.match.params.lat} traillong={this.props.match.params.long}/> }/>
                             <Route path={`/planTrip/:lat/lat/:long/long/:id/id/:location/location/weather`} component={Weather} />
                         </div>
                     </div>    

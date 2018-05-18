@@ -6,20 +6,11 @@ import keys from '../assets/config/apiKeys';
 
 class DrivingDirections extends Component {
 	
-	constructor(props){
-		super(props);
-		this.state = {
-			location: []
-   //          initLat: 0, //Remove the constructor?
-   //          initLong: 0
-		};
-	}
-
     componentDidMount(){  
         if(Object.keys(this.props.map).length > 0){ 
         //Only calls getDirections when the map already exists, so that the directions won't load twice;
             this.props.getDirections(this.props.traillat, 
-                this.props.traillong, this.props.initLat, this.props.initLong, this.props.map);
+                    this.props.traillong, this.props.map, this.props.match.params.location);
         }
     }
 
