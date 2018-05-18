@@ -691,6 +691,8 @@ a.tabLinks:last-child{
 .dateLabel{
     margin: 0 auto;
     display: block;
+    font-size:1.5rem;
+    color:black;
 }
 
 .datesSelect input {
