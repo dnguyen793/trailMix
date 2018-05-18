@@ -635,6 +635,71 @@ p.label a{
     overflow: scroll;
 }
 
+
+/******************************Trail Detail (details.css) *******************************/
+.detailsInfoContainer {
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsImg {
+    max-height: 50vh;
+    border-radius: 15px;
+}
+
+.detailsTextArea {
+    display: flex;
+    width: 80%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsTextArea > * {
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+}
+
+.detailsHeightArea {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detailsName {
+    font-size: 2.5em;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: rgba(0,0,0,0.9);
+}
+
+.detailsLocation {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgba(23,86,13,1);
+}
+
+.detailsSummary, .detailsElevation, .detailsPeaks {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.detailsLength, .detailsDifficulty, .detailsRating, .detailsAscent, .detailsDescent, .detailsHigh, .detailsLow {
+    font-size: 1.5em;
+}
+
+.detailsRating, .detailsSummary, .detailsHeightArea {
+    margin-bottom: 20px;
+}
+
 /******************************* Driving Direction ******************************/
 
 #drivingDirectionContainer {
