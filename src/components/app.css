@@ -223,7 +223,7 @@ body {
     vertical-align: top;
 }
 
-i.fas.fa-search {
+.startBtn > i.fas.fa-search {
     padding: 0 0.5rem;
     cursor: pointer;
 }
@@ -943,7 +943,7 @@ input[type=date]{
         width:100%;
         margin-top:3%;
     }
-    .day1, .day2 .day3 {
+    .day1, .day2, .day3 {
         background-repeat: repeat !important;
         background-size: contain !important;
     }
