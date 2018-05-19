@@ -246,7 +246,7 @@ p.label a{
 /***************************************************************************/
 .pageContainer{
     height: 100%;    
-    min-height: 750px;
+    min-height: 650px;
 }
 
 .header {
@@ -275,7 +275,7 @@ p.label a{
 
 .mainContent{
     width: 90%;
-    height: 83%;
+    height: 81%;
     margin: 2% auto;
 }
 
@@ -570,6 +570,7 @@ p.label a{
 /******************************* PlanTrip  ********************************/
 .plantrip{
     height: 100%;
+    min-height: 650px;
 }
 
 .planTripSearch {
@@ -587,7 +588,7 @@ p.label a{
 
 .planTripOptions {
     width: 38%;
-    height: 99%;
+    height: 98%;
     padding-bottom:1%;
     display: inline-block;
     vertical-align: top;
