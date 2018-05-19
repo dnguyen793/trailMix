@@ -1,4 +1,4 @@
-@media only screen and (max-width:1100px){
+/*@media only screen and (max-width:1150px){
     .tabLinks {
         font-size: 1rem;
     }
@@ -24,6 +24,44 @@
     .detailsLow {
     font-size: 1.3rem;
     }
+    .smallTab{
+        display:inline-block;
+    }
+    .bigTab{
+        display:none;
+    }
+}*/
+/*@media only screen and (max-width:780px){
+    .mapContainer{
+        height: 50%;
+        width: 100%;
+    }
+    .planTripOptions{
+        height:50%;
+        width:100%;
+        margin-top:3%;
+    }
+    .day1, .day2, .day3 {
+        background-repeat: repeat !important;
+        background-size: contain !important;
+    }
+    .currentDay{
+        height: 10%;
+        margin: 1% auto;
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+        padding-left: 10px;
+    }
+    .dayHigh, .dayLow, .dayPrecip {
+        display: inline-block;
+        padding-right:10px;
+    }
+    .dayHigh, .dayLow{
+        border-right: 2px solid #fefefe;
+    }
+    .dateContainer{
+        height:14%;
+    }
 }
 
 @media only screen and (max-width:768px){
@@ -36,9 +74,15 @@
         height:47%;
         width:100%;
     }
-}
+    .bigTab{
+        display:inline-block;
+    }
+    .largeTab{
+        display:none;
+    }
+}*/
 
-@media screen and (max-width: 450px) {
+/*@media screen and (max-width: 450px) {
     .weatherContainer{
         font-size: 3rem;
     }
@@ -52,9 +96,9 @@
         width: 40%;
         font-size: 6px;
     }
-}
+}*/
 
-@media screen and (max-width: 375px) {
+/*@media screen and (max-width: 375px) {
     .detailsName {
         font-size: 1.7rem;
     }
@@ -77,4 +121,4 @@
     .detailsLow {
     font-size: 1rem;
     }
-}
+}*/

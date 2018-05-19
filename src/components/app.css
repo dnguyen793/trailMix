@@ -339,12 +339,6 @@ p.label a{
     overflow:hidden;
 }
 
-@media screen and (max-width: 450px) {
-    .trailDetailContainer{
-        font-size: 4rem;
-    }
-}
-
 .detailTrail{
     width: 100%;
     padding-top: 3%;
@@ -361,12 +355,7 @@ p.label a{
     width: 50%;
 }
 
-@media (min-width: 600px) and (max-width: 767.98px) {
-    .detailTrail img{
-        float: right;
-        width: 30%;
-    }
-}
+
 
 .detailTrail span{
     font-weight: bold;
@@ -388,12 +377,6 @@ p.label a{
     background-color: rgba(245, 245, 245, .8);
     border-radius: 15px;
     box-shadow: 3px 3px 1px #999;
-}
-
-@media screen and (max-width: 450px) {
-    .directionsContainer{
-        font-size: 4rem;
-    }
 }
 
 .weatherContainer{
@@ -721,22 +704,7 @@ p.label a{
 .detailsRating, .detailsSummary, .detailsHeightArea {
     margin-bottom: 20px;
 }
-@media only screen and (max-width:1150px){
-    .smallTab{
-        display:inline-block;
-    }
-    .bigTab{
-        display:none;
-    }
-}
-@media only screen and (max-width:780px){
-    .bigTab{
-        display:inline-block;
-    }
-    .largeTab{
-        display:none;
-    }
-}
+
 
 /******************************* Driving Direction ******************************/
 
@@ -1011,35 +979,4 @@ input[type=date]{
     /* background: rgb(98,177,93);  */
 }
 
-@media only screen and (max-width:780px){
-    .mapContainer{
-        height: 50%;
-        width: 100%;
-    }
-    .planTripOptions{
-        height:50%;
-        width:100%;
-        margin-top:3%;
-    }
-    .day1, .day2, .day3 {
-        background-repeat: repeat !important;
-        background-size: contain !important;
-    }
-    .currentDay{
-        height: 10%;
-        margin: 1% auto;
-        font-size: 1.5rem;
-        padding-bottom: 1%;
-        padding-left: 10px;
-    }
-    .dayHigh, .dayLow, .dayPrecip {
-        display: inline-block;
-        padding-right:10px;
-    }
-    .dayHigh, .dayLow{
-        border-right: 2px solid #fefefe;
-    }
-    .dateContainer{
-        height:14%;
-    }
-}
+
