@@ -609,14 +609,16 @@ p.label a{
     font-family: 'Cabin', sans-serif;
     display: inline-block;
     width: 25%;
+    height: 40px;
     color: black;
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
-    padding: 2%;
+    /*padding: 2%;*/
     font-size: 1.2rem;
-    height: 40px;
-    border-bottom: black 6px solid;
+    line-height: 40px;
+    vertical-align: top;
+    border-bottom: black 3px solid;
     box-sizing: border-box;
 }
 .smallTab{
@@ -627,14 +629,21 @@ p.label a{
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     color: white;
-    border: rgb(201, 0, 0) solid 6px;
+    border: rgb(201, 0, 0) solid 3px;
+    border-bottom: black 3px solid;
     font-size: 1rem;
+    line-height: 40px;
+    height: 40px;
+    vertical-align: top;
+    /*padding: 2% 0;*/
 }
 
 .tabLinks:hover {
     background-color: #ddd;
 }
-
+.tabLinks:last-child:hover{
+    color: red;
+}
 .selected {
     background-color: #b9b8b8;
     color: #fff;
