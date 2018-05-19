@@ -24,12 +24,12 @@
     .detailsLow {
     font-size: 1.3rem;
     }
-    .smallTab{
+/*    .smallTab{
         display:inline-block;
     }
     .bigTab{
         display:none;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 1024px){
@@ -41,6 +41,8 @@
         height: 96.5%;
     }
 
+
+
 }
 
 @media only screen and (max-width: 950px){
@@ -51,64 +53,53 @@
         left: 50%;
         top: 5%;
         transform: translate(-50%, 0) scale(1.5);
-    }
-    .planTripOptions {
-        display: block;
+    }    
+    .mapContainer {
         width: 100%;
+        height: 50%;
+        margin-bottom: 20px;
     }
-
+    .planTripOptions{
+        height:47%;
+        width:100%;
+    }
     .searchInput {
         width: 60%;
     }
-
     .searchDiv {
         width: 70%;
     }
-
     .wholeLogoContainerLite{
         left: -7.5%;
         transform: scale(0.35);
         float: left;
         top: 9%;
     }
-
-    .mapContainer {
-        display: block;
-        height: 50%;
-        width: 100%;
-    }
-
     .trailContainer {
         display: block;
         width: 100%;        
         margin-top: 5%;
         height: 45%;
     }
-
     .trailDiv img {
         width: 23vw;
         height: 23vw;
     }
-
     .header {
         height: 85px;
     }
-
     .mainContent {
         height: 86%;
     }
+    .tabLinks {
+        font-size: 1.4rem;
+    }
+    .tabLinks:last-child {
+        font-size: 1.4rem;
+    }
 }
 
-@media only screen and (max-width:780px){
-    .mapContainer{
-        height: 50%;
-        width: 100%;
-    }
-    .planTripOptions{
-        height:50%;
-        width:100%;
-        margin-top:3%;
-    }
+@media only screen and (max-width:768px){
     .day1, .day2, .day3 {
         background-repeat: repeat !important;
         background-size: contain !important;
@@ -133,21 +124,12 @@
 }
 
 @media only screen and (max-width:768px){
-    .mapContainer {
-        width: 100%;
-        height: 50%;
-        margin-bottom: 3%;
-    }
-    .planTripOptions{
-        height:47%;
-        width:100%;
-    }
-    .bigTab{
+/*    .bigTab{
         display:inline-block;
     }
     .largeTab{
         display:none;
-    }
+    }*/
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -155,6 +137,16 @@
         float: right;
         width: 30%;
     }
+}
+
+@media only screen and (max-width: 550px){
+    .tabLinks {
+        font-size: 1.3rem;
+    }
+    .tabLinks:last-child {
+        font-size: 1.2rem;
+    }
+    
 }
 
 @media only screen and (max-width: 450px){
@@ -248,6 +240,12 @@
     .wholeLogoContainerLite {
         left: -28.5%;
     }
+    .tabLinks {
+        font-size: 1.2rem;
+    }
+    .tabLinks:last-child {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-device-width: 1024px) and (orientation: landscape){
@@ -320,7 +318,6 @@
     html {
         font-size: 8px;
     }
-
     .wholeLogoContainerLite {
         left: -12.5%;       
     }
