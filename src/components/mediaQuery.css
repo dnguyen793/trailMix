@@ -52,6 +52,10 @@
         top: 5%;
         transform: translate(-50%, 0) scale(1.5);
     }
+    .planTripOptions {
+        display: block;
+        width: 100%;
+    }
 
     .searchInput {
         width: 60%;
