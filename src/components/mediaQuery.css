@@ -1,4 +1,38 @@
-/*@media only screen and (max-width: 1024px){
+@media only screen and (max-width:1150px){
+    .tabLinks {
+        font-size: 1rem;
+    }
+    .tabLinks:last-child{
+        font-size: 0.9rem;
+    }
+    .detailsName {
+        font-size: 2rem;
+    }
+    .detailsLocation {
+        font-size: 1.5rem;
+    }
+    .detailsSummary {
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+    .detailsLength, 
+    .detailsDifficulty, 
+    .detailsRating, 
+    .detailsAscent, 
+    .detailsDescent, 
+    .detailsHigh, 
+    .detailsLow {
+    font-size: 1.3rem;
+    }
+    .smallTab{
+        display:inline-block;
+    }
+    .bigTab{
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 1024px){
     .mainContent {
         height: 89%;
     }
@@ -17,6 +51,10 @@
         left: 50%;
         top: 5%;
         transform: translate(-50%, 0) scale(1.5);
+    }
+    .planTripOptions {
+        display: block;
+        width: 100%;
     }
 
     .searchInput {
@@ -61,6 +99,64 @@
     }
 }
 
+@media only screen and (max-width:780px){
+    .mapContainer{
+        height: 50%;
+        width: 100%;
+    }
+    .planTripOptions{
+        height:50%;
+        width:100%;
+        margin-top:3%;
+    }
+    .day1, .day2, .day3 {
+        background-repeat: repeat !important;
+        background-size: contain !important;
+    }
+    .currentDay{
+        height: 10%;
+        margin: 1% auto;
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+        padding-left: 10px;
+    }
+    .dayHigh, .dayLow, .dayPrecip {
+        display: inline-block;
+        padding-right:10px;
+    }
+    .dayHigh, .dayLow{
+        border-right: 2px solid #fefefe;
+    }
+    .dateContainer{
+        height:14%;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .mapContainer {
+        width: 100%;
+        height: 50%;
+        margin-bottom: 3%;
+    }
+    .planTripOptions{
+        height:47%;
+        width:100%;
+    }
+    .bigTab{
+        display:inline-block;
+    }
+    .largeTab{
+        display:none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+    .detailTrail img{
+        float: right;
+        width: 30%;
+    }
+}
+
 @media only screen and (max-width: 450px){
     
     html {
@@ -81,6 +177,50 @@
         height: 88%;
     }
 
+    .weatherContainer{
+        font-size: 3rem;
+    }
+    .dayHigh, .dayLow, .dayPrecip{
+        white-space: normal;
+    }
+    .datesSelect p{
+        font-size: 12px;
+    }
+    .amazonContainer button{
+        width: 40%;
+        font-size: 6px;
+    }
+    .trailDetailContainer{
+        font-size: 4rem;
+    }
+    .directionsContainer{
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .detailsName {
+        font-size: 1.7rem;
+    }
+    .detailsLocation,
+    .detailsTitle,
+    .elevationTitle,
+    .peaksTitle {
+        font-size: 1.2rem;
+    }
+    .detailsSummary {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    .detailsLength, 
+    .detailsDifficulty, 
+    .detailsRating, 
+    .detailsAscent, 
+    .detailsDescent, 
+    .detailsHigh, 
+    .detailsLow {
+    font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 360px){
@@ -184,4 +324,4 @@
     .wholeLogoContainerLite {
         left: -12.5%;       
     }
-}*/
+}
