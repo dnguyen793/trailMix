@@ -80,6 +80,7 @@ body {
     transform: scale(0.45);
     float: left;
     top: 15%;
+    cursor: pointer;
 }
 
 .logo{

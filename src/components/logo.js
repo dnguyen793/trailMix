@@ -4,9 +4,13 @@ import earth from '../assets/images/logo/earth.png';
 
 class Logo extends Component{
 
+    backToLanding(){
+        this.props.history.push(`/`);
+    }
+    
     render(){        
         return (  
-            <div className={this.props.logoClass}>
+            <div className={this.props.logoClass} onClick={this.backToLanding.bind(this)} >
                 <div className="logo">
                     <div className="earthContainer">
                         <div className="hikerContainer">
