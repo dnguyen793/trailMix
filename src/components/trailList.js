@@ -169,7 +169,7 @@ class TrailList extends Component {
                 <div className='pageContainer'>
                     {loadComponent}
                     <div className="header">
-                        <Logo logoClass="wholeLogoContainerLite"/>  
+                        <Logo {...this.props} logoClass="wholeLogoContainerLite"/>  
                         <div className='searchDiv'>
                             <Search {...this.props} />  
                         </div>  

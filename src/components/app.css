@@ -80,6 +80,7 @@ body {
     transform: scale(0.45);
     float: left;
     top: 15%;
+    cursor: pointer;
 }
 
 .logo{
@@ -615,35 +616,30 @@ p.label a{
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
-    /*padding: 2%;*/
     font-size: 1.2rem;
     line-height: 40px;
     vertical-align: top;
     border-bottom: black 3px solid;
     box-sizing: border-box;
 }
-.smallTab{
-    display:none;
-}
 .tabLinks:last-child{
     background-color: rgb(201, 0, 0);
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     color: white;
-    border: rgb(201, 0, 0) solid 3px;
     border-bottom: black 3px solid;
     font-size: 1rem;
+    font-weight: bold;
     line-height: 40px;
     height: 40px;
     vertical-align: top;
-    /*padding: 2% 0;*/
 }
-
 .tabLinks:hover {
     background-color: #ddd;
 }
 .tabLinks:last-child:hover{
     color: red;
+    background-color: lightgreen;
 }
 .selected {
     background-color: #b9b8b8;
