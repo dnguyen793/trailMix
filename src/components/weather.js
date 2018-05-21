@@ -89,17 +89,14 @@ class Weather extends Component{
             day1Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
             day2Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
             day3Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
         }, () => {
             this.callWeather();
@@ -113,11 +110,11 @@ class Weather extends Component{
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day1Back.backgroundImage);
-                    console.log('day1 '+response.currently.icon);
+                    // console.log(response);
+                    // console.log(this.state.day1Back.backgroundImage);
+                    // console.log('day1 '+response.currently.icon);
                     let iconName1 = response.currently.icon;
-                    console.log(iconName1);
+                    console.log('Day1 summary: '+iconName1);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName1);
@@ -167,7 +164,6 @@ class Weather extends Component{
                         day1Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day1Text:{
                             summary: response.daily.data[0].summary,
@@ -189,11 +185,11 @@ class Weather extends Component{
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day2Back.backgroundImage);
-                    console.log('day2 '+response.currently.icon);
+                    // console.log(response);
+                    // console.log(this.state.day2Back.backgroundImage);
+                    // console.log('day2 '+response.currently.icon);
                     let iconName2 = response.currently.icon;
-                    console.log(iconName2);
+                    console.log('Day 2 summary: '+iconName2);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName2);
@@ -243,7 +239,6 @@ class Weather extends Component{
                         day2Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day2Text:{
                             summary: response.daily.data[0].summary,
@@ -264,11 +259,11 @@ class Weather extends Component{
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day3Back.backgroundImage);
-                    console.log('day2 '+response.currently.icon);
+                    // console.log(response);
+                    // console.log(this.state.day3Back.backgroundImage);
+                    // console.log('day2 '+response.currently.icon);
                     let iconName3 = response.currently.icon;
-                    console.log(iconName3);
+                    console.log('Day 3 summary: '+iconName3);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName3);
@@ -318,7 +313,6 @@ class Weather extends Component{
                         day3Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day3Text:{
                             summary: response.daily.data[0].summary,

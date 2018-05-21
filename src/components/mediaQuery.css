@@ -93,11 +93,8 @@
     }
 }
 
-@media only screen and (max-width:768px){
-    .day1, .day2, .day3 {
-        background-repeat: repeat !important;
-        background-size: contain !important;
-    }
+@media only screen and (max-width:950px){
+
     .currentDay{
         height: 10%;
         margin: 1% auto;
@@ -111,9 +108,6 @@
     }
     .dayHigh, .dayLow{
         border-right: 2px solid #fefefe;
-    }
-    .dateContainer{
-        height:14%;
     }
 }
 
