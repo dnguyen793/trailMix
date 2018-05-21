@@ -84,9 +84,9 @@ class TrailList extends Component {
                     return item;
                 });
     
-                const trailArraySorterByRaiting = trailList.sort((a,b)=> b.stars - a.stars);
+                const trailArraySorterByRating = trailList.sort((a,b)=> b.stars - a.stars);
                 this.setState({
-                    trails: trailArraySorterByRaiting,
+                    trails: trailArraySorterByRating,
                     loading: false
                 });
                 
