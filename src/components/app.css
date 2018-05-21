@@ -180,7 +180,7 @@ body {
 .searchInput{
     display: inline-block;
     font-family: 'Cabin', sans-serif;
-    width: 40%;
+    width: 55%;
     height: 95%;
     text-align: center;
     border: 0;
@@ -259,7 +259,7 @@ p.label a{
 }
 
 .searchDiv{
-    width: 100%;
+    width: 72%;
     height: 3rem;
     position: absolute;
     top: 50%;
