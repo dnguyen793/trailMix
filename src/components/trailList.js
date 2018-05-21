@@ -79,6 +79,7 @@ class TrailList extends Component {
                     
                     //add the markers
                     var marker = this.addMarkerToEachTrail(item);
+                    item.difficultyNum = this.translateDifficultyToNumber(item.difficulty);
                     item['marker']=marker;
                     return item;
                 });
@@ -93,6 +94,25 @@ class TrailList extends Component {
                 console.log('error is: ', err);    
             });    
         }               
+    }
+
+    translateDifficultyToNumber(string) {
+        switch (string) {
+            case 'green':
+                return 1;
+            case 'greenBlue':
+                return 2;
+            case 'blue':
+                return 3;
+            case 'blueBlack':
+                return 4;
+            case 'black':
+                return 5;
+            case 'dblack':
+                return 6;
+            default:
+                return 0;
+        }
     }
 
     /***************************************************************************************************
