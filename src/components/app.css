@@ -126,12 +126,12 @@ body {
     transform: translate(-50%, 0%);
 }
 .hikerContainer > .hiker{
-    height: 100%;
-    width: 100%;
-    top: 14%;
+    height: 80%;
+    width: 80%;
+    top: 21%;
+    left: 5%;
     position: relative;
     z-index: 1;
-
 }
 
 .titleContainer{
@@ -954,11 +954,11 @@ input[type=date]{
     border-radius: 50%;
     background-size: contain;
     transform: rotate(65deg);
-    height: 50%;
+    height: 45%;
     left: 90%;
     position: absolute;
-    top: 0%;
-    width: 50%;
+    top: -5%;
+    width: 45%;
 }
 
 .cantTouchThis{
