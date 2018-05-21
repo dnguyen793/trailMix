@@ -45,7 +45,7 @@ class PlanTrip extends Component {
         return (
             <div className="plantrip">
                 <div className="header">
-                    <Logo {...this.props} logoClass="wholeLogoContainerLite"/> 
+                    <Logo {...this.props} logoClass="wholeLogoContainerLite" title={'Back to the homepage'}/> 
                     <div className="planTripSearch">
                         <Search {...this.props} />  
                     </div>  
