@@ -266,7 +266,7 @@ p.label a{
     transform: translate(0,-50%);
 }
 .searchDiv div {
-    height: 100%;
+    height: 101%;
 }
 
 .searchDiv a{
