@@ -100,7 +100,7 @@
         height: 33%;
     }
     .tabContent{
-        overflow: hidden;
+        overflow: scroll;
     }
     .dayHigh, .dayLow, .dayPrecip {
         display: inline-block;
