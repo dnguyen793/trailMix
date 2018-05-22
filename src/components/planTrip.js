@@ -9,8 +9,17 @@ import { NavLink } from 'react-router-dom';
 import Directions from './directions';
 import Weather from './weather';
 import Details from './details';
+import Loading from './loading';
 
 class PlanTrip extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {            
+            loading: true
+        }
+    }
 
     componentDidMount(){  
         if (typeof google !== 'object'){
@@ -28,6 +37,14 @@ class PlanTrip extends Component {
         this.props.deleteMapDirection();
     }
     
+    componentWillReceiveProps(newProps){
+        if(this.props.map !== newProps.map && Object.keys(newProps.map).length !== 0){
+            this.setState({
+                loading: false
+            });
+        }
+    }
+
     initDirection() {
         this.props.getDirections(this.props.match.params.lat, 
             this.props.match.params.long, this.props.map, this.props.match.params.location);
@@ -42,8 +59,15 @@ class PlanTrip extends Component {
     }
 
     render(){
+
+        let loadComponent = '';
+        if(this.state.loading){
+            loadComponent = <Loading />
+        }
+
         return (
             <div className="plantrip">
+                {loadComponent}
                 <div className="header">
                     <Logo {...this.props} logoClass="wholeLogoContainerLite" title={'Back to the homepage'}/> 
                     <div className="planTripSearch">
