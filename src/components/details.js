@@ -43,6 +43,8 @@ class Details extends Component {
                 return 'Intermediate/Difficult';
             case 'black':
                 return 'Difficult';
+            case 'dblack':
+                return 'Extra Difficult';
             default:
                 return string;
         }

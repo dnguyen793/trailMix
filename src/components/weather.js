@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import DateInput from './datePicker';
 import { ajax } from 'jquery';
+import keys from '../assets/config/apiKeys';
 import darkCloud from '../assets/images/weather/darkCloud.png';
 import fog from '../assets/images/weather/fog.png';
 import partCloud from '../assets/images/weather/partCloud.png';
@@ -21,7 +22,6 @@ class Weather extends Component{
             day2: null,
             day3: null,
             latlong: this.props.match.params.lat + ',' + this.props.match.params.long,
-            // latlong: '33.556,-117.7602',
             day1Back: {},
             day2Back: {},
             day3Back: {},
@@ -89,17 +89,14 @@ class Weather extends Component{
             day1Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
             day2Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
             day3Back:{
                 backgroundImage: `url(${rainbow})`,
                 backgroundColor: 'rgb(10, 181, 233)',
-                backgroundSize:'cover',
             },
         }, () => {
             this.callWeather();
@@ -109,15 +106,12 @@ class Weather extends Component{
     
     callWeather(){
         ajax({
-            url: 'https://api.darksky.net/forecast/5c290eacf434280dddb202f23f1d7daa/' + this.state.latlong + ',' + this.state.day1,
+            url: 'https://api.darksky.net/forecast/'+keys.darksky+'/' + this.state.latlong + ',' + this.state.day1,
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day1Back.backgroundImage);
-                    console.log('day1 '+response.currently.icon);
                     let iconName1 = response.currently.icon;
-                    console.log(iconName1);
+                    console.log('Day1 summary: '+iconName1);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName1);
@@ -167,7 +161,6 @@ class Weather extends Component{
                         day1Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day1Text:{
                             summary: response.daily.data[0].summary,
@@ -185,15 +178,12 @@ class Weather extends Component{
         });
 
         ajax({
-            url: 'https://api.darksky.net/forecast/5c290eacf434280dddb202f23f1d7daa/' + this.state.latlong + ',' + this.state.day2,
+            url: 'https://api.darksky.net/forecast/'+keys.darksky+'/' + this.state.latlong + ',' + this.state.day2,
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day2Back.backgroundImage);
-                    console.log('day2 '+response.currently.icon);
                     let iconName2 = response.currently.icon;
-                    console.log(iconName2);
+                    console.log('Day 2 summary: '+iconName2);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName2);
@@ -243,7 +233,6 @@ class Weather extends Component{
                         day2Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day2Text:{
                             summary: response.daily.data[0].summary,
@@ -260,15 +249,12 @@ class Weather extends Component{
             }
         });
         ajax({
-            url: 'https://api.darksky.net/forecast/5c290eacf434280dddb202f23f1d7daa/' + this.state.latlong + ',' + this.state.day3,
+            url: 'https://api.darksky.net/forecast/'+keys.darksky+'/' + this.state.latlong + ',' + this.state.day3,
             dataType: 'jsonp',
             method: 'get',
             success: response => {
-                    console.log(response);
-                    console.log(this.state.day3Back.backgroundImage);
-                    console.log('day2 '+response.currently.icon);
                     let iconName3 = response.currently.icon;
-                    console.log(iconName3);
+                    console.log('Day 3 summary: '+iconName3);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName3);
@@ -318,7 +304,6 @@ class Weather extends Component{
                         day3Back:{
                             backgroundImage: `url(${backgroundImg})`,
                             backgroundColor: background_color,
-                            backgroundSize:'cover',
                         },
                         day3Text:{
                             summary: response.daily.data[0].summary,
@@ -380,9 +365,6 @@ class Weather extends Component{
     }
 
     render(){
-
-        console.log('Weather props: ', this.props);
-
         return(
             <div className="weatherContainer">
                 <div className="dateContainer">

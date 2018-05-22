@@ -10,7 +10,7 @@ class Logo extends Component{
     
     render(){        
         return (  
-            <div className={this.props.logoClass} onClick={this.backToLanding.bind(this)} title={'Back to the homepage'}>
+            <div className={this.props.logoClass} onClick={this.backToLanding.bind(this)} title={this.props.title}>
                 <div className="logo">
                     <div className="earthContainer">
                         <div className="hikerContainer">

@@ -17,6 +17,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../assets/images/bkgIMG/bkg-mountain.jpg");
+    overflow: scroll;
 }
 
 #root{
@@ -126,12 +127,12 @@ body {
     transform: translate(-50%, 0%);
 }
 .hikerContainer > .hiker{
-    height: 100%;
-    width: 100%;
-    top: 14%;
+    height: 80%;
+    width: 80%;
+    top: 21%;
+    left: 5%;
     position: relative;
     z-index: 1;
-
 }
 
 .titleContainer{
@@ -179,7 +180,7 @@ body {
 .searchInput{
     display: inline-block;
     font-family: 'Cabin', sans-serif;
-    width: 40%;
+    width: 55%;
     height: 95%;
     text-align: center;
     border: 0;
@@ -258,7 +259,7 @@ p.label a{
 }
 
 .searchDiv{
-    width: 100%;
+    width: 72%;
     height: 3rem;
     position: absolute;
     top: 50%;
@@ -266,7 +267,7 @@ p.label a{
     transform: translate(0,-50%);
 }
 .searchDiv div {
-    height: 100%;
+    height: 101%;
 }
 
 .searchDiv a{
@@ -638,8 +639,8 @@ p.label a{
     background-color: #ddd;
 }
 .tabLinks:last-child:hover{
-    color: red;
-    background-color: lightgreen;
+    color: white;
+    background-color: #19911d;
 }
 .selected {
     background-color: #b9b8b8;
@@ -675,6 +676,7 @@ p.label a{
     /*display: flex;*/
     width: 90%;
     font-family: 'Cabin', sans-serif;
+    text-align: center;
     /*flex-flow: column nowrap;*/
     /*justify-content: center;*/
     /*align-items: center;*/
@@ -868,6 +870,8 @@ input[type=date]{
     color: white;
     text-shadow: 2px 2px 4px #000000;
     background-repeat: no-repeat;
+    background-position-x: right;
+    background-size:contain;
     box-shadow: 3px 3px 1px #999;
 }
 
@@ -954,11 +958,11 @@ input[type=date]{
     border-radius: 50%;
     background-size: contain;
     transform: rotate(65deg);
-    height: 50%;
+    height: 45%;
     left: 90%;
     position: absolute;
-    top: 0%;
-    width: 50%;
+    top: -5%;
+    width: 45%;
 }
 
 .cantTouchThis{

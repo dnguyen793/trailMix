@@ -54,7 +54,7 @@
     }
 
     .planTripOptions{
-        height:47%;
+        height:auto;
         width:100%;
     }
     .searchInput {
@@ -93,27 +93,22 @@
     }
 }
 
-@media only screen and (max-width:768px){
-    .day1, .day2, .day3 {
-        background-repeat: repeat !important;
-        background-size: contain !important;
+@media only screen and (max-width:950px){
+    .day1, .day2, .day3{
+        background-repeat: no-repeat;
+        background-position:right;
+        height: 33%;
     }
-    .currentDay{
-        height: 10%;
-        margin: 1% auto;
-        font-size: 1.5rem;
-        padding-bottom: 1%;
-        padding-left: 10px;
+    .tabContent{
+        overflow: scroll;
     }
     .dayHigh, .dayLow, .dayPrecip {
         display: inline-block;
         padding-right:10px;
+        margin-bottom:20px;
     }
     .dayHigh, .dayLow{
         border-right: 2px solid #fefefe;
-    }
-    .dateContainer{
-        height:14%;
     }
 }
 

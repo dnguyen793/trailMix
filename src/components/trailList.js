@@ -79,13 +79,14 @@ class TrailList extends Component {
                     
                     //add the markers
                     var marker = this.addMarkerToEachTrail(item);
+                    item.difficultyNum = this.translateDifficultyToNumber(item.difficulty);
                     item['marker']=marker;
                     return item;
                 });
     
-                const trailArraySorterByRaiting = trailList.sort((a,b)=> b.stars - a.stars);
+                const trailArraySorterByRating = trailList.sort((a,b)=> b.stars - a.stars);
                 this.setState({
-                    trails: trailArraySorterByRaiting,
+                    trails: trailArraySorterByRating,
                     loading: false
                 });
                 
@@ -93,6 +94,25 @@ class TrailList extends Component {
                 console.log('error is: ', err);    
             });    
         }               
+    }
+
+    translateDifficultyToNumber(string) {
+        switch (string) {
+            case 'green':
+                return 1;
+            case 'greenBlue':
+                return 2;
+            case 'blue':
+                return 3;
+            case 'blueBlack':
+                return 4;
+            case 'black':
+                return 5;
+            case 'dblack':
+                return 6;
+            default:
+                return 0;
+        }
     }
 
     /***************************************************************************************************
@@ -169,7 +189,7 @@ class TrailList extends Component {
                 <div className='pageContainer'>
                     {loadComponent}
                     <div className="header">
-                        <Logo {...this.props} logoClass="wholeLogoContainerLite"/>  
+                        <Logo {...this.props} logoClass="wholeLogoContainerLite" title={'Back to the homepage'}/>  
                         <div className='searchDiv'>
                             <Search {...this.props} />  
                         </div>  
