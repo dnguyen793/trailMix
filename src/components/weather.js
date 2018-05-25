@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import DateInput from './datePicker';
 import { ajax } from 'jquery';
-import keys from '../assets/config/apiKeys';
+import keys from '../assets/config/keys.js.conf';
 import darkCloud from '../assets/images/weather/darkCloud.png';
 import fog from '../assets/images/weather/fog.png';
 import partCloud from '../assets/images/weather/partCloud.png';
@@ -81,7 +81,7 @@ class Weather extends Component{
         let currentDate = new Date;
         currentDate = currentDate.setHours(0,0,0,0)/1000;
 
-        console.log('RAINBOW:', rainbow);
+        // console.log('RAINBOW:', rainbow);
         this.setState({
             day1: currentDate,
             day2: currentDate + 86400,
@@ -111,7 +111,7 @@ class Weather extends Component{
             method: 'get',
             success: response => {
                     let iconName1 = response.currently.icon;
-                    console.log('Day1 summary: '+iconName1);
+                    // console.log('Day1 summary: '+iconName1);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName1);
@@ -183,7 +183,7 @@ class Weather extends Component{
             method: 'get',
             success: response => {
                     let iconName2 = response.currently.icon;
-                    console.log('Day 2 summary: '+iconName2);
+                    // console.log('Day 2 summary: '+iconName2);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName2);
@@ -254,7 +254,7 @@ class Weather extends Component{
             method: 'get',
             success: response => {
                     let iconName3 = response.currently.icon;
-                    console.log('Day 3 summary: '+iconName3);
+                    // console.log('Day 3 summary: '+iconName3);
                     let backgroundImg;
                     let background_color;
                     this.weatherArray.push(iconName3);
@@ -326,7 +326,7 @@ class Weather extends Component{
         date.setHours(0,0,0,0);
         let newDate = date;
         date = date.getTime()/1000;
-        console.log(date);
+        // console.log(date);
         this.setState({
             day1: date,
             day2: date + 86400,
