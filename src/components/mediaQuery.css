@@ -65,7 +65,7 @@
     }
     .wholeLogoContainerLite{
         left: -7.5%;
-        transform: scale(0.45);
+        transform: scale(0.3);
         float: left;
         top: 9%;
     }
@@ -80,7 +80,7 @@
         height: 23vw;
     }
     .header {
-        height: 85px;
+        /* height: 85px; */
     }
     .mainContent {
         height: 86%;
@@ -186,7 +186,7 @@
     }
 
     .wholeLogoContainerLite {
-        transform: scale(0.4);
+        transform: scale(0.3);
         left: -9.5%;
         top: 7%;
     }
@@ -236,7 +236,7 @@
     }
 
     .wholeLogoContainerLite {
-        transform: scale(0.5);
+        transform: scale(0.3);
         left: -4.5%;
     }
 
@@ -335,7 +335,7 @@
     .wholeLogoContainerLite {
         left:   -4%;
         top: 10%;
-        transform: scale(0.35);
+        transform: scale(0.3);
     }
 
     .mainContent {
