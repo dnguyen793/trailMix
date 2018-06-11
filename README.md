@@ -1,5 +1,7 @@
 # trailMix
 
+View this project live [HERE](http://trailmix.duydoescode.tech/)
+
 trailMix is a trail-finding based web application built by a team of 5 web developers during a 48 hour hackathon. The project was originally completed utilizing JavaScript and jQuery, and was later ported over to ReactJS and Redux.
 
 ## Usage
@@ -7,8 +9,6 @@ trailMix is a trail-finding based web application built by a team of 5 web devel
 Our application was created for any level of hiker to find a trail either nerby them or any location they choose.  Your next hike is just a few clocks away.  Sort by trail rating, length or difficulty to match your needs.  Get directions to the trail using Google Maps and make sure to select a date for your hike to get the weather in the area!
 
 ## Project
-
-View this project live [HERE](parkerrebensdorf.com/trailMix/)
 
 Or follow the instructions below to view it on your local machine.
 
